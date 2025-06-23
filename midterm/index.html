@@ -315,7 +315,7 @@ int n[5] = {0}; // Sets all to 0
 </code></pre>
 <h2 id="strings">Strings</h2>
 <p><strong>Definition</strong>: Array of <code>char</code> terminated by <code>'\0'</code> (NUL).
-<strong>Declaration</strong>:</p>
+<br><strong>Declaration</strong>:</p>
 <pre><code class="language-c">char s1[] = &quot;hello&quot;; // Auto-sized, NUL added
 char s2[10] = &quot;hello&quot;; // Fixed size, must fit NUL
 char s3[] = {'h', 'e', 'l', 'l', 'o', '\0'}; // Manual NUL
@@ -326,27 +326,29 @@ scanf(&quot;%19s&quot;, buf); // No &amp; needed, size limits input
 </code></pre>
 <h2 id="static-vs-automatic-arrays">Static vs Automatic Arrays</h2>
 <p><strong>Static Array</strong>: Single instance, persists entire program, initialized to 0.
-<strong>Automatic Array</strong>: New instance per function call, contains garbage unless initialized.</p>
+<br><strong>Automatic Array</strong>: New instance per function call, contains garbage unless initialized.</p>
 <pre><code class="language-c">static int s_arr[3]; // Persists, 0-initialized
 int a_arr[3]; // New each call, garbage values
 </code></pre>
 <h2 id="passing-an-array-to-a-function">Passing an Array to a Function</h2>
-<p><strong>Syntax</strong>: Use array name without brackets (e.g., <code>myFunc(myArr)</code>).
-<strong>Behavior</strong>: Passes pointer to first element; function modifies original array (pass by reference).
-<strong>Const Arrays</strong>: Use <code>const</code> to prevent modification (e.g., for searching).</p>
+<p><strong>Syntax</strong>: Use array name without brackets (e.g., <code>myFunc(myArr)</code>).</p>
+<p><strong>Behavior</strong>: Passes pointer to first element; function modifies original array (pass by reference).</p>
+<p><strong>Const Arrays</strong>: Use <code>const</code> to prevent modification (e.g., for searching).</p>
 <pre><code class="language-c">void searchArray(const int arr[], size_t size);
 </code></pre>
 <h2 id="multi-dimensional-arrays">Multi-Dimensional Arrays</h2>
-<p><strong>Definition</strong>: Arrays of arrays (e.g., 2D array like a spreadsheet).
-<strong>Indexing</strong>: First index is row, second is column (e.g., <code>arr[row][col]</code>).
-<strong>Memory</strong>: Stored in row-major order (row by row) in contiguous 1D memory.
-- Address formula: <code>start_loc + (rowNum * numberOfColumns) + colNum</code>.
-<strong>Initializer Lists</strong>:</p>
+<p><strong>Definition</strong>: Arrays of arrays (e.g., 2D array like a spreadsheet).</p>
+<p><strong>Indexing</strong>: First index is row, second is column (e.g., <code>arr[row][col]</code>).</p>
+<p><strong>Memory</strong>: Stored in row-major order (row by row) in contiguous 1D memory.</p>
+<ul>
+<li>Address formula: <code>start_loc + (rowNum * numberOfColumns) + colNum</code>.</li>
+</ul>
+<p><strong>Initializer Lists</strong>:</p>
 <pre><code class="language-c">int arr[3][3] = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}}; // Readable
 int arr[3][3] = {0, 1, 2, 3, 4, 5, 6, 7, 8}; // Same memory layout
 </code></pre>
-<p><strong>Passing to Functions</strong>: Specify all dimensions except first (e.g., <code>void printArray(int arr[][3], size_t nRows)</code>).
-<strong>Looping</strong>: Use descriptive indices (e.g., <code>row</code>, <code>col</code>) instead of <code>i</code>, <code>j</code>.</p>
+<p><strong>Passing to Functions</strong>: Specify all dimensions except first (e.g., <code>void printArray(int arr[][3], size_t nRows)</code>).</p>
+<p><strong>Looping</strong>: Use descriptive indices (e.g., <code>row</code>, <code>col</code>) instead of <code>i</code>, <code>j</code>.</p>
 <pre><code class="language-c">for (size_t row = 0; row &lt; 3; ++row) {
     for (size_t col = 0; col &lt; 3; ++col) {
         printf(&quot;%d &quot;, arr[row][col]);
@@ -355,9 +357,9 @@ int arr[3][3] = {0, 1, 2, 3, 4, 5, 6, 7, 8}; // Same memory layout
 }
 </code></pre>
 <h2 id="variable-length-arrays-vlas">Variable-Length Arrays (VLAs)</h2>
-<p><strong>Definition</strong>: Arrays sized at runtime (e.g., <code>int arr[size]</code> where <code>size</code> is user input).
-<strong>Limitation</strong>: Not supported by all compilers; Bob says <strong>do not use</strong> in this course.
-<strong>Alternative</strong>: Use <code>malloc()</code>, <code>calloc()</code>, or <code>realloc()</code> for dynamic arrays.</p>
+<p><strong>Definition</strong>: Arrays sized at runtime (e.g., <code>int arr[size]</code> where <code>size</code> is user input).</p>
+<p><strong>Limitation</strong>: Not supported by all compilers; Bob says <strong>do not use</strong> in this course.</p>
+<p><strong>Alternative</strong>: Use <code>malloc()</code>, <code>calloc()</code>, or <code>realloc()</code> for dynamic arrays.</p>
               
             </div>
           </div><footer>

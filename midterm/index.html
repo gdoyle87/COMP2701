@@ -182,7 +182,7 @@ char c = 'A';
 </code></pre>
 <h2 id="preprocessor-directives">Preprocessor Directives</h2>
 <p><strong>#include</strong>: Import library functions (e.g., <code>#include &lt;stdio.h&gt;</code>).
-<br><strong>#define</strong>: Define constants to avoid magic numbers.</p>
+<br><strong>#define</strong>: Define symbolic constants to avoid magic numbers.</p>
 <pre><code class="language-c">#define MAX 100
 for(int i = 0; i &lt; MAX; ++i) { ... }
 </code></pre>
@@ -248,6 +248,7 @@ printf("%.2f\n", result);
 <li><strong>Abstraction</strong>: Hide implementation details behind function names.</li>
 <li><strong>Decomposition</strong>: Break complex problems into smaller functions.</li>
 </ul>
+<p>A function is like a worker. It is invoked/called by another function which can be thought of as its boss.</p>
 <h2 id="function-definition">Function Definition</h2>
 <pre><code class="language-c">return_type function_name(parameters) { statements }
 </code></pre>
@@ -265,6 +266,8 @@ int square(int i)
   return i*i;
 }
 </code></pre>
+<p>Note: the variable name used in the prototype is meaningless (and can be skipped)
+only the type matters.</p>
 <p><br><strong>Argument Coercion</strong>: When passing arguments to a function or assigning 
 between variables, C will automatically convert values to the expected type if needed.
 This may cause data loss (e.g., <code>double</code> to <code>int</code> drops decimals).</p>
@@ -280,7 +283,7 @@ This may cause data loss (e.g., <code>double</code> to <code>int</code> drops de
 <h2 id="random-number-generation">Random-Number Generation</h2>
 <p>From <code>&lt;stdlib.h&gt;</code>:</p>
 <ul>
-<li><code>rand()</code>: Returns a number between 0 and <code>RAND_MAX</code> (≥32,767).</li>
+<li><code>rand()</code>: Returns an int between 0 and <code>RAND_MAX</code> (≥32,767).</li>
 <li><code>srand(seed)</code>: Sets seed.</li>
 </ul>
 <p>Use mod <code>%</code> and the number of values your range is in. Offset it as needed.</p>

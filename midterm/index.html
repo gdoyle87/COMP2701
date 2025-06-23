@@ -248,59 +248,65 @@ scanf(&quot;%19s&quot;, name); // No &amp; for strings
 <p><br><strong>Argument Coercion</strong>: Converts arguments to expected types; may cause data loss (e.g., <code>double</code> to <code>int</code> drops decimals).</p>
 <h2 id="function-call-stack">Function-Call Stack</h2>
 <p><strong>Stack</strong>: Last-in, first-out (LIFO) structure for function calls/returns.
-<strong>Behavior</strong>: Pushes frame with return address on call, pops on return.
-<strong>Risk</strong>: Stack overflow from excessive calls.</p>
+<br><strong>Behavior</strong>: Pushes frame with return address on call, pops on return.
+<br><strong>Risk</strong>: Stack overflow from excessive calls.</p>
 <h2 id="pass-arguments">Pass Arguments</h2>
 <p><strong>By Value</strong>: Copies argument; original unchanged.
   <code>c
-  void superFunction(int num) { num *= 1000; } // No effect on original</code>
-<strong>By Reference</strong>: Use pointers in C to modify original.</p>
+  void superFunction(int num) { num *= 1000; } // No effect on original</code></p>
+<p><strong>By Reference</strong>: Use pointers in C to modify original.</p>
 <h2 id="random-number-generation">Random-Number Generation</h2>
-<p><strong>Functions</strong> (<code>&lt;stdlib.h&gt;</code>):
- - <code>rand()</code>: Returns 0 to <code>RAND_MAX</code> (≥32,767).
- - <code>srand(seed)</code>: Sets seed.
-<strong>Scaling</strong>:</p>
+<p><strong>Functions</strong> (<code>&lt;stdlib.h&gt;</code>):</p>
+<ul>
+<li><code>rand()</code>: Returns 0 to <code>RAND_MAX</code> (≥32,767).</li>
+<li><code>srand(seed)</code>: Sets seed.</li>
+</ul>
+<p><strong>Scaling</strong>:</p>
 <pre><code class="language-c">int dice = 1 + (rand() % 6); // 1 to 6
 </code></pre>
 <p><strong>Seeding</strong>: Use <code>srand(time(NULL))</code> for unique sequences.</p>
 <h2 id="enumerated-types">Enumerated Types</h2>
-<p><strong>Definition</strong>: Programmer-defined types listing all valid values.
-<strong>Syntax</strong>:
-  <code>c
-  enum DaysOfWeek {SUN, MON, TUES, WED, THU, FRI, SAT};
-  enum DaysOfWeek today = MON; // Assigns 1</code>
-<strong>Values</strong>: Default starts at 0, increments by 1; can set explicit values.
-  <code>c
-  enum Status {CONTINUE = 0, WON = 1, LOST = 2};</code></p>
+<p><strong>Definition</strong>: Programmer-defined types listing all valid values.</p>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="language-c">enum DaysOfWeek {SUN, MON, TUES, WED, THU, FRI, SAT};
+enum DaysOfWeek today = MON; // Assigns 1
+</code></pre>
+<p><strong>Values</strong>: Default starts at 0, increments by 1; can set explicit values.</p>
+<pre><code class="language-c">enum Status {CONTINUE = 0, WON = 1, LOST = 2};
+</code></pre>
 <h2 id="storage-classes">Storage Classes</h2>
 <p><strong>Purpose</strong>: Define variable attributes: <strong>storage duration</strong> (lifetime), <strong>scope</strong> (visibility), <strong>linkage</strong> (file access).
-<strong>Types</strong>:
-  - <code>auto</code>: Default for local variables; stored on stack (rarely used explicitly).
-  - <code>register</code>: Requests CPU register storage (mostly obsolete; ignored by modern compilers).
-  - <code>static</code>: Persistent lifetime; local retains value between calls, global restricts to file.
-  - <code>extern</code>: Declares variable/function in another file; no storage created.</p>
+<br><strong>Types</strong>:</p>
+<ul>
+<li><code>auto</code>: Default for local variables; stored on stack (rarely used explicitly).</li>
+<li><code>register</code>: Requests CPU register storage (mostly obsolete; ignored by modern compilers).</li>
+<li><code>static</code>: Persistent lifetime; local retains value between calls, global restricts to file.</li>
+<li><code>extern</code>: Declares variable/function in another file; no storage created.</li>
+</ul>
 <h2 id="scope">Scope</h2>
-<p><strong>Definition</strong>: Where an identifier can be referenced.
-<strong>Types</strong>:
-  - <strong>Function Scope</strong>: Labels (e.g., <code>goto</code>, <code>switch</code>) visible in function.
-  - <strong>File Scope</strong>: Global variables, function prototypes outside functions; visible from declaration to file end.
-  - <strong>Block Scope</strong>: Variables in <code>{}</code>; inner blocks can hide outer names (avoid this).
-  - <strong>Function-Prototype Scope</strong>: Parameter names in prototypes (optional, ignored by compiler).</p>
+<p><strong>Definition</strong>: Where an identifier can be referenced.</p>
+<p><strong>Types</strong>:</p>
+<ul>
+<li><strong>Function Scope</strong>: Labels (e.g., <code>goto</code>, <code>switch</code>) visible in function.</li>
+<li><strong>File Scope</strong>: Global variables, function prototypes outside functions; visible from declaration to file end.</li>
+<li><strong>Block Scope</strong>: Variables in <code>{}</code>; inner blocks can hide outer names (avoid this).</li>
+<li><strong>Function-Prototype Scope</strong>: Parameter names in prototypes (optional, ignored by compiler).</li>
+</ul>
 <h2 id="memory-regions">Memory Regions</h2>
 <p><strong>Stack</strong>: Automatic variables; allocated/deallocated with block scope.
-<strong>Static</strong>: Global/static local variables; persist entire program, initialized once.
-<strong>Heap</strong>: Dynamic memory (via <code>malloc()</code>, <code>calloc()</code>, <code>realloc()</code>); manually managed.
-<strong>The Heap vs. A Heap</strong>:
+<br><strong>Static</strong>: Global/static local variables; persist entire program, initialized once.
+<br><strong>Heap</strong>: Dynamic memory (via <code>malloc()</code>, <code>calloc()</code>, <code>realloc()</code>); manually managed.
+<br><strong>The Heap vs. A Heap</strong>:
   - <strong>The Heap</strong>: Memory pool for dynamic allocation; no order.
   - <strong>A Heap</strong>: Ordered tree-based data structure (e.g., min/max heap).</p>
 <h2 id="arrays">Arrays</h2>
-<p><strong>Definition</strong>: Group of same-type elements stored contiguously in memory.
-<strong>Access</strong>: Use array name with 0-based index (e.g., <code>my_array[3]</code> for fourth element).
-<strong>Definition Syntax</strong>:</p>
+<p><strong>Definition</strong>: Group of same-type elements stored contiguously in memory.</p>
+<p><strong>Access</strong>: Use array name with 0-based index (e.g., <code>my_array[3]</code> for fourth element).</p>
+<p><strong>Definition Syntax</strong>:</p>
 <pre><code class="language-c">int my_arr[3]; // Static size, cannot be resized
 </code></pre>
-<p><strong>Best Practice</strong>: Use <code>#define</code> for array size to avoid magic numbers.
-<strong>Looping</strong>: Use <code>size_t</code> for index in loops.</p>
+<p><strong>Best Practice</strong>: Use <code>#define</code> for array size to avoid magic numbers.</p>
+<p><strong>Looping</strong>: Use <code>size_t</code> for index in loops.</p>
 <pre><code class="language-c">for (size_t i = 0; i &lt; 5; ++i) { n[i] = i; }
 </code></pre>
 <p><strong>Initializer Lists</strong>:</p>

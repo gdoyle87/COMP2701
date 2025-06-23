@@ -248,13 +248,13 @@ printf("%.2f\n", result);
 <h2 id="function-definition">Function Definition</h2>
 <pre><code class="language-c">return_type function_name(parameters) { statements }
 </code></pre>
-<p><strong>Example</strong>:</p>
+<p>Example:</p>
 <pre><code class="language-c">int square(int number) { return number * number; }
 </code></pre>
 <h2 id="function-prototype">Function Prototype</h2>
 <p>Do to C being sequential, we must declare function before use to avoid errors.
 A prototype allows us to declare a function up front and define it later.
-<br><strong>Example</strong>:</p>
+<br>Example:</p>
 <pre><code class="language-c">int square(int);
 ...
 int square(int i)
@@ -269,7 +269,8 @@ int square(int i)
 <br><strong>Risk</strong>: Stack overflow from excessive calls.</p>
 <h2 id="pass-arguments">Pass Arguments</h2>
 <p><strong>By Value</strong>: Copies argument; original unchanged.</p>
-<p>void superFunction(int num) { num *= 1000; } // No effect on original</p>
+<pre><code class="language-c">void superFunction(int num) { num *= 1000; } // No effect on original
+</code></pre>
 <p><strong>By Reference</strong>: Use pointers in C to modify original.</p>
 <h2 id="random-number-generation">Random-Number Generation</h2>
 <p>From <code>&lt;stdlib.h&gt;</code>:</p>
@@ -318,14 +319,12 @@ enum DaysOfWeek today = MON; // Assigns 1
 int n[5] = {0}; // Sets all to 0
 </code></pre>
 <h2 id="strings">Strings</h2>
-<p>Array of <code>char</code> terminated by <code>'\0'</code> (NUL).
-<br><strong>Declaration</strong>:</p>
+<p>Array of <code>char</code> terminated by <code>'\0'</code> (NUL).</p>
 <pre><code class="language-c">char s1[] = &quot;hello&quot;; // Auto-sized, NUL added
 char s2[10] = &quot;hello&quot;; // Fixed size, must fit NUL
 char s3[] = {'h', 'e', 'l', 'l', 'o', '\0'}; // Manual NUL
-</code></pre>
-<p><strong>Input</strong>:</p>
-<pre><code class="language-c">char buf[20];
+
+char buf[20];
 scanf(&quot;%19s&quot;, buf); // No &amp; needed, size limits input
 </code></pre>
 <h2 id="static-vs-automatic-arrays">Static vs Automatic Arrays</h2>
@@ -341,12 +340,8 @@ int a_arr[3]; // New each call, garbage values
 <pre><code class="language-c">void searchArray(const int arr[], size_t size);
 </code></pre>
 <h2 id="multi-dimensional-arrays">Multi-Dimensional Arrays</h2>
-<p>Arrays of arrays (e.g., 2D array like a spreadsheet).</p>
-<p><strong>Indexing</strong>: First index is row, second is column (e.g., <code>arr[row][col]</code>).</p>
-<p><strong>Memory</strong>: Stored in row-major order (row by row) in contiguous 1D memory.</p>
-<ul>
-<li>Address formula: <code>start_loc + (rowNum * numberOfColumns) + colNum</code>.</li>
-</ul>
+<p>Arrays of arrays (e.g., 2D array like a spreadsheet). First index is row, second is column (e.g., <code>arr[row][col]</code>).</p>
+<p>Stored in row-major order (row by row) in contiguous 1D memory.</p>
 <p><strong>Initializer Lists</strong>:</p>
 <pre><code class="language-c">int arr[3][3] = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}}; // Readable
 int arr[3][3] = {0, 1, 2, 3, 4, 5, 6, 7, 8}; // Same memory layout

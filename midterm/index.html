@@ -150,11 +150,11 @@
                 <h1 id="midterm-review-summary">Midterm Review Summary</h1>
 <h2 id="six-phases-of-c-program-development">Six Phases of C Program Development</h2>
 <p><strong>Editing/Programming</strong>: Write source code.
-<strong>Preprocess</strong>: Handle directives like <code>#include</code> (copies file contents) and <code>#define</code> (text replacement).
-<strong>Compile</strong>: Check syntax, generate <code>.o</code> object files with machine code.
-<strong>Link</strong>: Combine <code>.o</code> files and C library into an executable.
-<strong>Load</strong>: OS loads executable into memory.
-<strong>Execute</strong>: CPU runs program starting from <code>main()</code>.</p>
+<br><strong>Preprocess</strong>: Handle directives like <code>#include</code> (copies file contents) and <code>#define</code> (text replacement).
+<br><strong>Compile</strong>: Check syntax, generate <code>.o</code> object files with machine code.
+<br><strong>Link</strong>: Combine <code>.o</code> files and C library into an executable.
+<br><strong>Load</strong>: OS loads executable into memory.
+<br><strong>Execute</strong>: CPU runs program starting from <code>main()</code>.</p>
 <h2 id="main-function">Main Function</h2>
 <p>Every C program requires a <code>main()</code> function.</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
@@ -188,22 +188,26 @@ for(int i = 0; i &lt; MAX; ++i) { ... }
 </ul>
 <pre><code class="language-c">printf(&quot;You entered %d.\n&quot;, number);
 </code></pre>
-<p><strong>Input</strong>:
- - <code>scanf()</code>: Reads input with format specifiers, requires variable address (<code>&amp;</code>) except for strings.
-    <code>c
-    int num;
-    scanf("%d", &amp;num);
-    char name[20];
-    scanf("%19s", name); // No &amp; for strings</code></p>
+<p><strong>Input</strong>:</p>
+<ul>
+<li><code>scanf()</code>: Reads input with format specifiers, requires variable address (<code>&amp;</code>) except for strings.</li>
+</ul>
+<pre><code class="language-c">int num;
+scanf(&quot;%d&quot;, &amp;num);
+char name[20];
+scanf(&quot;%19s&quot;, name); // No &amp; for strings
+</code></pre>
 <h2 id="operators">Operators</h2>
-<p><strong>Arithmetic</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (modulus for integers, integer division truncates).
- - <strong>Casting</strong>: Convert types for precision.
+<p><strong>Arithmetic</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (modulus for integers, integer division truncates).</p>
+<ul>
+<li><strong>Casting</strong>: Convert types for precision.
     <code>c
     float result = (float)2 / 3; // 0.67
-    printf("%.2f\n", result);</code>
-<strong>Assignment</strong>: <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>.
-<strong>Comparison</strong>: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> (return 1 or 0).
-<strong>Logical</strong>: <code>&amp;&amp;</code> (AND), <code>||</code> (OR), <code>!</code> (NOT), uses short-circuit evaluation.</p>
+    printf("%.2f\n", result);</code></li>
+</ul>
+<p><br><strong>Assignment</strong>: <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>.
+<br><strong>Comparison</strong>: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> (return 1 or 0).
+<br><strong>Logical</strong>: <code>&amp;&amp;</code> (AND), <code>||</code> (OR), <code>!</code> (NOT), uses short-circuit evaluation.</p>
 <h2 id="algorithms">Algorithms</h2>
 <p>Procedure for solving a problem with actions to execute and execution order (program control).</p>
 <h2 id="control-structures">Control Structures</h2>

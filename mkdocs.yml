@@ -1,0 +1,18 @@
+site_name: COMP2701
+nav:
+  - Home: index.md
+  - Week 1: wk_one.md
+  - Week 2: wk_two.md
+  - Week 3: wk_three.md
+  - Week 4: wk_four.md
+  - Week 5: wk_five.md
+  - Week 6: wk_six.md
+theme: readthedocs
+markdown_extensions:
+  - md_in_html
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.js
+
+extra_css:
+  - https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.css

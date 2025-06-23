@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://gdoyle87.github.io/COMP2701/midterm/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Midterm Review - COMP2701</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Midterm Review";
+        var mkdocs_page_input_path = "midterm.md";
+        var mkdocs_page_url = "/COMP2701/midterm/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> COMP2701
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_one/">Week 1</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_two/">Week 2</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_three/">Week 3</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_four/">Week 4</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_five/">Week 5</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_six/">Week 6</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Midterm Review</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#six-phases-of-c-program-development">Six Phases of C Program Development</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#main-function">Main Function</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preprocessor-directives">Preprocessor Directives</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#inputoutput">Input/Output</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#operators">Operators</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#algorithms">Algorithms</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#control-structures">Control Structures</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#incrementdecrement">Increment/Decrement</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#function-definition">Function Definition</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#function-prototype">Function Prototype</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#function-call-stack">Function-Call Stack</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pass-arguments">Pass Arguments</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#random-number-generation">Random-Number Generation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enumerated-types">Enumerated Types</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#storage-classes">Storage Classes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#scope">Scope</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#memory-regions">Memory Regions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#arrays">Arrays</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#strings">Strings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#static-vs-automatic-arrays">Static vs Automatic Arrays</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#multi-dimensional-arrays">Multi-Dimensional Arrays</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#variable-length-arrays-vlas">Variable-Length Arrays (VLAs)</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">COMP2701</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Midterm Review</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="midterm-review-summary">Midterm Review Summary</h1>
+<h2 id="six-phases-of-c-program-development">Six Phases of C Program Development</h2>
+<ol>
+<li><strong>Editing/Programming</strong>: Write source code.</li>
+<li><strong>Preprocess</strong>: Handle directives like <code>#include</code> (copies file contents) and <code>#define</code> (text replacement).</li>
+<li><strong>Compile</strong>: Check syntax, generate <code>.o</code> object files with machine code.</li>
+<li><strong>Link</strong>: Combine <code>.o</code> files and C library into an executable.</li>
+<li><strong>Load</strong>: OS loads executable into memory.</li>
+<li><strong>Execute</strong>: CPU runs program starting from <code>main()</code>.</li>
+</ol>
+<h2 id="main-function">Main Function</h2>
+<p>Every C program requires a <code>main()</code> function.</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+int main(void) {
+    printf(&quot;Hello World\n&quot;);
+    return 0;
+}
+</code></pre>
+<h2 id="variables">Variables</h2>
+<ul>
+<li><strong>Statically Typed</strong>: Declare type before use (e.g., <code>int</code>, <code>float</code>, <code>char</code>).</li>
+<li><strong>Naming Rules</strong>: Start with letter/underscore, use letters/digits/underscores.</li>
+</ul>
+<pre><code class="language-c">int a = 3;
+float b = 5.5;
+char c = 'A';
+</code></pre>
+<h2 id="preprocessor-directives">Preprocessor Directives</h2>
+<ul>
+<li><strong>#include</strong>: Import library functions (e.g., <code>#include &lt;stdio.h&gt;</code>).</li>
+<li><strong>#define</strong>: Define constants to avoid magic numbers.</li>
+</ul>
+<pre><code class="language-c">#define MAX 100
+for(int i = 0; i &lt; MAX; ++i) { ... }
+</code></pre>
+<h2 id="inputoutput">Input/Output</h2>
+<ul>
+<li><strong>Output</strong>:</li>
+<li><code>puts()</code>: Prints string with automatic newline.</li>
+<li><code>printf()</code>: Uses format specifiers (<code>%d</code>, <code>%c</code>, <code>%f</code>) for dynamic output, no automatic newline.
+    <code>c
+    printf("You entered %d.\n", number);</code></li>
+<li><strong>Input</strong>:</li>
+<li><code>scanf()</code>: Reads input with format specifiers, requires variable address (<code>&amp;</code>) except for strings.
+    <code>c
+    int num;
+    scanf("%d", &amp;num);
+    char name[20];
+    scanf("%19s", name); // No &amp; for strings</code></li>
+</ul>
+<h2 id="operators">Operators</h2>
+<ul>
+<li><strong>Arithmetic</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (modulus for integers, integer division truncates).</li>
+<li><strong>Casting</strong>: Convert types for precision.
+    <code>c
+    float result = (float)2 / 3; // 0.67
+    printf("%.2f\n", result);</code></li>
+<li><strong>Assignment</strong>: <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>.</li>
+<li><strong>Comparison</strong>: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> (return 1 or 0).</li>
+<li><strong>Logical</strong>: <code>&amp;&amp;</code> (AND), <code>||</code> (OR), <code>!</code> (NOT), uses short-circuit evaluation.</li>
+</ul>
+<h2 id="algorithms">Algorithms</h2>
+<p>Procedure for solving a problem with actions to execute and execution order (program control).</p>
+<h2 id="control-structures">Control Structures</h2>
+<ul>
+<li><strong>Sequence</strong>: Statements execute in order.<ul>
+<li><strong>Selection</strong>:</li>
+<li><code>if</code>, <code>if...else</code>, <code>switch</code>: Choose based on condition.</li>
+<li><strong>Ternary Operator</strong> (<code>?:</code>): Concise <code>if...else</code>.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-c">    puts(x &gt; 0 ? &quot;good&quot; : &quot;bad&quot;);
+</code></pre>
+<ul>
+<li><strong>Iteration</strong>: <code>for</code>, <code>while</code>, <code>do...while</code>: Repeat until condition met.</li>
+</ul>
+<h2 id="incrementdecrement">Increment/Decrement</h2>
+<ul>
+<li><strong>Pre-increment</strong> (<code>++x</code>): Increment first.</li>
+<li><strong>Post-increment</strong> (<code>x++</code>): Use, then increment.</li>
+<li>Use pre-increment in loops:</li>
+</ul>
+<pre><code class="language-c">for(int i = 0; i &lt; 10; ++i) { ... }
+</code></pre>
+<h2 id="functions">Functions</h2>
+<ul>
+<li><strong>Purpose</strong>: Self-contained code for specific tasks.</li>
+<li><strong>Key Terms</strong>:</li>
+<li><strong>Divide and Conquer</strong>: Build programs from reusable parts.</li>
+<li><strong>Abstraction</strong>: Hide implementation details behind function names.</li>
+<li><strong>Decomposition</strong>: Break complex problems into smaller functions.</li>
+<li><strong>Structure</strong>: <code>main()</code> delegates tasks to helper functions.</li>
+</ul>
+<h2 id="function-definition">Function Definition</h2>
+<ul>
+<li><strong>Syntax</strong>:
+  <code>c
+  return_type function_name(parameters) { statements }</code></li>
+<li><strong>Example</strong>:
+  <code>c
+  int square(int number) { return number * number; }</code></li>
+</ul>
+<h2 id="function-prototype">Function Prototype</h2>
+<ul>
+<li><strong>Purpose</strong>: Declare function before use to avoid errors.</li>
+<li><strong>Example</strong>:
+  <code>c
+  int square(int);</code></li>
+<li><strong>Argument Coercion</strong>: Converts arguments to expected types; may cause data loss (e.g., <code>double</code> to <code>int</code> drops decimals).</li>
+</ul>
+<h2 id="function-call-stack">Function-Call Stack</h2>
+<ul>
+<li><strong>Stack</strong>: Last-in, first-out (LIFO) structure for function calls/returns.</li>
+<li><strong>Behavior</strong>: Pushes frame with return address on call, pops on return.</li>
+<li><strong>Risk</strong>: Stack overflow from excessive calls.</li>
+</ul>
+<h2 id="pass-arguments">Pass Arguments</h2>
+<ul>
+<li><strong>By Value</strong>: Copies argument; original unchanged.
+  <code>c
+  void superFunction(int num) { num *= 1000; } // No effect on original</code></li>
+<li><strong>By Reference</strong>: Use pointers in C to modify original.</li>
+</ul>
+<h2 id="random-number-generation">Random-Number Generation</h2>
+<ul>
+<li><strong>Functions</strong> (<code>&lt;stdlib.h&gt;</code>):</li>
+<li><code>rand()</code>: Returns 0 to <code>RAND_MAX</code> (≥32,767).</li>
+<li><code>srand(seed)</code>: Sets seed.</li>
+<li><strong>Scaling</strong>:
+  <code>c
+  int dice = 1 + (rand() % 6); // 1 to 6</code></li>
+<li><strong>Seeding</strong>: Use <code>srand(time(NULL))</code> for unique sequences.</li>
+</ul>
+<h2 id="enumerated-types">Enumerated Types</h2>
+<ul>
+<li><strong>Definition</strong>: Programmer-defined types listing all valid values.</li>
+<li><strong>Syntax</strong>:
+  <code>c
+  enum DaysOfWeek {SUN, MON, TUES, WED, THU, FRI, SAT};
+  enum DaysOfWeek today = MON; // Assigns 1</code></li>
+<li><strong>Values</strong>: Default starts at 0, increments by 1; can set explicit values.
+  <code>c
+  enum Status {CONTINUE = 0, WON = 1, LOST = 2};</code></li>
+</ul>
+<h2 id="storage-classes">Storage Classes</h2>
+<ul>
+<li><strong>Purpose</strong>: Define variable attributes: <strong>storage duration</strong> (lifetime), <strong>scope</strong> (visibility), <strong>linkage</strong> (file access).</li>
+<li><strong>Types</strong>:</li>
+<li><code>auto</code>: Default for local variables; stored on stack (rarely used explicitly).</li>
+<li><code>register</code>: Requests CPU register storage (mostly obsolete; ignored by modern compilers).</li>
+<li><code>static</code>: Persistent lifetime; local retains value between calls, global restricts to file.</li>
+<li><code>extern</code>: Declares variable/function in another file; no storage created.</li>
+</ul>
+<h2 id="scope">Scope</h2>
+<ul>
+<li><strong>Definition</strong>: Where an identifier can be referenced.</li>
+<li><strong>Types</strong>:</li>
+<li><strong>Function Scope</strong>: Labels (e.g., <code>goto</code>, <code>switch</code>) visible in function.</li>
+<li><strong>File Scope</strong>: Global variables, function prototypes outside functions; visible from declaration to file end.</li>
+<li><strong>Block Scope</strong>: Variables in <code>{}</code>; inner blocks can hide outer names (avoid this).</li>
+<li><strong>Function-Prototype Scope</strong>: Parameter names in prototypes (optional, ignored by compiler).</li>
+</ul>
+<h2 id="memory-regions">Memory Regions</h2>
+<ul>
+<li><strong>Stack</strong>: Automatic variables; allocated/deallocated with block scope.</li>
+<li><strong>Static</strong>: Global/static local variables; persist entire program, initialized once.</li>
+<li><strong>Heap</strong>: Dynamic memory (via <code>malloc()</code>, <code>calloc()</code>, <code>realloc()</code>); manually managed.</li>
+<li><strong>The Heap vs. A Heap</strong>:</li>
+<li><strong>The Heap</strong>: Memory pool for dynamic allocation; no order.</li>
+<li><strong>A Heap</strong>: Ordered tree-based data structure (e.g., min/max heap).</li>
+</ul>
+<h2 id="arrays">Arrays</h2>
+<ul>
+<li><strong>Definition</strong>: Group of same-type elements stored contiguously in memory.</li>
+<li><strong>Access</strong>: Use array name with 0-based index (e.g., <code>my_array[3]</code> for fourth element).</li>
+<li><strong>Definition Syntax</strong>:
+  <code>c
+  int my_arr[3]; // Static size, cannot be resized</code></li>
+<li><strong>Best Practice</strong>: Use <code>#define</code> for array size to avoid magic numbers.</li>
+<li><strong>Looping</strong>: Use <code>size_t</code> for index in loops.
+  <code>c
+  for (size_t i = 0; i &lt; 5; ++i) { n[i] = i; }</code></li>
+<li><strong>Initializer Lists</strong>:
+  <code>c
+  int n[5] = {32, 27, 64, 18, 95}; // Sets values
+  int n[5] = {0}; // Sets all to 0</code></li>
+</ul>
+<h2 id="strings">Strings</h2>
+<ul>
+<li><strong>Definition</strong>: Array of <code>char</code> terminated by <code>'\0'</code> (NUL).</li>
+<li><strong>Declaration</strong>:
+  <code>c
+  char s1[] = "hello"; // Auto-sized, NUL added
+  char s2[10] = "hello"; // Fixed size, must fit NUL
+  char s3[] = {'h', 'e', 'l', 'l', 'o', '\0'}; // Manual NUL</code></li>
+<li><strong>Input</strong>:
+  <code>c
+  char buf[20];
+  scanf("%19s", buf); // No &amp; needed, size limits input</code></li>
+</ul>
+<h2 id="static-vs-automatic-arrays">Static vs Automatic Arrays</h2>
+<ul>
+<li><strong>Static Array</strong>: Single instance, persists entire program, initialized to 0.</li>
+<li><strong>Automatic Array</strong>: New instance per function call, contains garbage unless initialized.
+  <code>c
+  static int s_arr[3]; // Persists, 0-initialized
+  int a_arr[3]; // New each call, garbage values</code></li>
+</ul>
+<p>## Passing an Array to a Function
+- <strong>Syntax</strong>: Use array name without brackets (e.g., <code>myFunc(myArr)</code>).
+- <strong>Behavior</strong>: Passes pointer to first element; function modifies original array (pass by reference).
+- <strong>Const Arrays</strong>: Use <code>const</code> to prevent modification (e.g., for searching).
+  <code>c
+  void searchArray(const int arr[], size_t size);</code></p>
+<h2 id="multi-dimensional-arrays">Multi-Dimensional Arrays</h2>
+<ul>
+<li><strong>Definition</strong>: Arrays of arrays (e.g., 2D array like a spreadsheet).</li>
+<li><strong>Indexing</strong>: First index is row, second is column (e.g., <code>arr[row][col]</code>).</li>
+<li><strong>Memory</strong>: Stored in row-major order (row by row) in contiguous 1D memory.</li>
+<li>Address formula: <code>start_loc + (rowNum * numberOfColumns) + colNum</code>.</li>
+<li><strong>Initializer Lists</strong>:
+  <code>c
+  int arr[3][3] = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}}; // Readable
+  int arr[3][3] = {0, 1, 2, 3, 4, 5, 6, 7, 8}; // Same memory layout</code></li>
+<li><strong>Passing to Functions</strong>: Specify all dimensions except first (e.g., <code>void printArray(int arr[][3], size_t nRows)</code>).</li>
+<li><strong>Looping</strong>: Use descriptive indices (e.g., <code>row</code>, <code>col</code>) instead of <code>i</code>, <code>j</code>.
+  <code>c
+  for (size_t row = 0; row &lt; 3; ++row) {
+      for (size_t col = 0; col &lt; 3; ++col) {
+          printf("%d ", arr[row][col]);
+      }
+      printf("\n");
+  }</code></li>
+</ul>
+<h2 id="variable-length-arrays-vlas">Variable-Length Arrays (VLAs)</h2>
+<ul>
+<li><strong>Definition</strong>: Arrays sized at runtime (e.g., <code>int arr[size]</code> where <code>size</code> is user input).</li>
+<li><strong>Limitation</strong>: Not supported by all compilers; Bob says <strong>do not use</strong> in this course.</li>
+<li><strong>Alternative</strong>: Use <code>malloc()</code>, <code>calloc()</code>, or <code>realloc()</code> for dynamic arrays.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../wk_six/" class="btn btn-neutral float-left" title="Week 6"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../wk_six/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

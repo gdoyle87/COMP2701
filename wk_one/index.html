@@ -342,13 +342,17 @@ meaning a copy is passed unless the address is provided. Since <code>scanf()</co
 would be pointless - we would be writing to a copy and not changing the result. Instead we give <code>scanf()</code> the address in memory where we would like to store the result.</p>
 <p>In practice, we generally want to prefix any variable that we are storing a result to with the address symbol <code>&amp;</code>. The only time we don't need to do this is with arrays (which we will cover later in this course).</p>
 <details>
-    <summary>
-    Example of <code>scanf()</code> with an array:
-    </summary>
-    char name[20];
-    printf("Enter your name: ");
-    scanf("%19s", name); // note: NO "&" here because a string is an array of chars. 
-    printf("Hello, %s!\n", name);
+<summary>
+Example of <code>scanf()</code> with an array:
+</summary>
+
+<pre><code class="language-c">char name[20];
+printf(&quot;Enter your name: &quot;);
+scanf(&quot;%19s&quot;, name); // note: NO &quot;&amp;&quot; here because a string is an array of chars. 
+printf(&quot;Hello, %s!\n&quot;, name);
+
+</code></pre>
+
 </details>
 
 <p><br></p>

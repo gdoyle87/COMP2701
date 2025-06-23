@@ -129,6 +129,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#variable-length-arrays-vlas">Variable-Length Arrays (VLAs)</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#functions-to-be-able-to-create-from-weeks-5-and-6">Functions to be able to create from Weeks 5 and 6</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -361,6 +363,402 @@ int arr[3][3] = {0, 1, 2, 3, 4, 5, 6, 7, 8}; // Same memory layout
 <h2 id="variable-length-arrays-vlas">Variable-Length Arrays (VLAs)</h2>
 <p>Arrays sized at runtime (e.g., <code>int arr[size]</code> where <code>size</code> is user input).</p>
 <p>Bob says <strong>do not use</strong> in this course.</p>
+<h2 id="functions-to-be-able-to-create-from-weeks-5-and-6">Functions to be able to create from Weeks 5 and 6</h2>
+<details>
+<summary>Find max value in array</summary>
+
+
+<pre><code class="language-c">int arr_max(const int a[], size_t n)
+{
+    int max = a[0];
+    for (unsigned int i = 1; i &lt; n; ++i)
+    {
+        if (a[i] &gt; max)
+        {
+            max = a[i];
+        }
+    }
+    return max;
+}
+</code></pre>
+
+
+</details>
+
+<details>
+<summary>Index of first max value</summary>
+
+
+<pre><code class="language-c">size_t arr_index_of_first_max(const int a[], size_t n)
+{
+    int max = a[0];
+    int index = 0;
+    for (unsigned int i = 1; i &lt; n; ++i)
+    {
+        if (a[i] &gt; max)
+        {
+            max = a[i];
+            index = i;
+        }
+    }
+    return index;
+}
+</code></pre>
+
+
+</details>
+
+<details>
+<summary>Index of last max value</summary>
+
+
+<pre><code class="language-c">size_t arr_index_of_last_max(const int a[], size_t n)
+{
+    int max = a[0];
+    int index = 0;
+    for (unsigned int i = 1; i &lt; n; ++i)
+    {
+        if (a[i] &gt;= max)
+        {
+            max = a[i];
+            index = i;
+        }
+    }
+    return index;
+}
+</code></pre>
+
+
+</details>
+
+<details>
+<summary>Index of first occurrence of value</summary>
+
+
+<pre><code class="language-c">int arr_index_of_value_first(const int a[], size_t n, int value)
+{
+    for (unsigned int i = 0; i &lt; n; ++i)
+    {
+        if (a[i] == value)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+</code></pre>
+
+
+</details>
+
+<details>
+<summary>Index of last occurrence of value</summary>
+
+
+<pre><code class="language-c">int arr_index_of_value_last(const int a[], size_t n, int value)
+{
+    int index = -1;
+    for (unsigned int i = 0; i &lt; n; ++i)
+    {
+        if (a[i] == value)
+        {
+            index = i;
+        }
+    }
+    return index;
+}
+</code></pre>
+
+
+</details>
+
+<details>
+<summary>Compare two arrays</summary>
+
+
+<pre><code class="language-c">int arr_compare(const int a[], const int b[], size_t n)
+{
+    for (unsigned int i = 0; i &lt; n; ++i)
+    {
+        if (a[i] != b[i])
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+</code></pre>
+
+
+</details>
+
+<details>
+<summary>Find first occurrence of char</summary>
+
+
+<pre><code class="language-c">int find_first(const char s[], char c)
+{
+    for (int i = 0; s[i] != '\0'; ++i)
+    {
+        if (s[i] == c)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+</code></pre>
+
+
+</details>
+
+<details>
+<summary>Replace last occurrence of char</summary>
+
+
+<pre><code class="language-c">int replace_last(char s[], char oldChar, char newChar)
+{
+    int index = -1;
+    for (int i = 0; s[i] != '\0'; ++i)
+    {
+        if (s[i] == oldChar)
+        {
+            index = i;
+        }
+    }
+    if (index != -1)
+    {
+        s[index] = newChar;
+    }
+    return index;
+}
+</code></pre>
+
+
+</details>
+
+<details>
+<summary>Count number of occurrences of char</summary>
+
+
+<pre><code class="language-c">int count_occ(const char s[], char c)
+{
+    int count = 0;
+    for (int i = 0; s[i] != '\0'; ++i)
+    {
+        if (s[i] == c)
+        {
+            ++count;
+        }
+    }
+    return count;
+}
+</code></pre>
+
+
+</details>
+
+<details>
+<summary>Count alphabetic characters</summary>
+
+
+<pre><code class="language-c">int count_alpha(const char s[])
+{
+    int count = 0;
+    for (int i = 0; s[i] != '\0'; ++i)
+    {
+        if (isalpha(s[i]))
+        {
+            ++count;
+        }
+    }
+    return count;
+}
+</code></pre>
+
+
+</details>
+
+<details>
+<summary>Check if string is all digits</summary>
+
+
+<pre><code class="language-c">int is_all_digits(const char s[])
+{
+    for (int i = 0; s[i] != '\0'; ++i)
+    {
+        if (!isdigit(s[i]))
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+</code></pre>
+
+
+</details>
+
+<details>
+<summary>Copy string to lowercase</summary>
+
+
+<pre><code class="language-c">void lowercase_copy(char dest[], const char src[])
+{
+    int i;
+    for (i = 0; src[i] != '\0'; ++i)
+    {
+        dest[i] = tolower(src[i]);
+    }
+    dest[i] = '\0';
+}
+</code></pre>
+
+
+</details>
+
+<details>
+<summary>Validate BCIT ID</summary>
+
+
+<pre><code class="language-c">int is_valid_bcit_id(const char id[])
+{
+    if (id[0] != 'a' &amp;&amp; id[0] != 'A')
+    {
+        return 0;
+    }
+    int i;
+    for (i = 1; (id[i] != '\0') &amp;&amp; (i &lt; 10); ++i)
+    {
+        if (!isdigit(id[i]))
+        {
+            return 0;
+        }
+    }
+    if (i != 9)
+    {
+        return 0;
+    }
+    return 1;
+}
+</code></pre>
+
+
+</details>
+
+<details>
+<summary>Return first word</summary>
+
+
+<pre><code class="language-c">void return_first_word(const char input[], char output[])
+{
+    while ((*input != '\0') &amp;&amp; (isspace(*input)))
+    {
+        ++input;
+    }
+    while ((*input != '\0') &amp;&amp; (!isspace(*input)))
+    {
+        *output++ = *input++;
+    }
+    *output = '\0';
+}
+</code></pre>
+
+
+</details>
+
+<details>
+<summary>Return second word</summary>
+
+
+<pre><code class="language-c">void return_second_word(const char input[], char output[])
+{
+    while ((*input != '\0') &amp;&amp; (isspace(*input)))
+    {
+        ++input;
+    }
+    while ((*input != '\0') &amp;&amp; (!isspace(*input)))
+    {
+        ++input;
+    }
+    while ((*input != '\0') &amp;&amp; (isspace(*input)))
+    {
+        ++input;
+    }
+    while ((*input != '\0') &amp;&amp; (!isspace(*input)))
+    {
+        *output++ = *input++;
+    }
+    *output = '\0';
+}
+</code></pre>
+
+
+</details>
+
+<details>
+<summary>Count number of words</summary>
+
+
+<pre><code class="language-c">int return_count_of_words(const char input[])
+{
+    int count = 0;
+    while ((*input != '\0') &amp;&amp; (isspace(*input)))
+    {
+        ++input;
+    }
+    while (*input != '\0')
+    {
+        ++count;
+        while ((*input != '\0') &amp;&amp; (!isspace(*input)))
+        {
+            ++input;
+        }
+        while ((*input != '\0') &amp;&amp; (isspace(*input)))
+        {
+            ++input;
+        }
+    }
+    return count;
+}
+</code></pre>
+
+
+</details>
+
+<details>
+<summary>Return nth word</summary>
+
+
+<pre><code class="language-c">void return_nth_word(const char input[], char output[], int n)
+{
+    while ((*input != '\0') &amp;&amp; (isspace(*input)))
+    {
+        ++input;
+    }
+    int count = 1;
+    while ((*input != '\0') &amp;&amp; (count &lt; n))
+    {
+        while ((*input != '\0') &amp;&amp; (!isspace(*input)))
+        {
+            ++input;
+        }
+        while ((*input != '\0') &amp;&amp; (isspace(*input)))
+        {
+            ++input;
+        }
+        ++count;
+    }
+    while ((*input != '\0') &amp;&amp; (!isspace(*input)))
+    {
+        *output++ = *input++;
+    }
+    *output = '\0';
+}
+</code></pre>
+
+
+</details>
               
             </div>
           </div><footer>

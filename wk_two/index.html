@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Week 2 - COMP2701</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Week 2";
+        var mkdocs_page_input_path = "wk_two.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> COMP2701
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_one/">Week 1</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Week 2</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#algorithms">Algorithms</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#control-structures">Control Structures</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#selection-structures">Selection Structures</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#if-and-ifelse-statements">if and if...else Statements</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#switch-statement">switch() Statement</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#iteration-structures">Iteration Structures</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#while-loop">while Loop</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#dowhile-loop">do...while Loop</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#for-loop">for Loop</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pre-increment-vs-post-increment">Pre-Increment vs. Post-Increment</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#loop-exit-conditions">Loop Exit Conditions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#loop-type-choice">Loop type choice:</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#casting-numbers">Casting Numbers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#arithmetic-overflow">Arithmetic Overflow</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_three/">Week 3</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_four/">Week 4</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_five/">Week 5</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_six/">Week 6</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">COMP2701</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Week 2</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="week-2">Week 2</h1>
+<h2 id="algorithms">Algorithms</h2>
+<p><strong>Definition:</strong> An algorithm is a procedure for solving a problem, defined by:</p>
+<ol>
+<li>The actions to execute.</li>
+<li>The order in which these actions execute.</li>
+</ol>
+<p>The order of statement execution is called program control.</p>
+<h2 id="control-structures">Control Structures</h2>
+<p>By default, C programs execute statements in the order they are written (sequential execution). However, control structures allow transferring control to execute statements out of sequence. There are three types:</p>
+<ol>
+<li>Sequence Structure: Statements execute in the order written.</li>
+<li>Selection Structures: if, if...else, and switch choose the next statement based on a condition.</li>
+<li>Iteration Structures: for, while, and do...while repeat statements until a condition is met.</li>
+</ol>
+<h3 id="selection-structures">Selection Structures</h3>
+<h4 id="if-and-ifelse-statements"><code>if</code> and <code>if...else</code> Statements</h4>
+<p>The if statement evaluates a condition and executes a block if true. An optional else block executes if false.</p>
+<p>Example:</p>
+<pre><code class="language-c">int x = 5;
+if (x &gt; 0) {
+    printf(&quot;x is positive\n&quot;);
+} else {
+    printf(&quot;x is non-positive\n&quot;);
+}
+// Output: x is positive
+</code></pre>
+<h5 id="ternary-conditional-operator">Ternary Conditional Operator</h5>
+<p>The ternary operator (<code>?:</code>) is a concise alternative to <code>if...else</code> for simple conditions. It returns the value after ? if the condition is true, or the value after : if false.</p>
+<pre><code class="language-c">int x = 5;
+puts(x &gt; 0 ? &quot;good&quot; : &quot;bad&quot;);
+// Output: good
+</code></pre>
+<p><strong>Note:</strong> Use the ternary operator for simple expressions but probably best to avoid for more complex expressions as it can reduce readability for complex logic.</p>
+<h5 id="short-circuit-evaluation">Short-Circuit Evaluation</h5>
+<p>In <code>C</code>, logical operators (<code>&amp;&amp;</code> and <code>||</code>) use <em>short-circuit</em> evaluation. If the result of an expression can be determined early, the remaining parts are not evaluated.</p>
+<p>For <code>&amp;&amp;</code> (<strong>AND</strong>): If the first condition is <em>false</em>, the second is not evaluated.
+<br>For <code>||</code> (<strong>OR</strong>): If the first condition is <em>true</em>, the second is not evaluated.</p>
+<p>Example:</p>
+<pre><code class="language-c">int x = 0, y = 5;
+if (x != 0 &amp;&amp; y / x &gt; 2) { // y / x not evaluated due to x == 0
+    printf(&quot;This won't print\n&quot;);
+}
+</code></pre>
+<p>This prevents errors like division by zero.</p>
+<h4 id="switch-statement"><code>switch()</code> Statement</h4>
+<p><code>switch</code> provides a clean way to branch based on the value of a single variable 
+(usually <code>int</code> or <code>char</code>). It’s often used instead of long <code>if...else if</code> chains.</p>
+<pre><code class="language-c">int grade = 2;
+switch (grade) {
+    case 1:
+        puts(&quot;Excellent&quot;);
+        break;
+    case 2:
+        puts(&quot;Good&quot;);
+        break;
+    case 3:
+        puts(&quot;Fair&quot;);
+        break;
+    default:
+        puts(&quot;Invalid&quot;);
+}
+</code></pre>
+<p>If we don't put a <code>break;</code> after a case execution will fall through to the next case.
+Sometimes this is intentional when multiple values will have the same response. Other times,
+this is a bug and will lead to unexpected behaviour.</p>
+<pre><code class="language-c">case 1: // Fall-through intentional
+case 2:
+    puts(&quot;Grade is 1 or 2&quot;);
+    break;
+</code></pre>
+<h3 id="iteration-structures">Iteration Structures</h3>
+<h4 id="while-loop"><code>while</code> Loop</h4>
+<p>The <code>while</code> loop repeats as long as a condition is true, checking the condition before each iteration.</p>
+<pre><code class="language-c">int i = 3;
+while (i &lt; 10) {
+    printf(&quot;%d &quot;, i);
+    i++;
+}
+// Output: 3 4 5 6 7 8 9
+</code></pre>
+<h4 id="dowhile-loop"><code>do...while</code> Loop</h4>
+<p>The <code>do...while</code> loop executes at least once, checking the condition after each iteration.</p>
+<pre><code class="language-c">int i = 3;
+do {
+    printf(&quot;%d &quot;, i);
+    i++;
+} while (i &lt; 4);
+// Output: 3
+</code></pre>
+<h4 id="for-loop"><code>for</code> Loop</h4>
+<p>The <code>for</code> loop is used for iterations with a known number of repetitions, combining initialization, condition, and increment.</p>
+<pre><code class="language-c">for (int i = 0; i &lt; 5; i++) {
+    printf(&quot;%d &quot;, i);
+}
+// Output: 0 1 2 3 4
+</code></pre>
+<h4 id="pre-increment-vs-post-increment">Pre-Increment vs. Post-Increment</h4>
+<p><strong>Pre-increment (<code>++i</code>):</strong> Increments <code>i</code> before using its value.
+<br><strong>Post-increment (<code>i++</code>):</strong> Uses <code>i</code>’s value, then increments it.</p>
+<p>Example:</p>
+<pre><code class="language-c">int i = 0;
+printf(&quot;%d\n&quot;, i++); // Prints 0, then i becomes 1
+printf(&quot;%d\n&quot;, ++i); // Increments i to 2, then prints 2
+</code></pre>
+<p><br><em>Bob's Preference:</em> Use pre-increment (<code>++i</code>) in loops for slight performance benefits (avoids creating a temporary copy) and clarity.</p>
+<p>In a <code>for</code> loop, the increment step (e.g., <code>i++</code> or <code>++i</code> in 
+<code>for (int i = 0; i &lt; 5; i++)</code>) occurs after the loop body executes, 
+so the choice of pre- or post-increment doesn’t affect the loop’s iteration behavior. 
+Both produce the same sequence of loop iterations.
+<br>However, within the loop body, the choice matters if the incremented 
+value is used. For example, if you use <code>i++</code> or <code>++i</code> to modify another 
+variable, the result differs.</p>
+<h4 id="loop-exit-conditions">Loop Exit Conditions</h4>
+<p>When using different increment types or loop structures, carefully consider when the loop exits:</p>
+<p><strong>Integer increments:</strong> Ensure the condition accounts for the final value.</p>
+<pre><code class="language-c">int i = 0;
+while (i &lt; 5) {
+    printf(&quot;%d &quot;, i);
+    i += 2; // Increments by 2
+}
+// Output: 0 2 4
+</code></pre>
+<p><strong>Floating-point increments:</strong> Be cautious with floating-point conditions due to precision issues (basically, <em>never</em> do this).</p>
+<pre><code class="language-c">float i = 0.0;
+while (i &lt; 1.0) {
+    printf(&quot;%.1f &quot;, i);
+    i += 0.1;
+}
+// May not stop exactly at 1.0 due to floating-point imprecision
+</code></pre>
+<h4 id="loop-type-choice">Loop type choice:</h4>
+<p>Use <code>while</code> for condition-driven loops.
+<br>Use <code>do...while</code> when <em>at least</em> one iteration is needed.
+<br>Use <code>for</code> for counted loops with clear start and end points.</p>
+<h2 id="casting-numbers">Casting Numbers</h2>
+<p>When dividing two integers, the result is an integer, truncating any decimal part. 
+To retain decimals, cast one or both operands to <code>float</code> or <code>double</code>.</p>
+<pre><code class="language-c">int a = 2, b = 3;
+float result = (float)a / b; // Cast a to float
+printf(&quot;%.2f\n&quot;, result); // %.2f formats to 2 decimal places
+// Output: 0.67
+</code></pre>
+<p><strong>Note:</strong> Use <code>%.nf</code> in <code>printf</code> to specify n decimal places (e.g., <code>%.2f</code> for two decimals).</p>
+<h2 id="arithmetic-overflow">Arithmetic Overflow <limits.h></h2>
+<p>The <code>&lt;limits.h&gt;</code> header provides constraints for various types based on the underlying system limits.</p>
+<p>Example:</p>
+<pre><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdio.h&gt;
+int main(void) {
+    int x = INT_MAX;
+    if (x &gt; INT_MAX - 1) { // Check for overflow
+        printf(&quot;Cannot increment without overflow\n&quot;);
+    } else {
+        x++;
+    }
+    return 0;
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../wk_one/" class="btn btn-neutral float-left" title="Week 1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../wk_three/" class="btn btn-neutral float-right" title="Week 3">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../wk_one/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../wk_three/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

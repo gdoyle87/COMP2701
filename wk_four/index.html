@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Week 4 - COMP2701</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Week 4";
+        var mkdocs_page_input_path = "wk_four.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> COMP2701
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_one/">Week 1</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_two/">Week 2</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_three/">Week 3</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Week 4</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#enumerated-types">Enumerated Types</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#storage-classes">Storage Classes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#scope">Scope</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#memory-regions-overview">Memory Regions Overview</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#the-heap-vs-a-heap">The Heap vs. A Heap</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#the-heap-memory-region">The heap (memory region):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#a-heap-data-structure">A heap (data structure):</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_five/">Week 5</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_six/">Week 6</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">COMP2701</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Week 4</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="week-4">Week 4</h1>
+<h2 id="enumerated-types">Enumerated Types</h2>
+<p>Enumerated types are types created by the programmer themselves. They enumerate all the legal values that can be assigned to a variable of that type.</p>
+<pre><code class="language-c">enum DaysOfWeek {SUN, MON, TUES, WED, THU, FRI, SAT};
+enum DaysOfWeek today = MON; // will assign 1 to today
+</code></pre>
+<details open><summary>Example:</summary>
+<img src="/enum.gif" alt="example enum animation">
+
+<details><summary>Click to show code</summary>
+
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+enum DaysOfWeek { SUN, MON, TUES, WED, THU, FRI, SAT };
+
+const char *day_name(enum DaysOfWeek day) {
+  switch (day) {
+  case SUN:
+    return &quot;Sunday&quot;;
+  case MON:
+    return &quot;Monday&quot;;
+  case TUES:
+    return &quot;Tuesday&quot;;
+  case WED:
+    return &quot;Wednesday&quot;;
+  case THU:
+    return &quot;Thursday&quot;;
+  case FRI:
+    return &quot;Friday&quot;;
+  case SAT:
+    return &quot;Saturday&quot;;
+  default:
+    return &quot;Invalid&quot;;
+  }
+}
+
+int main(void) {
+  printf(&quot;All days of the week:\n&quot;);
+  for (enum DaysOfWeek d = SUN; d &lt;= SAT; ++d) {
+    printf(&quot;%d = %s\n&quot;, d, day_name(d));
+  }
+
+  return 0;
+}
+</code></pre>
+
+</details>
+</details>
+
+<p><br>
+By default, the first name is assigned the integer value 0, and each subsequent name increases by 1.
+<br>We can also explicitly set values.</p>
+<pre><code class="language-c">enum Status {CONTINUE = 0, WON = 1, LOST = 2};
+</code></pre>
+<h2 id="storage-classes">Storage Classes</h2>
+<p>Variables have other attributes beside the <code>name</code>, <code>type</code>, <code>size</code> and <code>value</code>. One such is the <em>storage class specifier</em> which we will go into below. 
+<br>The storage class specifier is used to determine the following other attributes: <strong><em>storage duration</em></strong> (when it exists in memory), <strong><em>scope</em></strong> (where a program can reference the identifier), and <strong><em>linkage</em></strong> (whether it is known only in the current file or in any source) for the identifier.</p>
+<p><code>C</code> has the following <strong>storage class specifiers</strong>:</p>
+<ol>
+<li><code>auto</code><ul>
+<li>This is the <strong>default</strong> for local (block-scope) variables. It tells the compiler to store the variable in automatic storage (i.e., on the stack).</li>
+<li>It's largely redundant in modern C and rarely written explicitly.</li>
+</ul>
+</li>
+<li><code>register</code><ul>
+<li>This was used to request that a variable be stored in a CPU register for faster access.</li>
+<li>You cannot get the address of a <code>register</code> variable using <code>&amp;</code>.</li>
+<li>Modern compilers ignore it and optimize register usage themselves, so this is now mostly obsolete.</li>
+</ul>
+</li>
+<li><code>static</code><ul>
+<li>Gives a variable static storage duration – it exists for the lifetime of the program, even if defined inside a function.</li>
+<li>Two main uses:<ul>
+<li><strong>Static local variables</strong>: retain their value between function calls.</li>
+<li><strong>Static global variables/functions</strong>: restrict visibility to the current translation unit (file) – no external linkage.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>extern</code><ul>
+<li>Tells the compiler that a global variable or function exists in another file.</li>
+<li>It does <strong>not</strong> create storage; it just <em>declares</em> the identifier so it can be used.</li>
+<li>Common use: declare a global variable defined in another <code>.c</code> file.</li>
+</ul>
+</li>
+</ol>
+<h2 id="scope">Scope</h2>
+<p>The scope of an identifier is the portion of the program in which that identifier can be referenced. In <code>C</code> there are four identifier scopes: </p>
+<ol>
+<li><em>function</em> scope<ul>
+<li>Applies only to labels (e.g., <code>start:</code>) used with <code>goto</code> and <code>switch</code> statements.</li>
+<li>Labels are visible anywhere in the function where they're defined, but <em>note</em> outside it.</li>
+<li>They support information hiding, aligning with the <em>principle of least privilege</em>: only grant access needed for a specific task.</li>
+</ul>
+</li>
+<li><em>file</em> scope<ul>
+<li>Applies to identifiers declared outside any function.</li>
+<li>Visibility spans from the point of declaration to the end of the file.</li>
+<li>Examples:<ul>
+<li>Global variables</li>
+<li>Function prototypes</li>
+<li>Function definitions outside functions</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>block</em> scope<ul>
+<li>Applies to identifiers declared inside a block (between <code>{</code> and <code>}</code>).</li>
+<li>Blocks can <em>nest</em>, and inner blocks can hide outer block identifiers with the same name — generally best to avoid name hiding.</li>
+<li><code>static</code> local variables still have block scope (but static storage duration).</li>
+</ul>
+</li>
+<li><em>function-prototype</em> scope<ul>
+<li>Applies only to parameter names in function prototypes - within the <code>()</code> of a prototype</li>
+<li>These names are <strong>optional</strong> and <strong>ignored</strong> by the compiler — only types matter.</li>
+</ul>
+</li>
+</ol>
+<h2 id="memory-regions-overview">Memory Regions Overview</h2>
+<p>Before we move on, it's useful to understand where variables actually live in memory. The location affects how long they last, how they're accessed, and how they're cleaned up.</p>
+<table>
+<thead>
+<tr>
+<th>Stack</th>
+<th>Static</th>
+<th>Heap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Automatic Variables</td>
+<td>Global Variables</td>
+<td>Dynamic Variables*</td>
+</tr>
+<tr>
+<td></td>
+<td>Static Local Variables</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><small>*dynamic variables are created with <code>malloc()</code>, <code>calloc()</code>, and <code>realloc()</code>. </small></p>
+<p><strong>Stack:</strong> Fast allocation/deallocation; tied to block scope. Stack variables are automatically deallocated when their scope ends.
+<br><strong>Static:</strong> Persistent for the program’s lifetime; only initialized once.
+<br><strong>Heap:</strong> Used for dynamic memory; you manage it explicitly.</p>
+<h3 id="the-heap-vs-a-heap">The Heap vs. A Heap</h3>
+<p>The term <strong>heap</strong> can refer to two separate concepts in programming — one related to memory, the other to data structures and algorithms.</p>
+<hr>
+<h4 id="the-heap-memory-region"><strong><em>The</em></strong> heap (memory region):</h4>
+<p>A section of memory used for dynamic allocation. Variables stored here persist until manually deallocated (e.g., with <code>free()</code> in C).</p>
+<ul>
+<li>No ordering — not FIFO, not LIFO. It's just a pool of memory.</li>
+</ul>
+<hr>
+<h4 id="a-heap-data-structure"><strong><em>A</em></strong> heap (data structure):</h4>
+<p>A type of tree-based structure (e.g., min-heap or max-heap) used for priority queues.</p>
+<ul>
+<li>Has ordering rules (e.g., smallest or largest item always on top), but unrelated to memory allocation.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../wk_three/" class="btn btn-neutral float-left" title="Week 3"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../wk_five/" class="btn btn-neutral float-right" title="Week 5">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../wk_three/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../wk_five/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

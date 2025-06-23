@@ -10,7 +10,7 @@ enum DaysOfWeek today = MON; // will assign 1 to today
 ```
 
 <details open><summary>Example:</summary>
-<img src="/enum.gif" alt="example enum animation">
+<img src="../enum.gif" alt="example enum animation">
 
 <details><summary>Click to show code</summary>
 ```C

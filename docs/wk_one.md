@@ -56,7 +56,7 @@ We can see the returned value in the terminal by typing:
 ```zsh
 echo $?
 ```
-![hello demo](/hello.gif)
+![hello demo](hello.gif)
 
 We can also take command line arguments in `main` with the following syntax:
 ```C
@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-<img alt="hello argument demo" src="/hello2.gif">
+<img alt="hello argument demo" src="../hello2.gif">
 
 </details>
 <br>
@@ -160,13 +160,16 @@ would be pointless - we would be writing to a copy and not changing the result. 
 In practice, we generally want to prefix any variable that we are storing a result to with the address symbol `&`. The only time we don't need to do this is with arrays (which we will cover later in this course).
 
 <details>
-	<summary>
-	Example of <code>scanf()</code> with an array:
-	</summary>
-	char name[20];
-	printf("Enter your name: ");
-	scanf("%19s", name); // note: NO "&" here because a string is an array of chars. 
-	printf("Hello, %s!\n", name);
+<summary>
+Example of <code>scanf()</code> with an array:
+</summary>
+```c
+char name[20];
+printf("Enter your name: ");
+scanf("%19s", name); // note: NO "&" here because a string is an array of chars. 
+printf("Hello, %s!\n", name);
+
+```
 </details>
 
 <br>

@@ -14,7 +14,7 @@ That is, we are passing by *reference*.
 
 When we pass an array in to a function which doesn't need to modify it, for example searching an array for max, we can pass it as `const`. 
 ![passing array as const](./pass_array_as_const.png)
-This is like putting up guard rails to make sure that we don't actually change the array.
+<br>This is like putting up guard rails to make sure that we don't actually change the array.
 
 ## Multi-Dimensional Arrays
 Multidimensional arrays are arrays within arrays. The simplest kind is a **2-dimensional array.**

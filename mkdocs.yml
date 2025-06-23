@@ -1,4 +1,5 @@
 site_name: COMP2701
+site_url: https://gdoyle87.github.io/COMP2701/
 nav:
   - Home: index.md
   - Week 1: wk_one.md
@@ -7,6 +8,8 @@ nav:
   - Week 4: wk_four.md
   - Week 5: wk_five.md
   - Week 6: wk_six.md
+  - Midterm Review: midterm.md
+
 theme: readthedocs
 markdown_extensions:
   - md_in_html

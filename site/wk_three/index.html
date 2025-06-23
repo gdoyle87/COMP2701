@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://gdoyle87.github.io/COMP2701/wk_three/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Week 3 - COMP2701</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Week 3";
+        var mkdocs_page_input_path = "wk_three.md";
+        var mkdocs_page_url = "/COMP2701/wk_three/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> COMP2701
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_one/">Week 1</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_two/">Week 2</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Week 3</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#functional-program-structure">Functional Program Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#function-definition">Function Definition</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#function-prototype">Function Prototype</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#argument-coercion">Argument Coercion</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#function-call-stack">Function-Call Stack</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pass-arguments-by-value-and-by-reference">Pass Arguments by Value and by Reference</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#random-number-generation">Random-Number Generation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#seeds-and-srand">Seeds and srand()</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#timenull">time(NULL)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#secure-random-number-generation">Secure Random Number Generation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#secure-alternatives-for-production">Secure Alternatives for Production</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_four/">Week 4</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_five/">Week 5</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_six/">Week 6</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../midterm/">Midterm Review</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">COMP2701</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Week 3</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="week-3">Week 3</h1>
+<h3 id="functions">Functions</h3>
+<p>A <strong>function</strong> is a self-contained block of code designed to accomplish a specific task. Functions enable:</p>
+<ul>
+<li><strong>Divide and conquer</strong>: Developing large programs by combining smaller, reusable parts.</li>
+<li><strong>Abstraction</strong>: Hiding implementation details behind a meaningful name allowing a developer to use a function without worrying about the underlying implementation.</li>
+<li><strong>Decomposition</strong>: Breaking complex problems into manageable components - when a function can't be defined easily, we can decompose it into a series of smaller functions which are better defined. </li>
+</ul>
+<p>Programs are easier to write, test, debug, and maintain when structured as a collection of functions.</p>
+<h4 id="functional-program-structure">Functional Program Structure</h4>
+<p>In C, all programs must have a <code>main()</code> function. It serves as the entry point of execution. However, instead of doing everything itself we can <em>functionalize</em> the program (breaking it into individual functions) allowing <code>main()</code> to focus on the overall logic while calling other functions to do the actual work.</p>
+<p>This setup reflects a hierarchical calling structure, where <code>main()</code> is the top-level caller (<em>boss</em>) and delegates tasks to helper functions (<em>workers</em>).</p>
+<h4 id="function-definition">Function Definition</h4>
+<p>A function in <code>C</code> has the following definition:</p>
+<pre><code class="language-c">return_type function_name(parameter_list) {
+    statements
+}
+</code></pre>
+<p>The <code>return_type</code> tells the type returned from the function (<code>void</code> if there is no return value).
+<br>The <code>function_name</code> is the identifier for this function, it should be a clear, easy-to-understand name.
+<br>The <code>parameter_list</code> is a comma-separated list of input variables and their types
+<br>The <code>statements</code> are the actions taken by the function. If there is a <code>return_type</code> other than <code>void</code> the function <em>must</em> have a <code>return</code> statement in it.</p>
+<p>Example:</p>
+<pre><code class="language-c">int square(int number) {
+    return number * number;
+}
+</code></pre>
+<h4 id="function-prototype">Function Prototype</h4>
+<p>Recall that <code>C</code> executes code sequentially. If it sees a <em>function caller</em> before the definition of that function, it won't know what to do and the compiler will give an error. We can get around this, somewhat, by placing functions in the order that they are being called but this <em>quickly</em> becomes a mess and often can't even be fully achieved. </p>
+<p>To get around this, we can include a <em>prototype</em> near the start of the program that tells the compiler what a function looks like before it's used.</p>
+<pre><code class="language-c">int square(int number);
+</code></pre>
+<p>This prototype allows the compiler to check that the function call has the right signature and also ensures that the return type is compatible for whatever the function is being called to do.</p>
+<p>Prototypes <em>must</em> end in a semicolon <code>;</code> and do not have any of the statements listed. You can <em>optionally</em> omit the parameter names and only include types for the parameters</p>
+<pre><code class="language-c">int square(int);
+</code></pre>
+<p><strong>Note:</strong> the idea of <em>prototypes</em> didn't always exist in <code>C</code>. It is actually borrowed from <code>C++</code>. Before this, the compiler wouldn't check the behaviour of functions meaning that no errors would be thrown at compilation but this led to more issues at runtime due to improper use of functions.</p>
+<h5 id="argument-coercion">Argument Coercion</h5>
+<p>Function prototypes implicitly convert arguments to the appropriate type a process known as <strong>argument coercion</strong>. </p>
+<pre><code class="language-c">printf(&quot;%.3f\n&quot;, sqrt(4)); // this works despite sqrt expecting a double.
+//prints 2.000
+</code></pre>
+<p>We need to be careful with these coercions as if they are used incorrectly they can cause information to be lost. </p>
+<p>For example, if you pass a <code>double</code> to a function expecting an <code>int</code> the information after the decimal will be dropped. If that information was valuable this can lead to incorrect results. </p>
+<p>Furthermore, if a function expects a small type such as an <code>short</code> but we pass it a larger type such as a <code>long</code> we risk changing the value as any extra bits will be dropped from the <code>long</code>.</p>
+<h6 id="mixed-type-expressions">Mixed-Type Expressions</h6>
+<p>When we perform an operation which has multiple types, the compiler will make temporary copies of all the values to the <em>highest</em> type used: a process known as <strong>promotion</strong>. For example, if we have a <code>double</code> and a <code>float</code> everything is converted to a <code>double</code> because it is the higher size type.</p>
+<h3 id="function-call-stack">Function-Call Stack</h3>
+<p>A <strong>stack</strong> is a common data-structure. It is often compared with a pile of plates. Fresh plates are placed on the top (known as being <em>pushed</em> onto the stack) and when they are removed we also grab from the top (and <em>pop</em> off the stack).</p>
+<p>Stacks are <strong><em>last-in, first-out (LIFO)</em></strong>.</p>
+<p>The <em>function-call stack</em> is what supports the underlying function call and return for a program. When we call a function, we might call other functions. Each function needs to remember who to return its value to. The <em>function-call stack</em> makes this easy.</p>
+<p>Each time a function calls another function, we push a <em><em>stack frame</em> containing the </em>return address<em> for the new function to return to the old function. Once a function returns, the associated stack frame is popped and returns control to the return address that is specified in that stack frame. Because it is a stack, each function will </em>always* find its return address at the top of the stack, once it is used it is popped off the stack so the next function sees the correct address.</p>
+<p>If we push too many functions to the stack, we will eventually run out of memory and will have a <em>stack overflow</em> error crashing the program.</p>
+<h3 id="pass-arguments-by-value-and-by-reference">Pass Arguments by Value and by Reference</h3>
+<p>In programming, there are two ways to pass an argument into a function: <em>pass by value</em> and <em>pass by reference</em>.</p>
+<p><strong>Passing by value</strong> means that we <strong>copy</strong> the value of an argument into the function. Since the function then works on a copy, it does <em>not</em> affect the original variable's value. </p>
+<pre><code class="language-c">int c = 5;
+superFunction(c);           // will print 5000;
+printf(&quot;outside: %d\n&quot;, c); // will print 5
+
+void superFunction(int num){
+    num *= 1000;
+    printf(&quot;inside: %d\n&quot;, num);
+    return 
+}
+</code></pre>
+<p><strong>Passing by reference</strong> means that we pass the actual variable (or at least a reference to it) into the function. This means that the function <em>does</em> modify the original variable's value as a result.</p>
+<p>In <code>C</code> all arguments are passed by <em>value</em>. With that said, we can use pointers to achieve pass by reference functionality. </p>
+<h3 id="random-number-generation">Random-Number Generation</h3>
+<p>In <code>C</code> the standard library <code>&lt;stdlib.h&gt;</code> has a few useful functions that we can use to generate random numbers. In this course we will look at <code>rand()</code> and <code>srand()</code>.</p>
+<p>To create a random value we can simply use <code>rand()</code> as follows: <code>int value = rand();</code>. This will generate a random value between 0 and <code>RAND_MAX</code> (which is a symbolic constant defined in <code>&lt;stdlib.h&gt;</code> and is <em>at least</em> 32,767 but can be higher depending on system/compiler).
+    <br> Note: even though its defined as at least 32,767, the value is <em>always</em> of type <code>int</code> (or more clearly <code>signed int</code>) and not <code>short</code>. </p>
+<p>We often want to limit the range of possible values returned when we generate a random number. For example, if we wanted to simulate a dice roll, we would only want <code>1, 2, 3, 4, 5, 6</code> as our possible values but as we see <code>rand()</code> return between 0 and <code>RAND_MAX</code> which is way more numbers than we want. To get around this, we can use the <strong>modulo</strong> operator and work just with remainders. </p>
+<pre><code class="language-c">int diceValue = 1 + (rand() % 6) // note: rand() % 6 will return a number between 0 and 5. We add 1 to *shift* the result to 1 through 6.
+</code></pre>
+<p>This is known as <strong>scaling</strong>. In our example above, 6 is our <strong>scaling factor</strong> and adding one is our <strong>shift</strong>.</p>
+<h4 id="seeds-and-srand">Seeds and <code>srand()</code></h4>
+<p>Each subsequent call to <code>rand()</code> calculates a new random number based on the previous result. This works within a single execution of the program, however if we run the program again we will discover that it returns the <em>exact</em> same results the next time it is run. This is because <code>rand()</code> starts with a default <strong>seed</strong> or starting value (usually just 1). </p>
+<p>To get randomized results for every execution, we can use the <code>srand()</code> function to <strong><em>s</em></strong><em>eed</em> <code>rand()</code>.  Note that this function just changes the seed value that will be used by <code>rand()</code>. After seeding, we still use the regular <code>rand()</code> function to generate our random numbers. That is, we only run <code>srand()</code> once to set things up. We can pass any number to <code>srand()</code> but if we hardcode that number in the program we will end up with the same issue, namely that every execution will start with the same seed and thus have the same results. </p>
+<h5 id="timenull"><code>time(NULL)</code></h5>
+<p>To get around this, we can use <code>time(NULL)</code> as our seed: <code>srand(time(NULL));</code>. <code>time(NULL)</code> returns the number of seconds that have passed since midnight <code>Jan 1, 1970</code> and therefore is changing every second. </p>
+<h4 id="secure-random-number-generation">Secure Random Number Generation</h4>
+<p>The standard C <code>rand()</code> function is fine for textbook examples but is not suitable for secure or industrial-strength applications.</p>
+<p>According to the C standard:</p>
+<blockquote>
+<p>"There are no guarantees as to the quality of the random sequence produced, and some implementations are known to produce sequences with distressingly non-random low-order bits."</p>
+</blockquote>
+<h5 id="secure-alternatives-for-production">Secure Alternatives for Production</h5>
+<p>For cryptography or any security-critical task, <code>rand()</code> is <strong><em>not</em></strong> safe. Instead, use platform-specific secure random-number generators:</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Recommended Function</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows</td>
+<td><code>BCryptGenRandom</code></td>
+<td>Part of the Cryptography API: Next Generation (<a href="https://docs.microsoft.com/en-us/windows/win32/seccng/cng-portal">docs</a>)</td>
+</tr>
+<tr>
+<td>Linux / POSIX</td>
+<td><code>random</code></td>
+<td>View details with <code>man random</code> in terminal</td>
+</tr>
+<tr>
+<td>macOS</td>
+<td><code>arc4random</code></td>
+<td>View details with <code>man arc4random</code> in terminal</td>
+</tr>
+</tbody>
+</table>
+<p>Refer to the CERT Secure Coding Guideline:<br />
+<a href="https://wiki.sei.cmu.edu/confluence/display/c/MSC30-C">MSC30-C: Do not use the rand() function for generating pseudorandom numbers</a></p>
+<p>Always use secure generators when random numbers must not be predictable.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../wk_two/" class="btn btn-neutral float-left" title="Week 2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../wk_four/" class="btn btn-neutral float-right" title="Week 4">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../wk_two/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../wk_four/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

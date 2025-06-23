@@ -210,9 +210,11 @@ printf("%.2f\n", result);
 <p>Procedure for solving a problem with <em>actions to execute</em> and <em>execution order</em> of those actions (program control).</p>
 <h2 id="control-structures">Control Structures</h2>
 <p><strong>Sequence</strong>: Statements execute in order.</p>
-<p><strong>Selection</strong>:
-  - <code>if</code>, <code>if...else</code>, <code>switch</code>: Choose based on condition.
-  - <strong>Ternary Operator</strong> (<code>?:</code>): Concise <code>if...else</code>.</p>
+<p><strong>Selection</strong>:</p>
+<ul>
+<li><code>if</code>, <code>if...else</code>, <code>switch</code>: Choose based on condition.</li>
+<li><strong>Ternary Operator</strong> (<code>?:</code>): Concise <code>if...else</code>.</li>
+</ul>
 <pre><code class="language-c">    puts(x &gt; 0 ? &quot;good&quot; : &quot;bad&quot;);
 </code></pre>
 <p><strong>Iteration</strong>: <code>for</code>, <code>while</code>, <code>do...while</code>: Repeat until condition met.</p>
@@ -223,23 +225,30 @@ printf("%.2f\n", result);
 <pre><code class="language-c">for(int i = 0; i &lt; 10; ++i) { ... }
 </code></pre>
 <h2 id="functions">Functions</h2>
-<p><strong>Purpose</strong>: Self-contained code for specific tasks.
-They help:
-- <strong>Divide and Conquer</strong>: Build programs from reusable parts.
-- <strong>Abstraction</strong>: Hide implementation details behind function names.
-- <strong>Decomposition</strong>: Break complex problems into smaller functions.</p>
+<p>Self-contained code for specific tasks.</p>
+<p>They help:</p>
+<ul>
+<li><strong>Divide and Conquer</strong>: Build programs from reusable parts.</li>
+<li><strong>Abstraction</strong>: Hide implementation details behind function names.</li>
+<li><strong>Decomposition</strong>: Break complex problems into smaller functions.</li>
+</ul>
 <p><strong>Structure</strong>: <code>main()</code> delegates tasks to helper functions.</p>
 <h2 id="function-definition">Function Definition</h2>
-<p><strong>Syntax</strong>:</p>
 <pre><code class="language-c">return_type function_name(parameters) { statements }
 </code></pre>
 <p><strong>Example</strong>:</p>
 <pre><code class="language-c">int square(int number) { return number * number; }
 </code></pre>
 <h2 id="function-prototype">Function Prototype</h2>
-<p><strong>Purpose</strong>: Declare function before use to avoid errors.
+<p>Do to C being sequential, we must declare function before use to avoid errors.
+A prototype allows us to declare a function up front and define it later.
 <br><strong>Example</strong>:</p>
 <pre><code class="language-c">int square(int);
+...
+int square(int i)
+{
+  return i*i;
+}
 </code></pre>
 <p><br><strong>Argument Coercion</strong>: Converts arguments to expected types; may cause data loss (e.g., <code>double</code> to <code>int</code> drops decimals).</p>
 <h2 id="function-call-stack">Function-Call Stack</h2>
@@ -251,16 +260,15 @@ They help:
 <p>void superFunction(int num) { num *= 1000; } // No effect on original</p>
 <p><strong>By Reference</strong>: Use pointers in C to modify original.</p>
 <h2 id="random-number-generation">Random-Number Generation</h2>
-<p><strong>Functions</strong> (<code>&lt;stdlib.h&gt;</code>):</p>
+<p>From <code>&lt;stdlib.h&gt;</code>:</p>
 <ul>
 <li><code>rand()</code>: Returns a number between 0 and <code>RAND_MAX</code> (≥32,767).</li>
 <li><code>srand(seed)</code>: Sets seed.</li>
 </ul>
-<p><strong>Scaling</strong>:
-Use mod <code>%</code> and the number of values your range is in. Offset it as needed.</p>
+<p>Use mod <code>%</code> and the number of values your range is in. Offset it as needed.</p>
 <pre><code class="language-c">int dice = 1 + (rand() % 6); // 1 to 6
 </code></pre>
-<p><strong>Seeding</strong>: Use <code>srand(time(NULL))</code> for unique sequences.</p>
+<p>Use <code>srand(time(NULL))</code> for unique sequences.</p>
 <h2 id="enumerated-types">Enumerated Types</h2>
 <p>Programmer-defined types listing all valid values.</p>
 <p><strong>Syntax</strong>:</p>

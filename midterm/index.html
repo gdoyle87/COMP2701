@@ -206,24 +206,26 @@ char name[20];
 scanf(&quot;%19s&quot;, name); // No &amp; for strings
 </code></pre>
 <h2 id="operators">Operators</h2>
-<p><strong>Arithmetic</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (modulus for integers, integer division truncates).
+<p><strong>Arithmetic</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> 
 <br><strong>Assignment</strong>: <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>.
 <br><strong>Comparison</strong>: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> (return 1 or 0).
 <br><strong>Logical</strong>: <code>&amp;&amp;</code> (AND), <code>||</code> (OR), <code>!</code> (NOT), uses short-circuit evaluation.</p>
-<p><strong>Casting</strong>: Convert types for precision.</p>
+<p><strong>Note</strong>: We can use casting to convert types for precision (for example, keeping decimal
+places when dividing two integers by casting one to a float).</p>
 <pre><code>float result = (float)2 / 3; // 0.67
 printf("%.2f\n", result);
 </code></pre>
 <h2 id="algorithms">Algorithms</h2>
 <p>Procedure for solving a problem with <em>actions to execute</em> and <em>execution order</em> of those actions (program control).</p>
 <h2 id="control-structures">Control Structures</h2>
+<p>Three types of control structures: <strong>sequence</strong>, <strong>selection</strong>, and <strong>iteration</strong>.</p>
 <h3 id="sequence">Sequence</h3>
 <p>Statements execute in order.</p>
 <h3 id="selection">Selection</h3>
 <p>Choose based on condition.
  <code>if</code>, <code>if...else</code>, <code>switch</code>: </p>
 <ul>
-<li><strong>Ternary Operator</strong> (<code>?:</code>): Concise <code>if...else</code>.</li>
+<li><strong>Ternary Operator</strong> (<code>?:</code>) is a concise <code>if...else</code>.</li>
 </ul>
 <pre><code class="language-c">    puts(x &gt; 0 ? &quot;good&quot; : &quot;bad&quot;);
 </code></pre>
@@ -244,7 +246,6 @@ printf("%.2f\n", result);
 <li><strong>Abstraction</strong>: Hide implementation details behind function names.</li>
 <li><strong>Decomposition</strong>: Break complex problems into smaller functions.</li>
 </ul>
-<p><strong>Structure</strong>: <code>main()</code> delegates tasks to helper functions.</p>
 <h2 id="function-definition">Function Definition</h2>
 <pre><code class="language-c">return_type function_name(parameters) { statements }
 </code></pre>

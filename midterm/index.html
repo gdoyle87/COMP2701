@@ -220,24 +220,26 @@ scanf(&quot;%19s&quot;, name); // No &amp; for strings
 <p><strong>Iteration</strong>: <code>for</code>, <code>while</code>, <code>do...while</code>: Repeat until condition met.</p>
 <h2 id="incrementdecrement">Increment/Decrement</h2>
 <p><strong>Pre-increment</strong> (<code>++x</code>): Increment first.
-<strong>Post-increment</strong> (<code>x++</code>): Use, then increment.
-Use pre-increment in loops:</p>
+<br><strong>Post-increment</strong> (<code>x++</code>): Use, then increment.</p>
+<p>Use pre-increment in loops:</p>
 <pre><code class="language-c">for(int i = 0; i &lt; 10; ++i) { ... }
 </code></pre>
 <h2 id="functions">Functions</h2>
 <p><strong>Purpose</strong>: Self-contained code for specific tasks.
-<strong>Key Terms</strong>:
-- <strong>Divide and Conquer</strong>: Build programs from reusable parts.
-- <strong>Abstraction</strong>: Hide implementation details behind function names.
-- <strong>Decomposition</strong>: Break complex problems into smaller functions.
-<strong>Structure</strong>: <code>main()</code> delegates tasks to helper functions.</p>
+<br><strong>Key Terms</strong>:</p>
+<ul>
+<li><strong>Divide and Conquer</strong>: Build programs from reusable parts.</li>
+<li><strong>Abstraction</strong>: Hide implementation details behind function names.</li>
+<li><strong>Decomposition</strong>: Break complex problems into smaller functions.</li>
+</ul>
+<p><strong>Structure</strong>: <code>main()</code> delegates tasks to helper functions.</p>
 <h2 id="function-definition">Function Definition</h2>
-<p><strong>Syntax</strong>:
-  <code>c
-  return_type function_name(parameters) { statements }</code>
-<strong>Example</strong>:
-  <code>c
-  int square(int number) { return number * number; }</code></p>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="language-c">return_type function_name(parameters) { statements }
+</code></pre>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-c">int square(int number) { return number * number; }
+</code></pre>
 <h2 id="function-prototype">Function Prototype</h2>
 <p><strong>Purpose</strong>: Declare function before use to avoid errors.
 <strong>Example</strong>:</p>

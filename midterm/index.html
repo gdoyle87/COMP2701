@@ -253,7 +253,7 @@ printf("%.2f\n", result);
 <pre><code class="language-c">int square(int number) { return number * number; }
 </code></pre>
 <h2 id="function-prototype">Function Prototype</h2>
-<p>Do to C being sequential, we must declare function before use to avoid errors.
+<p>Due to C being sequential, we must declare function before use to avoid errors.
 A prototype allows us to declare a function up front and define it later.
 <br>Example:</p>
 <pre><code class="language-c">int square(int);
@@ -263,16 +263,18 @@ int square(int i)
   return i*i;
 }
 </code></pre>
-<p><br><strong>Argument Coercion</strong>: Converts arguments to expected types; may cause data loss (e.g., <code>double</code> to <code>int</code> drops decimals).</p>
+<p><br><strong>Argument Coercion</strong>: When passing arguments to a function or assigning 
+between variables, C will automatically convert values to the expected type if needed.
+This may cause data loss (e.g., <code>double</code> to <code>int</code> drops decimals).</p>
 <h2 id="function-call-stack">Function-Call Stack</h2>
 <p><strong>Stack</strong>: Last-in, first-out (LIFO) structure for function calls/returns.
 <br><strong>Behavior</strong>: Pushes frame with return address on call, pops on return.
 <br><strong>Risk</strong>: Stack overflow from excessive calls.</p>
 <h2 id="pass-arguments">Pass Arguments</h2>
-<p><strong>By Value</strong>: Copies argument; original unchanged.</p>
+<p><strong>By Value</strong>: Copies argument; original unchanged. All arguments in C are passed by value.</p>
 <pre><code class="language-c">void superFunction(int num) { num *= 1000; } // No effect on original
 </code></pre>
-<p><strong>By Reference</strong>: Use pointers in C to modify original.</p>
+<p><strong>By Reference</strong>: Modifies original. Need to use pointers to achieve this in C.</p>
 <h2 id="random-number-generation">Random-Number Generation</h2>
 <p>From <code>&lt;stdlib.h&gt;</code>:</p>
 <ul>

@@ -198,14 +198,14 @@ char name[20];
 scanf(&quot;%19s&quot;, name); // No &amp; for strings
 </code></pre>
 <h2 id="operators">Operators</h2>
-<p><strong>Arithmetic</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (modulus for integers, integer division truncates).</p>
+<p><strong>Arithmetic</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (modulus for integers, integer division truncates).
+<br><strong>Assignment</strong>: <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>.
+<br><strong>Comparison</strong>: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> (return 1 or 0).
+<br><strong>Logical</strong>: <code>&amp;&amp;</code> (AND), <code>||</code> (OR), <code>!</code> (NOT), uses short-circuit evaluation.</p>
 <p><strong>Casting</strong>: Convert types for precision.</p>
 <pre><code>float result = (float)2 / 3; // 0.67
 printf("%.2f\n", result);
 </code></pre>
-<p><br><strong>Assignment</strong>: <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>.
-<br><strong>Comparison</strong>: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> (return 1 or 0).
-<br><strong>Logical</strong>: <code>&amp;&amp;</code> (AND), <code>||</code> (OR), <code>!</code> (NOT), uses short-circuit evaluation.</p>
 <h2 id="algorithms">Algorithms</h2>
 <p>Procedure for solving a problem with <em>actions to execute</em> and <em>execution order</em> of those actions (program control).</p>
 <h2 id="control-structures">Control Structures</h2>
@@ -271,33 +271,27 @@ int square(int i)
 <p>Use <code>srand(time(NULL))</code> for unique sequences.</p>
 <h2 id="enumerated-types">Enumerated Types</h2>
 <p>Programmer-defined types listing all valid values.</p>
-<p><strong>Syntax</strong>:</p>
 <pre><code class="language-c">enum DaysOfWeek {SUN, MON, TUES, WED, THU, FRI, SAT};
 enum DaysOfWeek today = MON; // Assigns 1
 </code></pre>
-<p><strong>Values</strong>: Default starts at 0, increments by 1; can set explicit values.</p>
+<p>Default starts at 0, increments by 1; can set explicit values.</p>
 <pre><code class="language-c">enum Status {CONTINUE = 0, WON = 1, LOST = 2};
 </code></pre>
 <h2 id="storage-classes">Storage Classes</h2>
-<p>Define variable attributes: <strong>storage duration</strong> (lifetime), <strong>scope</strong> (visibility), <strong>linkage</strong> (file access).</p>
-<p><code>auto</code>: Default for local variables; stored on stack (rarely used explicitly).</p>
-<p><code>register</code>: Requests CPU register storage (mostly obsolete; ignored by modern compilers).</p>
-<p><code>static</code>: Persistent lifetime; local retains value between calls, global restricts to file.</p>
-<p><code>extern</code>: Declares variable/function in another file; no storage created.</p>
+<p>Storage classes set some attributes of variables such as: <strong>storage duration</strong> (lifetime), <strong>scope</strong> (visibility), <strong>linkage</strong> (file access).</p>
+<p><code>auto</code>: Default for local variables; stored on stack (rarely used explicitly).
+<br><code>register</code>: Requests CPU register storage (mostly obsolete; ignored by modern compilers).
+<br><code>static</code>: Persistent lifetime; local retains value between calls, global restricts to file.
+<br><code>extern</code>: Declares variable/function in another file; no storage created.</p>
 <h2 id="scope">Scope</h2>
-<p><strong>Function Scope</strong>: Labels (e.g., <code>goto</code>, <code>switch</code>) visible in function.</p>
-<p><strong>File Scope</strong>: Global variables, function prototypes outside functions; visible from declaration to file end.</p>
-<p><strong>Block Scope</strong>: Variables in <code>{}</code>; inner blocks can hide outer names (avoid this).</p>
-<p><strong>Function-Prototype Scope</strong>: Parameter names in prototypes (optional, ignored by compiler).</p>
+<p><strong>Function Scope</strong>: Labels (e.g., <code>goto</code>, <code>switch</code>) visible in function.
+<br><strong>File Scope</strong>: Global variables, function prototypes outside functions; visible from declaration to file end.
+<br><strong>Block Scope</strong>: Variables in <code>{}</code>; inner blocks can hide outer names (avoid this).
+<br><strong>Function-Prototype Scope</strong>: Parameter names in prototypes (optional, ignored by compiler).</p>
 <h2 id="memory-regions">Memory Regions</h2>
 <p><strong>Stack</strong>: Automatic variables; allocated/deallocated with block scope.
 <br><strong>Static</strong>: Global/static local variables; persist entire program, initialized once.
-<br><strong>Heap</strong>: Dynamic memory (via <code>malloc()</code>, <code>calloc()</code>, <code>realloc()</code>); manually managed.
-<br><strong>The Heap vs. A Heap</strong>:</p>
-<ul>
-<li><strong>The Heap</strong>: Memory pool for dynamic allocation; no order.</li>
-<li><strong>A Heap</strong>: Ordered tree-based data structure (e.g., min/max heap).</li>
-</ul>
+<br><strong>Heap</strong>: Dynamic memory (via <code>malloc()</code>, <code>calloc()</code>, <code>realloc()</code>); manually managed.</p>
 <h2 id="arrays">Arrays</h2>
 <p>Group of same-type elements stored contiguously in memory.</p>
 <p>Use array name with 0-based index to access an element (e.g., <code>my_array[3]</code> for fourth element).</p>
@@ -329,8 +323,8 @@ scanf(&quot;%19s&quot;, buf); // No &amp; needed, size limits input
 int a_arr[3]; // New each call, garbage values
 </code></pre>
 <h2 id="passing-an-array-to-a-function">Passing an Array to a Function</h2>
-<p><strong>Syntax</strong>: Use array name without brackets (e.g., <code>myFunc(myArr)</code>).</p>
-<p><strong>Behavior</strong>: Passes pointer to first element; function modifies original array (pass by reference).</p>
+<p>Use array name without brackets (e.g., <code>myFunc(myArr)</code>).</p>
+<p>Passes pointer to first element; function modifies original array (pass by reference).</p>
 <p><strong>Const Arrays</strong>: Use <code>const</code> to prevent modification (e.g., for searching).</p>
 <pre><code class="language-c">void searchArray(const int arr[], size_t size);
 </code></pre>
@@ -345,7 +339,7 @@ int a_arr[3]; // New each call, garbage values
 <pre><code class="language-c">int arr[3][3] = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}}; // Readable
 int arr[3][3] = {0, 1, 2, 3, 4, 5, 6, 7, 8}; // Same memory layout
 </code></pre>
-<p><strong>Passing to Functions</strong>: Specify all dimensions except first (e.g., <code>void printArray(int arr[][3], size_t nRows)</code>).</p>
+<p><strong>Passing to Functions</strong>: You must specify all dimension sizes except first (e.g., <code>void printArray(int arr[][3], size_t nRows)</code>).</p>
 <p><strong>Looping</strong>: Use descriptive indices (e.g., <code>row</code>, <code>col</code>) instead of <code>i</code>, <code>j</code>.</p>
 <pre><code class="language-c">for (size_t row = 0; row &lt; 3; ++row) {
     for (size_t col = 0; col &lt; 3; ++col) {
@@ -356,8 +350,7 @@ int arr[3][3] = {0, 1, 2, 3, 4, 5, 6, 7, 8}; // Same memory layout
 </code></pre>
 <h2 id="variable-length-arrays-vlas">Variable-Length Arrays (VLAs)</h2>
 <p>Arrays sized at runtime (e.g., <code>int arr[size]</code> where <code>size</code> is user input).</p>
-<p><strong>Limitation</strong>: Not supported by all compilers; Bob says <strong>do not use</strong> in this course.</p>
-<p><strong>Alternative</strong>: Use <code>malloc()</code>, <code>calloc()</code>, or <code>realloc()</code> for dynamic arrays.</p>
+<p>Bob says <strong>do not use</strong> in this course.</p>
               
             </div>
           </div><footer>

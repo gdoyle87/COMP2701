@@ -115,6 +115,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#static-vs-automatic-arrays">Static vs Automatic Arrays</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#passing-an-array-to-a-function">Passing an Array to a Function</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#multi-dimensional-arrays">Multi-Dimensional Arrays</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#variable-length-arrays-vlas">Variable-Length Arrays (VLAs)</a>
@@ -164,228 +166,182 @@ int main(void) {
 }
 </code></pre>
 <h2 id="variables">Variables</h2>
-<ul>
-<li><strong>Statically Typed</strong>: Declare type before use (e.g., <code>int</code>, <code>float</code>, <code>char</code>).</li>
-<li><strong>Naming Rules</strong>: Start with letter/underscore, use letters/digits/underscores.</li>
-</ul>
+<p><strong>Statically Typed</strong>: Declare type before use (e.g., <code>int</code>, <code>float</code>, <code>char</code>).
+<strong>Naming Rules</strong>: Start with letter/underscore, use letters/digits/underscores.</p>
 <pre><code class="language-c">int a = 3;
 float b = 5.5;
 char c = 'A';
 </code></pre>
 <h2 id="preprocessor-directives">Preprocessor Directives</h2>
-<ul>
-<li><strong>#include</strong>: Import library functions (e.g., <code>#include &lt;stdio.h&gt;</code>).</li>
-<li><strong>#define</strong>: Define constants to avoid magic numbers.</li>
-</ul>
+<p><strong>#include</strong>: Import library functions (e.g., <code>#include &lt;stdio.h&gt;</code>).
+<strong>#define</strong>: Define constants to avoid magic numbers.</p>
 <pre><code class="language-c">#define MAX 100
 for(int i = 0; i &lt; MAX; ++i) { ... }
 </code></pre>
 <h2 id="inputoutput">Input/Output</h2>
-<ul>
-<li><strong>Output</strong>:</li>
-<li><code>puts()</code>: Prints string with automatic newline.</li>
-<li><code>printf()</code>: Uses format specifiers (<code>%d</code>, <code>%c</code>, <code>%f</code>) for dynamic output, no automatic newline.
+<p><strong>Output</strong>:
+ - <code>puts()</code>: Prints string with automatic newline.
+ - <code>printf()</code>: Uses format specifiers (<code>%d</code>, <code>%c</code>, <code>%f</code>) for dynamic output, no automatic newline.
     <code>c
-    printf("You entered %d.\n", number);</code></li>
-<li><strong>Input</strong>:</li>
-<li><code>scanf()</code>: Reads input with format specifiers, requires variable address (<code>&amp;</code>) except for strings.
+    printf("You entered %d.\n", number);</code>
+<strong>Input</strong>:
+ - <code>scanf()</code>: Reads input with format specifiers, requires variable address (<code>&amp;</code>) except for strings.
     <code>c
     int num;
     scanf("%d", &amp;num);
     char name[20];
-    scanf("%19s", name); // No &amp; for strings</code></li>
-</ul>
+    scanf("%19s", name); // No &amp; for strings</code></p>
 <h2 id="operators">Operators</h2>
-<ul>
-<li><strong>Arithmetic</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (modulus for integers, integer division truncates).</li>
-<li><strong>Casting</strong>: Convert types for precision.
+<p><strong>Arithmetic</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (modulus for integers, integer division truncates).
+ - <strong>Casting</strong>: Convert types for precision.
     <code>c
     float result = (float)2 / 3; // 0.67
-    printf("%.2f\n", result);</code></li>
-<li><strong>Assignment</strong>: <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>.</li>
-<li><strong>Comparison</strong>: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> (return 1 or 0).</li>
-<li><strong>Logical</strong>: <code>&amp;&amp;</code> (AND), <code>||</code> (OR), <code>!</code> (NOT), uses short-circuit evaluation.</li>
-</ul>
+    printf("%.2f\n", result);</code>
+<strong>Assignment</strong>: <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>.
+<strong>Comparison</strong>: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> (return 1 or 0).
+<strong>Logical</strong>: <code>&amp;&amp;</code> (AND), <code>||</code> (OR), <code>!</code> (NOT), uses short-circuit evaluation.</p>
 <h2 id="algorithms">Algorithms</h2>
 <p>Procedure for solving a problem with actions to execute and execution order (program control).</p>
 <h2 id="control-structures">Control Structures</h2>
-<ul>
-<li><strong>Sequence</strong>: Statements execute in order.<ul>
-<li><strong>Selection</strong>:</li>
-<li><code>if</code>, <code>if...else</code>, <code>switch</code>: Choose based on condition.</li>
-<li><strong>Ternary Operator</strong> (<code>?:</code>): Concise <code>if...else</code>.</li>
-</ul>
-</li>
-</ul>
+<p><strong>Sequence</strong>: Statements execute in order.
+  - <strong>Selection</strong>:
+  - <code>if</code>, <code>if...else</code>, <code>switch</code>: Choose based on condition.
+  - <strong>Ternary Operator</strong> (<code>?:</code>): Concise <code>if...else</code>.</p>
 <pre><code class="language-c">    puts(x &gt; 0 ? &quot;good&quot; : &quot;bad&quot;);
 </code></pre>
-<ul>
-<li><strong>Iteration</strong>: <code>for</code>, <code>while</code>, <code>do...while</code>: Repeat until condition met.</li>
-</ul>
+<p><strong>Iteration</strong>: <code>for</code>, <code>while</code>, <code>do...while</code>: Repeat until condition met.</p>
 <h2 id="incrementdecrement">Increment/Decrement</h2>
-<ul>
-<li><strong>Pre-increment</strong> (<code>++x</code>): Increment first.</li>
-<li><strong>Post-increment</strong> (<code>x++</code>): Use, then increment.</li>
-<li>Use pre-increment in loops:</li>
-</ul>
+<p><strong>Pre-increment</strong> (<code>++x</code>): Increment first.
+<strong>Post-increment</strong> (<code>x++</code>): Use, then increment.
+Use pre-increment in loops:</p>
 <pre><code class="language-c">for(int i = 0; i &lt; 10; ++i) { ... }
 </code></pre>
 <h2 id="functions">Functions</h2>
-<ul>
-<li><strong>Purpose</strong>: Self-contained code for specific tasks.</li>
-<li><strong>Key Terms</strong>:</li>
-<li><strong>Divide and Conquer</strong>: Build programs from reusable parts.</li>
-<li><strong>Abstraction</strong>: Hide implementation details behind function names.</li>
-<li><strong>Decomposition</strong>: Break complex problems into smaller functions.</li>
-<li><strong>Structure</strong>: <code>main()</code> delegates tasks to helper functions.</li>
-</ul>
+<p><strong>Purpose</strong>: Self-contained code for specific tasks.
+<strong>Key Terms</strong>:
+- <strong>Divide and Conquer</strong>: Build programs from reusable parts.
+- <strong>Abstraction</strong>: Hide implementation details behind function names.
+- <strong>Decomposition</strong>: Break complex problems into smaller functions.
+<strong>Structure</strong>: <code>main()</code> delegates tasks to helper functions.</p>
 <h2 id="function-definition">Function Definition</h2>
-<ul>
-<li><strong>Syntax</strong>:
+<p><strong>Syntax</strong>:
   <code>c
-  return_type function_name(parameters) { statements }</code></li>
-<li><strong>Example</strong>:
+  return_type function_name(parameters) { statements }</code>
+<strong>Example</strong>:
   <code>c
-  int square(int number) { return number * number; }</code></li>
-</ul>
+  int square(int number) { return number * number; }</code></p>
 <h2 id="function-prototype">Function Prototype</h2>
-<ul>
-<li><strong>Purpose</strong>: Declare function before use to avoid errors.</li>
-<li><strong>Example</strong>:
-  <code>c
-  int square(int);</code></li>
-<li><strong>Argument Coercion</strong>: Converts arguments to expected types; may cause data loss (e.g., <code>double</code> to <code>int</code> drops decimals).</li>
-</ul>
+<p><strong>Purpose</strong>: Declare function before use to avoid errors.
+<strong>Example</strong>:</p>
+<pre><code class="language-c">int square(int);
+</code></pre>
+<p><strong>Argument Coercion</strong>: Converts arguments to expected types; may cause data loss (e.g., <code>double</code> to <code>int</code> drops decimals).</p>
 <h2 id="function-call-stack">Function-Call Stack</h2>
-<ul>
-<li><strong>Stack</strong>: Last-in, first-out (LIFO) structure for function calls/returns.</li>
-<li><strong>Behavior</strong>: Pushes frame with return address on call, pops on return.</li>
-<li><strong>Risk</strong>: Stack overflow from excessive calls.</li>
-</ul>
+<p><strong>Stack</strong>: Last-in, first-out (LIFO) structure for function calls/returns.
+<strong>Behavior</strong>: Pushes frame with return address on call, pops on return.
+<strong>Risk</strong>: Stack overflow from excessive calls.</p>
 <h2 id="pass-arguments">Pass Arguments</h2>
-<ul>
-<li><strong>By Value</strong>: Copies argument; original unchanged.
+<p><strong>By Value</strong>: Copies argument; original unchanged.
   <code>c
-  void superFunction(int num) { num *= 1000; } // No effect on original</code></li>
-<li><strong>By Reference</strong>: Use pointers in C to modify original.</li>
-</ul>
+  void superFunction(int num) { num *= 1000; } // No effect on original</code>
+<strong>By Reference</strong>: Use pointers in C to modify original.</p>
 <h2 id="random-number-generation">Random-Number Generation</h2>
-<ul>
-<li><strong>Functions</strong> (<code>&lt;stdlib.h&gt;</code>):</li>
-<li><code>rand()</code>: Returns 0 to <code>RAND_MAX</code> (≥32,767).</li>
-<li><code>srand(seed)</code>: Sets seed.</li>
-<li><strong>Scaling</strong>:
-  <code>c
-  int dice = 1 + (rand() % 6); // 1 to 6</code></li>
-<li><strong>Seeding</strong>: Use <code>srand(time(NULL))</code> for unique sequences.</li>
-</ul>
+<p><strong>Functions</strong> (<code>&lt;stdlib.h&gt;</code>):
+ - <code>rand()</code>: Returns 0 to <code>RAND_MAX</code> (≥32,767).
+ - <code>srand(seed)</code>: Sets seed.
+<strong>Scaling</strong>:</p>
+<pre><code class="language-c">int dice = 1 + (rand() % 6); // 1 to 6
+</code></pre>
+<p><strong>Seeding</strong>: Use <code>srand(time(NULL))</code> for unique sequences.</p>
 <h2 id="enumerated-types">Enumerated Types</h2>
-<ul>
-<li><strong>Definition</strong>: Programmer-defined types listing all valid values.</li>
-<li><strong>Syntax</strong>:
+<p><strong>Definition</strong>: Programmer-defined types listing all valid values.
+<strong>Syntax</strong>:
   <code>c
   enum DaysOfWeek {SUN, MON, TUES, WED, THU, FRI, SAT};
-  enum DaysOfWeek today = MON; // Assigns 1</code></li>
-<li><strong>Values</strong>: Default starts at 0, increments by 1; can set explicit values.
+  enum DaysOfWeek today = MON; // Assigns 1</code>
+<strong>Values</strong>: Default starts at 0, increments by 1; can set explicit values.
   <code>c
-  enum Status {CONTINUE = 0, WON = 1, LOST = 2};</code></li>
-</ul>
+  enum Status {CONTINUE = 0, WON = 1, LOST = 2};</code></p>
 <h2 id="storage-classes">Storage Classes</h2>
-<ul>
-<li><strong>Purpose</strong>: Define variable attributes: <strong>storage duration</strong> (lifetime), <strong>scope</strong> (visibility), <strong>linkage</strong> (file access).</li>
-<li><strong>Types</strong>:</li>
-<li><code>auto</code>: Default for local variables; stored on stack (rarely used explicitly).</li>
-<li><code>register</code>: Requests CPU register storage (mostly obsolete; ignored by modern compilers).</li>
-<li><code>static</code>: Persistent lifetime; local retains value between calls, global restricts to file.</li>
-<li><code>extern</code>: Declares variable/function in another file; no storage created.</li>
-</ul>
+<p><strong>Purpose</strong>: Define variable attributes: <strong>storage duration</strong> (lifetime), <strong>scope</strong> (visibility), <strong>linkage</strong> (file access).
+<strong>Types</strong>:
+  - <code>auto</code>: Default for local variables; stored on stack (rarely used explicitly).
+  - <code>register</code>: Requests CPU register storage (mostly obsolete; ignored by modern compilers).
+  - <code>static</code>: Persistent lifetime; local retains value between calls, global restricts to file.
+  - <code>extern</code>: Declares variable/function in another file; no storage created.</p>
 <h2 id="scope">Scope</h2>
-<ul>
-<li><strong>Definition</strong>: Where an identifier can be referenced.</li>
-<li><strong>Types</strong>:</li>
-<li><strong>Function Scope</strong>: Labels (e.g., <code>goto</code>, <code>switch</code>) visible in function.</li>
-<li><strong>File Scope</strong>: Global variables, function prototypes outside functions; visible from declaration to file end.</li>
-<li><strong>Block Scope</strong>: Variables in <code>{}</code>; inner blocks can hide outer names (avoid this).</li>
-<li><strong>Function-Prototype Scope</strong>: Parameter names in prototypes (optional, ignored by compiler).</li>
-</ul>
+<p><strong>Definition</strong>: Where an identifier can be referenced.
+<strong>Types</strong>:
+  - <strong>Function Scope</strong>: Labels (e.g., <code>goto</code>, <code>switch</code>) visible in function.
+  - <strong>File Scope</strong>: Global variables, function prototypes outside functions; visible from declaration to file end.
+  - <strong>Block Scope</strong>: Variables in <code>{}</code>; inner blocks can hide outer names (avoid this).
+  - <strong>Function-Prototype Scope</strong>: Parameter names in prototypes (optional, ignored by compiler).</p>
 <h2 id="memory-regions">Memory Regions</h2>
-<ul>
-<li><strong>Stack</strong>: Automatic variables; allocated/deallocated with block scope.</li>
-<li><strong>Static</strong>: Global/static local variables; persist entire program, initialized once.</li>
-<li><strong>Heap</strong>: Dynamic memory (via <code>malloc()</code>, <code>calloc()</code>, <code>realloc()</code>); manually managed.</li>
-<li><strong>The Heap vs. A Heap</strong>:</li>
-<li><strong>The Heap</strong>: Memory pool for dynamic allocation; no order.</li>
-<li><strong>A Heap</strong>: Ordered tree-based data structure (e.g., min/max heap).</li>
-</ul>
+<p><strong>Stack</strong>: Automatic variables; allocated/deallocated with block scope.
+<strong>Static</strong>: Global/static local variables; persist entire program, initialized once.
+<strong>Heap</strong>: Dynamic memory (via <code>malloc()</code>, <code>calloc()</code>, <code>realloc()</code>); manually managed.
+<strong>The Heap vs. A Heap</strong>:
+  - <strong>The Heap</strong>: Memory pool for dynamic allocation; no order.
+  - <strong>A Heap</strong>: Ordered tree-based data structure (e.g., min/max heap).</p>
 <h2 id="arrays">Arrays</h2>
-<ul>
-<li><strong>Definition</strong>: Group of same-type elements stored contiguously in memory.</li>
-<li><strong>Access</strong>: Use array name with 0-based index (e.g., <code>my_array[3]</code> for fourth element).</li>
-<li><strong>Definition Syntax</strong>:
-  <code>c
-  int my_arr[3]; // Static size, cannot be resized</code></li>
-<li><strong>Best Practice</strong>: Use <code>#define</code> for array size to avoid magic numbers.</li>
-<li><strong>Looping</strong>: Use <code>size_t</code> for index in loops.
-  <code>c
-  for (size_t i = 0; i &lt; 5; ++i) { n[i] = i; }</code></li>
-<li><strong>Initializer Lists</strong>:
-  <code>c
-  int n[5] = {32, 27, 64, 18, 95}; // Sets values
-  int n[5] = {0}; // Sets all to 0</code></li>
-</ul>
+<p><strong>Definition</strong>: Group of same-type elements stored contiguously in memory.
+<strong>Access</strong>: Use array name with 0-based index (e.g., <code>my_array[3]</code> for fourth element).
+<strong>Definition Syntax</strong>:</p>
+<pre><code class="language-c">int my_arr[3]; // Static size, cannot be resized
+</code></pre>
+<p><strong>Best Practice</strong>: Use <code>#define</code> for array size to avoid magic numbers.
+<strong>Looping</strong>: Use <code>size_t</code> for index in loops.</p>
+<pre><code class="language-c">for (size_t i = 0; i &lt; 5; ++i) { n[i] = i; }
+</code></pre>
+<p><strong>Initializer Lists</strong>:</p>
+<pre><code class="language-c">int n[5] = {32, 27, 64, 18, 95}; // Sets values
+int n[5] = {0}; // Sets all to 0
+</code></pre>
 <h2 id="strings">Strings</h2>
-<ul>
-<li><strong>Definition</strong>: Array of <code>char</code> terminated by <code>'\0'</code> (NUL).</li>
-<li><strong>Declaration</strong>:
-  <code>c
-  char s1[] = "hello"; // Auto-sized, NUL added
-  char s2[10] = "hello"; // Fixed size, must fit NUL
-  char s3[] = {'h', 'e', 'l', 'l', 'o', '\0'}; // Manual NUL</code></li>
-<li><strong>Input</strong>:
-  <code>c
-  char buf[20];
-  scanf("%19s", buf); // No &amp; needed, size limits input</code></li>
-</ul>
+<p><strong>Definition</strong>: Array of <code>char</code> terminated by <code>'\0'</code> (NUL).
+<strong>Declaration</strong>:</p>
+<pre><code class="language-c">char s1[] = &quot;hello&quot;; // Auto-sized, NUL added
+char s2[10] = &quot;hello&quot;; // Fixed size, must fit NUL
+char s3[] = {'h', 'e', 'l', 'l', 'o', '\0'}; // Manual NUL
+</code></pre>
+<p><strong>Input</strong>:</p>
+<pre><code class="language-c">char buf[20];
+scanf(&quot;%19s&quot;, buf); // No &amp; needed, size limits input
+</code></pre>
 <h2 id="static-vs-automatic-arrays">Static vs Automatic Arrays</h2>
-<ul>
-<li><strong>Static Array</strong>: Single instance, persists entire program, initialized to 0.</li>
-<li><strong>Automatic Array</strong>: New instance per function call, contains garbage unless initialized.
-  <code>c
-  static int s_arr[3]; // Persists, 0-initialized
-  int a_arr[3]; // New each call, garbage values</code></li>
-</ul>
-<p>## Passing an Array to a Function
-- <strong>Syntax</strong>: Use array name without brackets (e.g., <code>myFunc(myArr)</code>).
-- <strong>Behavior</strong>: Passes pointer to first element; function modifies original array (pass by reference).
-- <strong>Const Arrays</strong>: Use <code>const</code> to prevent modification (e.g., for searching).
-  <code>c
-  void searchArray(const int arr[], size_t size);</code></p>
+<p><strong>Static Array</strong>: Single instance, persists entire program, initialized to 0.
+<strong>Automatic Array</strong>: New instance per function call, contains garbage unless initialized.</p>
+<pre><code class="language-c">static int s_arr[3]; // Persists, 0-initialized
+int a_arr[3]; // New each call, garbage values
+</code></pre>
+<h2 id="passing-an-array-to-a-function">Passing an Array to a Function</h2>
+<p><strong>Syntax</strong>: Use array name without brackets (e.g., <code>myFunc(myArr)</code>).
+<strong>Behavior</strong>: Passes pointer to first element; function modifies original array (pass by reference).
+<strong>Const Arrays</strong>: Use <code>const</code> to prevent modification (e.g., for searching).</p>
+<pre><code class="language-c">void searchArray(const int arr[], size_t size);
+</code></pre>
 <h2 id="multi-dimensional-arrays">Multi-Dimensional Arrays</h2>
-<ul>
-<li><strong>Definition</strong>: Arrays of arrays (e.g., 2D array like a spreadsheet).</li>
-<li><strong>Indexing</strong>: First index is row, second is column (e.g., <code>arr[row][col]</code>).</li>
-<li><strong>Memory</strong>: Stored in row-major order (row by row) in contiguous 1D memory.</li>
-<li>Address formula: <code>start_loc + (rowNum * numberOfColumns) + colNum</code>.</li>
-<li><strong>Initializer Lists</strong>:
-  <code>c
-  int arr[3][3] = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}}; // Readable
-  int arr[3][3] = {0, 1, 2, 3, 4, 5, 6, 7, 8}; // Same memory layout</code></li>
-<li><strong>Passing to Functions</strong>: Specify all dimensions except first (e.g., <code>void printArray(int arr[][3], size_t nRows)</code>).</li>
-<li><strong>Looping</strong>: Use descriptive indices (e.g., <code>row</code>, <code>col</code>) instead of <code>i</code>, <code>j</code>.
-  <code>c
-  for (size_t row = 0; row &lt; 3; ++row) {
-      for (size_t col = 0; col &lt; 3; ++col) {
-          printf("%d ", arr[row][col]);
-      }
-      printf("\n");
-  }</code></li>
-</ul>
+<p><strong>Definition</strong>: Arrays of arrays (e.g., 2D array like a spreadsheet).
+<strong>Indexing</strong>: First index is row, second is column (e.g., <code>arr[row][col]</code>).
+<strong>Memory</strong>: Stored in row-major order (row by row) in contiguous 1D memory.
+- Address formula: <code>start_loc + (rowNum * numberOfColumns) + colNum</code>.
+<strong>Initializer Lists</strong>:</p>
+<pre><code class="language-c">int arr[3][3] = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}}; // Readable
+int arr[3][3] = {0, 1, 2, 3, 4, 5, 6, 7, 8}; // Same memory layout
+</code></pre>
+<p><strong>Passing to Functions</strong>: Specify all dimensions except first (e.g., <code>void printArray(int arr[][3], size_t nRows)</code>).
+<strong>Looping</strong>: Use descriptive indices (e.g., <code>row</code>, <code>col</code>) instead of <code>i</code>, <code>j</code>.</p>
+<pre><code class="language-c">for (size_t row = 0; row &lt; 3; ++row) {
+    for (size_t col = 0; col &lt; 3; ++col) {
+        printf(&quot;%d &quot;, arr[row][col]);
+    }
+    printf(&quot;\n&quot;);
+}
+</code></pre>
 <h2 id="variable-length-arrays-vlas">Variable-Length Arrays (VLAs)</h2>
-<ul>
-<li><strong>Definition</strong>: Arrays sized at runtime (e.g., <code>int arr[size]</code> where <code>size</code> is user input).</li>
-<li><strong>Limitation</strong>: Not supported by all compilers; Bob says <strong>do not use</strong> in this course.</li>
-<li><strong>Alternative</strong>: Use <code>malloc()</code>, <code>calloc()</code>, or <code>realloc()</code> for dynamic arrays.</li>
-</ul>
+<p><strong>Definition</strong>: Arrays sized at runtime (e.g., <code>int arr[size]</code> where <code>size</code> is user input).
+<strong>Limitation</strong>: Not supported by all compilers; Bob says <strong>do not use</strong> in this course.
+<strong>Alternative</strong>: Use <code>malloc()</code>, <code>calloc()</code>, or <code>realloc()</code> for dynamic arrays.</p>
               
             </div>
           </div><footer>

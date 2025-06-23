@@ -199,20 +199,18 @@ scanf(&quot;%19s&quot;, name); // No &amp; for strings
 </code></pre>
 <h2 id="operators">Operators</h2>
 <p><strong>Arithmetic</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (modulus for integers, integer division truncates).</p>
-<ul>
-<li><strong>Casting</strong>: Convert types for precision.
-    <code>c
-    float result = (float)2 / 3; // 0.67
-    printf("%.2f\n", result);</code></li>
-</ul>
+<p><strong>Casting</strong>: Convert types for precision.</p>
+<pre><code>float result = (float)2 / 3; // 0.67
+printf("%.2f\n", result);
+</code></pre>
 <p><br><strong>Assignment</strong>: <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>.
 <br><strong>Comparison</strong>: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> (return 1 or 0).
 <br><strong>Logical</strong>: <code>&amp;&amp;</code> (AND), <code>||</code> (OR), <code>!</code> (NOT), uses short-circuit evaluation.</p>
 <h2 id="algorithms">Algorithms</h2>
-<p>Procedure for solving a problem with actions to execute and execution order (program control).</p>
+<p>Procedure for solving a problem with <em>actions to execute</em> and <em>execution order</em> of those actions (program control).</p>
 <h2 id="control-structures">Control Structures</h2>
-<p><strong>Sequence</strong>: Statements execute in order.
-  - <strong>Selection</strong>:
+<p><strong>Sequence</strong>: Statements execute in order.</p>
+<p><strong>Selection</strong>:
   - <code>if</code>, <code>if...else</code>, <code>switch</code>: Choose based on condition.
   - <strong>Ternary Operator</strong> (<code>?:</code>): Concise <code>if...else</code>.</p>
 <pre><code class="language-c">    puts(x &gt; 0 ? &quot;good&quot; : &quot;bad&quot;);
@@ -226,12 +224,10 @@ scanf(&quot;%19s&quot;, name); // No &amp; for strings
 </code></pre>
 <h2 id="functions">Functions</h2>
 <p><strong>Purpose</strong>: Self-contained code for specific tasks.
-<br><strong>Key Terms</strong>:</p>
-<ul>
-<li><strong>Divide and Conquer</strong>: Build programs from reusable parts.</li>
-<li><strong>Abstraction</strong>: Hide implementation details behind function names.</li>
-<li><strong>Decomposition</strong>: Break complex problems into smaller functions.</li>
-</ul>
+They help:
+- <strong>Divide and Conquer</strong>: Build programs from reusable parts.
+- <strong>Abstraction</strong>: Hide implementation details behind function names.
+- <strong>Decomposition</strong>: Break complex problems into smaller functions.</p>
 <p><strong>Structure</strong>: <code>main()</code> delegates tasks to helper functions.</p>
 <h2 id="function-definition">Function Definition</h2>
 <p><strong>Syntax</strong>:</p>
@@ -275,23 +271,17 @@ enum DaysOfWeek today = MON; // Assigns 1
 <pre><code class="language-c">enum Status {CONTINUE = 0, WON = 1, LOST = 2};
 </code></pre>
 <h2 id="storage-classes">Storage Classes</h2>
-<p><strong>Purpose</strong>: Define variable attributes: <strong>storage duration</strong> (lifetime), <strong>scope</strong> (visibility), <strong>linkage</strong> (file access).
-<br><strong>Types</strong>:</p>
-<ul>
-<li><code>auto</code>: Default for local variables; stored on stack (rarely used explicitly).</li>
-<li><code>register</code>: Requests CPU register storage (mostly obsolete; ignored by modern compilers).</li>
-<li><code>static</code>: Persistent lifetime; local retains value between calls, global restricts to file.</li>
-<li><code>extern</code>: Declares variable/function in another file; no storage created.</li>
-</ul>
+<p><strong>Purpose</strong>: Define variable attributes: <strong>storage duration</strong> (lifetime), <strong>scope</strong> (visibility), <strong>linkage</strong> (file access).</p>
+<p><code>auto</code>: Default for local variables; stored on stack (rarely used explicitly).</p>
+<p><code>register</code>: Requests CPU register storage (mostly obsolete; ignored by modern compilers).</p>
+<p><code>static</code>: Persistent lifetime; local retains value between calls, global restricts to file.</p>
+<p><code>extern</code>: Declares variable/function in another file; no storage created.</p>
 <h2 id="scope">Scope</h2>
 <p><strong>Definition</strong>: Where an identifier can be referenced.</p>
-<p><strong>Types</strong>:</p>
-<ul>
-<li><strong>Function Scope</strong>: Labels (e.g., <code>goto</code>, <code>switch</code>) visible in function.</li>
-<li><strong>File Scope</strong>: Global variables, function prototypes outside functions; visible from declaration to file end.</li>
-<li><strong>Block Scope</strong>: Variables in <code>{}</code>; inner blocks can hide outer names (avoid this).</li>
-<li><strong>Function-Prototype Scope</strong>: Parameter names in prototypes (optional, ignored by compiler).</li>
-</ul>
+<p><strong>Function Scope</strong>: Labels (e.g., <code>goto</code>, <code>switch</code>) visible in function.</p>
+<p><strong>File Scope</strong>: Global variables, function prototypes outside functions; visible from declaration to file end.</p>
+<p><strong>Block Scope</strong>: Variables in <code>{}</code>; inner blocks can hide outer names (avoid this).</p>
+<p><strong>Function-Prototype Scope</strong>: Parameter names in prototypes (optional, ignored by compiler).</p>
 <h2 id="memory-regions">Memory Regions</h2>
 <p><strong>Stack</strong>: Automatic variables; allocated/deallocated with block scope.
 <br><strong>Static</strong>: Global/static local variables; persist entire program, initialized once.

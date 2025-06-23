@@ -194,7 +194,7 @@ Storage classes set some attributes of variables such as: **storage duration** (
 ## Scope
 **Function Scope**: Labels (e.g., `goto`, `switch`) visible in function.
 <br>**File Scope**: Global variables, function prototypes outside functions; visible from declaration to file end.
-<br>**Block Scope**: Variables in `{}`; inner blocks can hide outer names (avoid this).
+<br>**Block Scope**: Variables in `{}` 
 <br>**Function-Prototype Scope**: Parameter names in prototypes (optional, ignored by compiler).
 
 ## Memory Regions

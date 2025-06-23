@@ -86,6 +86,14 @@
     <li class="toctree-l2"><a class="reference internal" href="#algorithms">Algorithms</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#control-structures">Control Structures</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#sequence">Sequence</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#selection">Selection</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#iteration">Iteration</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#incrementdecrement">Increment/Decrement</a>
     </li>
@@ -209,15 +217,19 @@ printf("%.2f\n", result);
 <h2 id="algorithms">Algorithms</h2>
 <p>Procedure for solving a problem with <em>actions to execute</em> and <em>execution order</em> of those actions (program control).</p>
 <h2 id="control-structures">Control Structures</h2>
-<p><strong>Sequence</strong>: Statements execute in order.</p>
-<p><strong>Selection</strong>:</p>
+<h3 id="sequence">Sequence</h3>
+<p>Statements execute in order.</p>
+<h3 id="selection">Selection</h3>
+<p>Choose based on condition.
+ <code>if</code>, <code>if...else</code>, <code>switch</code>: </p>
 <ul>
-<li><code>if</code>, <code>if...else</code>, <code>switch</code>: Choose based on condition.</li>
 <li><strong>Ternary Operator</strong> (<code>?:</code>): Concise <code>if...else</code>.</li>
 </ul>
 <pre><code class="language-c">    puts(x &gt; 0 ? &quot;good&quot; : &quot;bad&quot;);
 </code></pre>
-<p><strong>Iteration</strong>: <code>for</code>, <code>while</code>, <code>do...while</code>: Repeat until condition met.</p>
+<h3 id="iteration">Iteration</h3>
+<p>Repeat until condition met.</p>
+<p><code>for</code>, <code>while</code>, <code>do...while</code> </p>
 <h2 id="incrementdecrement">Increment/Decrement</h2>
 <p><strong>Pre-increment</strong> (<code>++x</code>): Increment first.
 <br><strong>Post-increment</strong> (<code>x++</code>): Use, then increment.</p>

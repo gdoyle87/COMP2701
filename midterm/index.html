@@ -273,8 +273,8 @@ between variables, C will automatically convert values to the expected type if n
 This may cause data loss (e.g., <code>double</code> to <code>int</code> drops decimals).</p>
 <h2 id="function-call-stack">Function-Call Stack</h2>
 <p><strong>Stack</strong>: Last-in, first-out (LIFO) structure for function calls/returns.
-<br><strong>Behavior</strong>: Pushes frame with return address on call, pops on return.
-<br><strong>Risk</strong>: Stack overflow from excessive calls.</p>
+<br>In the function call stack, we push a frame with return address on function call and pop from the stack on return.
+<br>If you do excessive pushes to the stack, we will get a Stack overflow when we run out of space in memory.</p>
 <h2 id="pass-arguments">Pass Arguments</h2>
 <p><strong>By Value</strong>: Copies argument; original unchanged. All arguments in C are passed by value.</p>
 <pre><code class="language-c">void superFunction(int num) { num *= 1000; } // No effect on original

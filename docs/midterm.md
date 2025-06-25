@@ -250,15 +250,27 @@ int a_arr[3]; // New each call, garbage values
 ```
 
 ## Passing an Array to a Function
-Use array name without brackets (e.g., `myFunc(myArr)`).
+When passing an array to a function, we need to also supply the size of the array:
+<br>`void myFunc(int myArr[], size_t size);`
 
-Passes pointer to first element; function modifies original array (pass by reference).
+Alternatively we can use pointer syntax:
+<br>`void myFunc(int *myArr, size_t size);`
 
-**Const Arrays**: Use `const` to prevent modification (e.g., for searching).
+When calling the function, simply pass the array name (no brackets `[]`, no `*`):
+<br>`myFunc(myArr, size)`
+
+This passes a pointer to the first element of the array. The function can 
+modify the original array (similar to pass by reference).
+
+If we do **not** want the function to be able to modify the array
+(e.g. for searching/reading), we can pass it as `const` to the function:
 
 ```c
 void searchArray(const int arr[], size_t size);
 ```
+
+Note: If we pass an individual element of the array, such as `myArr[3]` that is
+passed by ***value*** and because of this it does **not** modify the original array.
 
 ## Multi-Dimensional Arrays
 Arrays of arrays (e.g., 2D array like a spreadsheet). First index is row, second is column (e.g., `arr[row][col]`).

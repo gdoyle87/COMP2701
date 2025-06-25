@@ -1,4 +1,4 @@
-# Midterm Review Summary
+# Midterm Review 
 
 ## Six Phases of C Program Development
 **Editing/Programming**: Write source code.

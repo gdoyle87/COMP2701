@@ -342,11 +342,20 @@ scanf(&quot;%19s&quot;, buf); // No &amp; needed, size limits input
 int a_arr[3]; // New each call, garbage values
 </code></pre>
 <h2 id="passing-an-array-to-a-function">Passing an Array to a Function</h2>
-<p>Use array name without brackets (e.g., <code>myFunc(myArr)</code>).</p>
-<p>Passes pointer to first element; function modifies original array (pass by reference).</p>
-<p><strong>Const Arrays</strong>: Use <code>const</code> to prevent modification (e.g., for searching).</p>
+<p>When passing an array to a function, we need to also supply the size of the array:
+<br><code>void myFunc(int myArr[], size_t size);</code></p>
+<p>Alternatively we can use pointer syntax:
+<br><code>void myFunc(int *myArr, size_t size);</code></p>
+<p>When calling the function, simply pass the array name (no brackets <code>[]</code>, no <code>*</code>):
+<br><code>myFunc(myArr, size)</code></p>
+<p>This passes a pointer to the first element of the array. The function can 
+modify the original array (similar to pass by reference).</p>
+<p>If we do <strong>not</strong> want the function to be able to modify the array
+(e.g. for searching/reading), we can pass it as <code>const</code> to the function:</p>
 <pre><code class="language-c">void searchArray(const int arr[], size_t size);
 </code></pre>
+<p>Note: If we pass an individual element of the array, such as <code>myArr[3]</code> that is
+passed by <strong><em>value</em></strong> and because of this it does <strong>not</strong> modify the original array.</p>
 <h2 id="multi-dimensional-arrays">Multi-Dimensional Arrays</h2>
 <p>Arrays of arrays (e.g., 2D array like a spreadsheet). First index is row, second is column (e.g., <code>arr[row][col]</code>).</p>
 <p>Stored in row-major order (row by row) in contiguous 1D memory.</p>

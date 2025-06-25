@@ -20,7 +20,10 @@ int main(void) {
 
 ## Variables
 **Statically Typed**: Declare type before use (e.g., `int`, `float`, `char`).
-<br>**Naming Rules**: Start with letter/underscore, use letters/digits/underscores.
+
+When naming variables, they must start with letter/underscore and can contain letters/digits/underscores.
+
+
 ```c
 int a = 3;
 float b = 5.5;
@@ -96,7 +99,7 @@ Repeat until condition met.
 **Pre-increment** (`++x`): Increment first.
 <br>**Post-increment** (`x++`): Use, then increment.
 
-Use pre-increment in loops:
+Bob insists we use pre-increment in loop continuation conditions:
 
 ```c
 for(int i = 0; i < 10; ++i) { ... }
@@ -144,9 +147,11 @@ between variables, C will automatically convert values to the expected type if n
 This may cause data loss (e.g., `double` to `int` drops decimals).
 
 ## Function-Call Stack
-**Stack**: Last-in, first-out (LIFO) structure for function calls/returns.
-<br>**Behavior**: Pushes frame with return address on call, pops on return.
-<br>**Risk**: Stack overflow from excessive calls.
+The function call stack is a last-in, first-out (LIFO) structure for function calls/returns.
+
+In the function call stack, we ***push*** a frame with return address on function call and ***pop*** from the stack on return.
+
+If you do excessive pushes to the stack, we will get a Stack overflow when we run out of space in memory.
 
 ## Pass Arguments
 **By Value**: Copies argument; original unchanged. All arguments in C are passed by value.

@@ -89,21 +89,25 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#pointers-and-the-heap">Pointers and the Heap</a>
+        </ul>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#dynamic-arrays-and-pointers">Dynamic Arrays and Pointers</a>
+    <li class="toctree-l2"><a class="reference internal" href="#pointers-and-the-heap">Pointers and the Heap</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#dynamic-memory-for-strings">Dynamic Memory for Strings</a>
+    <li class="toctree-l2"><a class="reference internal" href="#dynamic-arrays-and-pointers">Dynamic Arrays and Pointers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dynamic-memory-for-strings">Dynamic Memory for Strings</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#note-scanset">Note: scanset</a>
+    <li class="toctree-l3"><a class="reference internal" href="#note-scanset">Note: scanset</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#leetcode-66">Leetcode 66</a>
-    </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#leetcode-66">Leetcode 66</a>
     </li>
     </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_eight/">Week 8</a>
                 </li>
               </ul>
       </div>
@@ -180,7 +184,7 @@ value it points to.</p>
 <p><strong><code>calloc(n, size)</code></strong> allocates space for an array of <em>n</em> elements of the 
 specified size <strong>and</strong> initializes all bits to zero.</p>
 <p><strong><code>realloc(ptr, new_size)</code></strong> changes the size of a previously allocated block.</p>
-<h3 id="pointers-and-the-heap">Pointers and the Heap</h3>
+<h2 id="pointers-and-the-heap">Pointers and the Heap</h2>
 <p>A pointer is a variable that stores the memory address of another variable or block of memory.</p>
 <p>When you declare a pointer, you use the <code>*</code> operator to indicate that the variable is a pointer type:</p>
 <pre><code class="language-c">int *iPtr = NULL; // should always initialize a pointer even if its just to NULL
@@ -196,7 +200,7 @@ the pointer. The dereference operator is <code>*</code>. </p>
 <li>When you declare a pointer, <code>*</code> marks the variable as a pointer type.</li>
 <li>When you use it with a pointer variable, <code>*</code> means "follow this pointer to get the value."</li>
 </ol>
-<h3 id="dynamic-arrays-and-pointers">Dynamic Arrays and Pointers</h3>
+<h2 id="dynamic-arrays-and-pointers">Dynamic Arrays and Pointers</h2>
 <p>When you allocate an array with malloc or calloc, the pointer points to the first element:</p>
 <pre><code class="language-c">int *arr = malloc(sizeof(int) * len);
 </code></pre>
@@ -206,7 +210,7 @@ arr[1] = 2;
 </code></pre>
 <p>Remember: <code>sizeof(arr)</code> only gives the size of the pointer, not the total size 
 of the array in memory.</p>
-<h3 id="dynamic-memory-for-strings">Dynamic Memory for Strings</h3>
+<h2 id="dynamic-memory-for-strings">Dynamic Memory for Strings</h2>
 <p>One common use of dynamic memory is handling strings of unknown length.</p>
 <p>For example, when reading a line of text, you may want to allocate only as much space as needed:</p>
 <ol>
@@ -227,7 +231,7 @@ custom set of characters.</p>
 <p>You can think of a scanset as a custom format specifier. 
 It works like a very simple character class, similar to part of a regular expression,
 but limited to defining which characters to include or exclude.</p>
-<h3 id="leetcode-66">Leetcode 66</h3>
+<h2 id="leetcode-66">Leetcode 66</h2>
 <p>Remember that when we pass an array to a function, inside the function it
 behaves as a pointer to the first element.</p>
 <p>In this question, <code>int* plusOne(int* digits, ...)</code> — <code>digits</code> is an array
@@ -266,6 +270,7 @@ where the result needs an extra digit:</p>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../midterm/" class="btn btn-neutral float-left" title="Midterm Review"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../wk_eight/" class="btn btn-neutral float-right" title="Week 8">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -290,6 +295,8 @@ where the result needs an extra digit:</p>
     
       <span><a href="../midterm/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
+    
+      <span><a href="../wk_eight/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -54,7 +54,7 @@ We use `sizeof` to make sure we allocate the correct amount of memory.
 
 ```c
 int var1;
-size_t length = sizeof var1; // will give us 4 bytes of memory (the size of an int)
+size_t len = sizeof var1; // will give us 4 bytes of memory (the size of an int)
 ```
 
 Note: If you use sizeof with a pointer you will get the size of a pointer in
@@ -120,6 +120,7 @@ For example, when reading a line of text, you may want to allocate only as much 
 ```c
 char buffer[81];
 scanf("%80[^\n]", buffer); // read up to 80 characters or until newline
+getchar(); // consume the leftover newline.
 ```
 2.Then copy the input to a dynamically sized block:
 ```c

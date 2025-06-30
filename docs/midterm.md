@@ -196,6 +196,8 @@ Storage classes set some attributes of variables such as: **storage duration** (
 <br>`static`: Persistent lifetime; local retains value between calls, global restricts to file.
 <br>`extern`: Declares variable/function in another file; no storage created.
 
+Easy to remember since storage classes are ARSE - **a**uto, **r**egister, **s**tatic, **e**xtern.
+
 ## Scope
 **Function Scope**: Labels (e.g., `goto`, `switch`) visible in function.
 <br>**File Scope**: Global variables, function prototypes outside functions; visible from declaration to file end.

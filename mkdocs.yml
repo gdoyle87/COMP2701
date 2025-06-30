@@ -9,6 +9,7 @@ nav:
   - Week 5: wk_five.md
   - Week 6: wk_six.md
   - Midterm Review: midterm.md
+  - Week 7: wk_seven.md
 
 theme: readthedocs
 markdown_extensions:

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://gdoyle87.github.io/COMP2701/wk_seven/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Week 7 - COMP2701</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Week 7";
+        var mkdocs_page_input_path = "wk_seven.md";
+        var mkdocs_page_url = "/COMP2701/wk_seven/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> COMP2701
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_one/">Week 1</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_two/">Week 2</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_three/">Week 3</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_four/">Week 4</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_five/">Week 5</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_six/">Week 6</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../midterm/">Midterm Review</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Week 7</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#dynamic-memory-allocation">Dynamic Memory Allocation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#allocating-memory">Allocating Memory</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#the-mallocsize-function">The malloc(size) function</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#deallocating-memory-with-free">Deallocating Memory with free()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#allocating-the-right-amount-of-space-with-sizeof">Allocating the Right Amount of Space with sizeof</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#the-calloc-and-realloc-functions">The calloc() and realloc() Functions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pointers-and-the-heap">Pointers and the Heap</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dynamic-arrays-and-pointers">Dynamic Arrays and Pointers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dynamic-memory-for-strings">Dynamic Memory for Strings</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#note-scanset">Note: scanset</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#leetcode-66">Leetcode 66</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">COMP2701</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Week 7</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="week-7">Week 7</h1>
+<h2 id="dynamic-memory-allocation">Dynamic Memory Allocation</h2>
+<p>Up until now we have been <strong><em>statically</em></strong> creating memory, meaning that the memory size is 
+fixed at compile time (e.g. arrays with a fixed length).</p>
+<p><strong><em>Dynamic memory allocation</em></strong> lets you request memory at runtime, which allows data
+structures that can grow/shrink (linked lists, dynamic arrays, trees).</p>
+<p>In <code>Java</code>, using the <code>new</code> keyword, created a dynamic object in memory with automatic
+ <strong>garbage collection</strong>. This means that when an object is no longer needed, its
+memory is automatically cleaned up like, throwing away garbage, so the space can
+be reused.</p>
+<p>In <code>C</code>, there is no automatic garbage collection. We must manage memory 
+manually, cleaning up our own “garbage” by freeing memory when we’re done with
+it, or else we risk memory leaks.</p>
+<h3 id="allocating-memory">Allocating Memory</h3>
+<p>In C we have 3 function for allocating memory: <code>malloc()</code>, <code>calloc()</code>, and <code>realloc()</code>.</p>
+<h4 id="the-mallocsize-function">The <strong><code>malloc(size)</code> function</strong></h4>
+<p>Allocates a block of <em>uninitialized</em> memory of the specified
+size in bytes. </p>
+<p>If it is <em>successful</em> we will be returned a pointer of type <code>void*</code> (which can be
+assigned to <em>any</em> pointer type).</p>
+<p>If it is <em>not</em> successful it will return <code>NULL</code>.
+<br><strong><em>Always</em></strong> check if the return from <code>malloc()</code> is <code>NULL</code> to avoid errors.</p>
+<h4 id="deallocating-memory-with-free">Deallocating Memory with <code>free()</code></h4>
+<p>When we no longer need a block of dynamically allocated memory, we can use the 
+<code>free(myPtr)</code> function to deallocate the memory and return it to the system. </p>
+<p>If we don't use <code>free()</code> we could run out of memory causing a <strong>memory leak</strong> which
+will likely crash our program. </p>
+<p>After we free a pointer, we should set the pointer to <code>NULL</code> so that if we 
+accidently refer to that pointer later, we don't refer to invalid memory.</p>
+<pre><code class="language-c">free(ptr);
+ptr = NULL;
+</code></pre>
+<p>This also helps us to avoid freeing memory twice. If we free twice we might end up 
+freeing memory that is being used by something else by mistake.</p>
+<p><code>free()</code> should <strong><em>only</em></strong> be used with memory we allocated with <code>malloc()</code>, <code>calloc()</code>,
+or <code>realloc()</code>. Using it on static or stack variables is undefined behaviour.</p>
+<h4 id="allocating-the-right-amount-of-space-with-sizeof">Allocating the Right Amount of Space with <code>sizeof</code></h4>
+<p>We use <code>sizeof</code> to make sure we allocate the correct amount of memory.</p>
+<pre><code class="language-c">int var1;
+size_t length = sizeof var1; // will give us 4 bytes of memory (the size of an int)
+</code></pre>
+<p>Note: If you use sizeof with a pointer you will get the size of a pointer in
+your system (e.g. 8 bytes on a 64-bit machine) and <em>not</em> the size of the underlying 
+value it points to.</p>
+<p>So when allocating space for an array dynamically, always use sizeof on the type, not the pointer:</p>
+<pre><code class="language-c">int *arr = malloc(sizeof(int) * len);
+</code></pre>
+<h4 id="the-calloc-and-realloc-functions">The <code>calloc()</code> and <code>realloc()</code> Functions</h4>
+<p><strong><code>calloc(n, size)</code></strong> allocates space for an array of <em>n</em> elements of the 
+specified size <strong>and</strong> initializes all bits to zero.</p>
+<p><strong><code>realloc(ptr, new_size)</code></strong> changes the size of a previously allocated block.</p>
+<h3 id="pointers-and-the-heap">Pointers and the Heap</h3>
+<p>A pointer is a variable that stores the memory address of another variable or block of memory.</p>
+<p>When you declare a pointer, you use the <code>*</code> operator to indicate that the variable is a pointer type:</p>
+<pre><code class="language-c">int *iPtr = NULL; // should always initialize a pointer even if its just to NULL
+</code></pre>
+<p>The pointer itself lives on the stack, but it can point to a value in the heap (or anywhere in memory).</p>
+<p>Once we call malloc() such as <code>iPtr = malloc(sizeof(int));</code> we are creating a 
+reference to a place in the heap that will be used for this value.</p>
+<p>When we are dealing with a single scalar (a simple data value - not an array or
+struct), in order to access the variable on the heap we need to <em>dereference</em>
+the pointer. The dereference operator is <code>*</code>. </p>
+<p>The <code>*</code> symbol has two jobs in C:</p>
+<ol>
+<li>When you declare a pointer, <code>*</code> marks the variable as a pointer type.</li>
+<li>When you use it with a pointer variable, <code>*</code> means "follow this pointer to get the value."</li>
+</ol>
+<h3 id="dynamic-arrays-and-pointers">Dynamic Arrays and Pointers</h3>
+<p>When you allocate an array with malloc or calloc, the pointer points to the first element:</p>
+<pre><code class="language-c">int *arr = malloc(sizeof(int) * len);
+</code></pre>
+<p>You can use this pointer like an array:</p>
+<pre><code class="language-c">arr[0] = 1;
+arr[1] = 2;
+</code></pre>
+<p>Remember: <code>sizeof(arr)</code> only gives the size of the pointer, not the total size 
+of the array in memory.</p>
+<h3 id="dynamic-memory-for-strings">Dynamic Memory for Strings</h3>
+<p>One common use of dynamic memory is handling strings of unknown length.</p>
+<p>For example, when reading a line of text, you may want to allocate only as much space as needed:</p>
+<ol>
+<li>Use a fixed-size buffer to read user input:</li>
+</ol>
+<pre><code class="language-c">char buffer[81];
+scanf(&quot;%80[^\n]&quot;, buffer); // read up to 80 characters or until newline
+</code></pre>
+<p>2.Then copy the input to a dynamically sized block:</p>
+<pre><code class="language-c">char *userString = malloc(strlen(buffer) + 1);
+strcpy(userString, buffer);
+</code></pre>
+<h4 id="note-scanset">Note: scanset</h4>
+<p>In the example above, <code>%80[^\n]</code> uses a <code>scanset</code> to control how <code>scanf</code> reads input.</p>
+<p>A <code>scanset</code>, written inside square brackets <code>[ ]</code>, tells <code>scanf</code> to match a 
+custom set of characters.</p>
+<p>The <code>^</code> means not — so <code>[^\n]</code> means “match any characters that are not a newline.”</p>
+<p>You can think of a scanset as a custom format specifier. 
+It works like a very simple character class, similar to part of a regular expression,
+but limited to defining which characters to include or exclude.</p>
+<h3 id="leetcode-66">Leetcode 66</h3>
+<p>Remember that when we pass an array to a function, inside the function it
+behaves as a pointer to the first element.</p>
+<p>In this question, <code>int* plusOne(int* digits, ...)</code> — <code>digits</code> is an array
+argument that decays to a pointer.</p>
+<p>The <code>digits</code> array represents a single number, with each element holding one 
+digit of that number. We are adding 1 to this number.</p>
+<p>The challenge is that adding 1 might cause a carry that affects multiple digits.
+In some cases, like <code>[9, 9, 9]</code>, the result needs to be one digit longer 
+(e.g., 999 + 1 = 1000 or <code>[1,0,0,0]</code>).</p>
+<p>Bob gave us this starter code, which works for simple cases that do not
+require carrying past the first digit. Our goal is to handle the cases 
+where the result needs an extra digit:</p>
+<pre><code class="language-c">int* plusOne(int* digits, int digitsSize, int* returnSize) {
+    // allocate space for the result array
+    int *resultPtr = malloc(sizeof(int) * digitsSize);
+
+    // populate our result array with the values of digits
+    for (size_t i = 0; i &lt; digitsSize; ++i) {
+        resultPtr[i] = digits[i];
+    }
+
+    // add one to the *final* element in the array
+    ++resultPtr[digitsSize - 1];
+
+    // set the value of returnSize to digitsSize by *dereferencing* returnSize.
+    *returnSize = digitsSize;
+
+    // If the increment causes a carry past the first digit,
+    // we will need to make *returnSize = digitsSize + 1
+
+    return resultPtr;
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../midterm/" class="btn btn-neutral float-left" title="Midterm Review"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../midterm/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -168,7 +168,7 @@ or <code>realloc()</code>. Using it on static or stack variables is undefined be
 <h4 id="allocating-the-right-amount-of-space-with-sizeof">Allocating the Right Amount of Space with <code>sizeof</code></h4>
 <p>We use <code>sizeof</code> to make sure we allocate the correct amount of memory.</p>
 <pre><code class="language-c">int var1;
-size_t length = sizeof var1; // will give us 4 bytes of memory (the size of an int)
+size_t len = sizeof var1; // will give us 4 bytes of memory (the size of an int)
 </code></pre>
 <p>Note: If you use sizeof with a pointer you will get the size of a pointer in
 your system (e.g. 8 bytes on a 64-bit machine) and <em>not</em> the size of the underlying 

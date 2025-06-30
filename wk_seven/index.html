@@ -214,6 +214,7 @@ of the array in memory.</p>
 </ol>
 <pre><code class="language-c">char buffer[81];
 scanf(&quot;%80[^\n]&quot;, buffer); // read up to 80 characters or until newline
+getchar(); // consume the leftover newline.
 </code></pre>
 <p>2.Then copy the input to a dynamically sized block:</p>
 <pre><code class="language-c">char *userString = malloc(strlen(buffer) + 1);

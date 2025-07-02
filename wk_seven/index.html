@@ -216,24 +216,29 @@ the terminating <code>NUL</code>). But if the user only types <code>"hello"</cod
 approach has two steps: create a fixed buffer on the stack, then copy it into a 
 <code>malloc</code>’d block on the heap.</p>
 <ol>
-<li>Read into the stack buffer</li>
-</ol>
-<pre><code class="language-c">
+  <li>
+    Read into the stack buffer
+
+    <pre><code class="language-c">
 char buffer[81];
 scanf("%80[^\n]", buffer); // read up to 80 chars or until newline
 getchar();                 // consume the leftover '\n'
-   </code></pre>
+    </code></pre>
+  </li>
 
-<ol>
-<li>Copy into a heap block sized exactly to the string</li>
-</ol>
-<pre><code class="language-c">
+  <!-- force the second item to be “2.” even if your renderer auto-renumbers -->
+  <li value="2">
+    Copy into a heap block sized exactly to the string
+
+    <pre><code class="language-c">
 size_t len = strlen(buffer);
 char *userString = malloc(len + 1);
 strcpy(userString, buffer);
 // …do a bunch of stuff and use userString…
 free(userString);
-   </code></pre>
+    </code></pre>
+  </li>
+</ol>
 
 <p>In this example you still “waste” 81 bytes on the stack, but only once. Every 
 time you read another line, you reuse that same buffer, and each <code>malloc</code>'d 

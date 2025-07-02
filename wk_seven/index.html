@@ -218,19 +218,17 @@ approach has two steps: create a fixed buffer on the stack, then copy it into a
 <ol>
 <li>
 <p><strong>Read into the stack buffer</strong>  </p>
-<p><code>c
-char buffer[81];
+<p>char buffer[81];
 scanf("%80[^\n]", buffer); // read up to 80 chars or until newline
-getchar();                 // consume the leftover '\n'</code></p>
+getchar();                 // consume the leftover '\n'</p>
 </li>
 <li>
 <p><strong>Copy into a heap block sized exactly to the string</strong>  </p>
-<p><code>c
-   size_t len = strlen(buffer);
+<p>size_t len = strlen(buffer);
    char *userString = malloc(len + 1);
    strcpy(userString, buffer);
    // …do a bunch of stuff and use userString…
-   free(userString);</code></p>
+   free(userString);</p>
 </li>
 </ol>
 <p>In this example you still “waste” 81 bytes on the stack, but only once. Every 

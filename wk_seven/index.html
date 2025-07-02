@@ -208,8 +208,13 @@ arr[1] = 2;
 of the array in memory.</p>
 <h2 id="dynamic-memory-for-strings">Dynamic Memory for Strings</h2>
 <p>One common use of dynamic memory is handling strings of unknown length.</p>
-<p>For example, imagine we’re reading an input that we know will never exceed 80 characters. We’d declare a <code>char</code> array of length <strong>81</strong> (80 characters plus the terminating <code>NUL</code>). But if the user only types <code>"hello"</code> (6 bytes including <code>'\0'</code>), you’ve still reserved 81 bytes—75 of which go unused.</p>
-<p>We can use dynamic memory allocation to avoid most of that waste. The typical approach has two steps: create a fixed buffer on the stack, then copy it into a <code>malloc</code>’d block on the heap.</p>
+<p>For example, imagine we’re reading an input that we know will never exceed 80 
+characters. We’d declare a <code>char</code> array of length <strong>81</strong> (80 characters plus 
+the terminating <code>NUL</code>). But if the user only types <code>"hello"</code> (6 bytes including
+<code>'\0'</code>), you’ve still reserved 81 bytes—75 of which go unused.</p>
+<p>We can use dynamic memory allocation to avoid most of that waste. The typical
+approach has two steps: create a fixed buffer on the stack, then copy it into a 
+<code>malloc</code>’d block on the heap.</p>
 <ol>
 <li><strong>Read into the stack buffer</strong>  </li>
 </ol>
@@ -223,18 +228,18 @@ getchar();                 // consume the leftover '\n'
 <pre><code class="language-c">   size_t len = strlen(buffer);
    char *userString = malloc(len + 1);
    strcpy(userString, buffer);
-   // …use userString…
+   // …do a bunch of stuff and use userString…
    free(userString);
 </code></pre>
-<p>In this example you still “waste” 81 bytes on the stack, but only once. Every time you read another line, you reuse that same buffer, and each <code>malloc</code>’d string on the heap is exactly the length you need (plus one), so you only waste the single terminator byte per string instead of dozens.</p>
-<blockquote>
-<p><strong>Side note:</strong> if you really want zero stack waste, you can read characters one at a time and <code>realloc</code> as you go. That adds a bit more complexity and typically ends up with a buffer that’s doubled in size occasionally (so you’re still within a small constant factor), but it eliminates the fixed scratch array completely.</p>
-</blockquote>
+<p>In this example you still “waste” 81 bytes on the stack, but only once. Every 
+time you read another line, you reuse that same buffer, and each <code>malloc</code>'d 
+string on the heap is exactly the length you need (plus one), so you only 
+waste the single terminator byte per string instead of dozens.</p>
 <h4 id="note-scanset">Note: scanset</h4>
 <p>In the example above, <code>%80[^\n]</code> uses a <code>scanset</code> to control how <code>scanf</code> reads input.</p>
 <p>A <code>scanset</code>, written inside square brackets <code>[ ]</code>, tells <code>scanf</code> to match a 
 custom set of characters.</p>
-<p>The <code>^</code> means not — so <code>[^\n]</code> means “match any characters that are not a newline.”</p>
+<p>The <code>^</code> means <strong>not</strong>,  so <code>[^\n]</code> means “match any characters that are not a newline.”</p>
 <p>You can think of a scanset as a custom format specifier. 
 It works like a very simple character class, similar to part of a regular expression,
 but limited to defining which characters to include or exclude.</p>

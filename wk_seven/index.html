@@ -211,11 +211,12 @@ of the array in memory.</p>
 <p>For example, imagine we’re reading an input that we know will never exceed 80 characters. We’d declare a <code>char</code> array of length <strong>81</strong> (80 characters plus the terminating <code>NUL</code>). But if the user only types <code>"hello"</code> (6 bytes including <code>'\0'</code>), you’ve still reserved 81 bytes—75 of which go unused.</p>
 <p>We can use dynamic memory allocation to avoid most of that waste. The typical approach has two steps: create a fixed buffer on the stack, then copy it into a <code>malloc</code>’d block on the heap.</p>
 <ol>
-<li><strong>Read into the stack buffer</strong><br />
-<code>c
-   char buffer[81];
+<li><strong>Read into the stack buffer</strong>  </li>
+</ol>
+<p>char buffer[81];
    scanf("%80[^\n]", buffer); // read up to 80 chars or until newline
-   getchar();                 // consume the leftover '\n'</code></li>
+   getchar();                 // consume the leftover '\n'</p>
+<ol>
 <li><strong>Copy into a heap block sized exactly to the string</strong><br />
 <code>c
    size_t len = strlen(buffer);

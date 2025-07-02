@@ -213,18 +213,19 @@ of the array in memory.</p>
 <ol>
 <li><strong>Read into the stack buffer</strong>  </li>
 </ol>
-<p>char buffer[81];
-   scanf("%80[^\n]", buffer); // read up to 80 chars or until newline
-   getchar();                 // consume the leftover '\n'</p>
+<pre><code class="language-c">char buffer[81];
+scanf(&quot;%80[^\n]&quot;, buffer); // read up to 80 chars or until newline
+getchar();                 // consume the leftover '\n'
+</code></pre>
 <ol>
-<li><strong>Copy into a heap block sized exactly to the string</strong><br />
-<code>c
-   size_t len = strlen(buffer);
+<li><strong>Copy into a heap block sized exactly to the string</strong>  </li>
+</ol>
+<pre><code class="language-c">   size_t len = strlen(buffer);
    char *userString = malloc(len + 1);
    strcpy(userString, buffer);
    // …use userString…
-   free(userString);</code></li>
-</ol>
+   free(userString);
+</code></pre>
 <p>In this example you still “waste” 81 bytes on the stack, but only once. Every time you read another line, you reuse that same buffer, and each <code>malloc</code>’d string on the heap is exactly the length you need (plus one), so you only waste the single terminator byte per string instead of dozens.</p>
 <blockquote>
 <p><strong>Side note:</strong> if you really want zero stack waste, you can read characters one at a time and <code>realloc</code> as you go. That adds a bit more complexity and typically ends up with a buffer that’s doubled in size occasionally (so you’re still within a small constant factor), but it eliminates the fixed scratch array completely.</p>

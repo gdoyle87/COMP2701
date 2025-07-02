@@ -216,21 +216,23 @@ the terminating <code>NUL</code>). But if the user only types <code>"hello"</cod
 approach has two steps: create a fixed buffer on the stack, then copy it into a 
 <code>malloc</code>’d block on the heap.</p>
 <ol>
-<li><strong>Read into the stack buffer</strong>  </li>
-</ol>
-<pre><code class="language-c">char buffer[81];
-scanf(&quot;%80[^\n]&quot;, buffer); // read up to 80 chars or until newline
-getchar();                 // consume the leftover '\n'
-</code></pre>
-<ol>
-<li><strong>Copy into a heap block sized exactly to the string</strong>  </li>
-</ol>
-<pre><code class="language-c">   size_t len = strlen(buffer);
+<li>
+<p><strong>Read into the stack buffer</strong>  </p>
+<p><code>c
+char buffer[81];
+scanf("%80[^\n]", buffer); // read up to 80 chars or until newline
+getchar();                 // consume the leftover '\n'</code></p>
+</li>
+<li>
+<p><strong>Copy into a heap block sized exactly to the string</strong>  </p>
+<p><code>c
+   size_t len = strlen(buffer);
    char *userString = malloc(len + 1);
    strcpy(userString, buffer);
    // …do a bunch of stuff and use userString…
-   free(userString);
-</code></pre>
+   free(userString);</code></p>
+</li>
+</ol>
 <p>In this example you still “waste” 81 bytes on the stack, but only once. Every 
 time you read another line, you reuse that same buffer, and each <code>malloc</code>'d 
 string on the heap is exactly the length you need (plus one), so you only 
@@ -239,7 +241,7 @@ waste the single terminator byte per string instead of dozens.</p>
 <p>In the example above, <code>%80[^\n]</code> uses a <code>scanset</code> to control how <code>scanf</code> reads input.</p>
 <p>A <code>scanset</code>, written inside square brackets <code>[ ]</code>, tells <code>scanf</code> to match a 
 custom set of characters.</p>
-<p>The <code>^</code> means <strong>not</strong>,  so <code>[^\n]</code> means “match any characters that are not a newline.”</p>
+<p>The <code>^</code> means <strong>"not"</strong>,  so <code>[^\n]</code> means “match any characters that are not a newline.”</p>
 <p>You can think of a scanset as a custom format specifier. 
 It works like a very simple character class, similar to part of a regular expression,
 but limited to defining which characters to include or exclude.</p>

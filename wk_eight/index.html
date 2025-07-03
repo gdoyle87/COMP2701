@@ -265,14 +265,14 @@ theoretically, compared to 4 GB for 32-bit pointers.</p>
   <p>The CPU uses these registers to:</p>
 
   <ul>
-    <li>Hold operands for ALU operations (arithmetic, bitwise/logical, shift & rotate, comparison & conditional)</li>
+    <li>Hold operands for ALU operations (arithmetic, bitwise/logical, comparison & conditionals, etc.)</li>
     <li>Store intermediate results</li>
     <li>Keep track of instruction pointers and flags</li>
   </ul>
 
   <p>Behind the scenes, the ALU takes inputs from CPU registers, performs one of 
-  these operations in a single clock cycle, then writes the result (and status
-  flags like zero or carry) back into registers.</p>
+  its many operations on those values in a single clock cycle, then writes the result 
+  (and status flags like zero or carry) back into registers.</p>
 
   <p>Because pointers need to reference any addressable location in memory, their
   size matches the register width.</p>

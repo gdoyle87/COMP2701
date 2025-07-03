@@ -80,6 +80,8 @@
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Week 8</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#pointers">Pointers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#video-pointers-explained">Video: Pointers Explained</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#pointer-size">Pointer Size</a>
     </li>
@@ -159,7 +161,7 @@ To understand this concept lets imagine a block of memory as follows:
 Memory addresses (e.g., `0x1000`, `0x1004`) are arbitrary and simplified for 
 illustration, and assume 4-byte alignment typical for 32-bit systems.</small>
 
-Suppose we create a variable <code>count</code> and assign it the value of 7.
+<br>Suppose we create a variable <code>count</code> and assign it the value of 7.
 
 <pre><code class="language-c">int count = 7;
 </code></pre>
@@ -211,6 +213,16 @@ It tells you where to find the variable that holds the value <code>7</code>.
 </details>
 
 <p><br></p>
+<h2 id="video-pointers-explained">Video: Pointers Explained</h2>
+<p>Before we get deeper into pointer details, here’s a quick video that explains 
+the basics that was shared by a classmate (<strong>SpaceBoy22</strong>) in our class Discord:  </p>
+<iframe width="560" height="315"
+    src="https://www.youtube.com/embed/DplxIq0mc_Y"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+</iframe>
+
 <h3 id="pointer-size">Pointer Size</h3>
 <p>A pointer is the size of the typical CPU register width in your system.  </p>
 <p>For an x86 system, pointers are generally 32-bits wide (4 bytes). For an
@@ -334,7 +346,7 @@ pointed to (<code>*dPtr</code> is read-only).</p>
 <code>dPtr</code> point somewhere else).</p>
 </li>
 </ol>
-<p>Bob recommended the following to remember which does which:</p>
+<p>Bob recommended remembering it this way:</p>
 <ul>
 <li>if <code>const</code> is beside the <strong>type</strong> it affects the <em>data</em><ul>
 <li>therefore you can't change the data that the pointer dereferences.</li>

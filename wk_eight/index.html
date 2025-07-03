@@ -105,6 +105,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#const-with-pointers">const with Pointers</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#incrementing-a-pointer">Incrementing a Pointer</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -312,7 +314,7 @@ causes <strong>undefined behavior</strong>, often leading to program crashes. </
 <p>In C <code>*</code> has different meanings depending on context:</p>
 <ul>
 <li>In a <strong><em>declaration</em></strong>, it means the variable is a pointer to the given type.</li>
-<li>In an expression, it means <strong><em>dereference</em></strong> the pointer (access the value at the address)</li>
+<li>In an <strong><em>expression</em></strong>, it means <em>dereference</em> the pointer (access the value at the address).</li>
 </ul>
 <pre><code class="language-c">int x = 10;
 int *ptr = &amp;x;  // * in declaration: ptr is a pointer
@@ -334,7 +336,7 @@ pointed to (<code>*dPtr</code> is read-only).</p>
 </ol>
 <p>Bob recommended the following to remember which does which:</p>
 <ul>
-<li>if <code>const</code> is beside the <strong>type</strong> it effects the <em>data</em><ul>
+<li>if <code>const</code> is beside the <strong>type</strong> it affects the <em>data</em><ul>
 <li>therefore you can't change the data that the pointer dereferences.</li>
 </ul>
 </li>
@@ -349,6 +351,15 @@ This second <font color="blue"><strong>const</strong></font> must come after the
 <p>Writing <code>const double const *dPtr</code> is <strong><em>not</em></strong> equivalent </p>
 <p>— both uses of <code>const</code> in this version apply to the <em>data</em> and not to the pointer.</p>
 <hr>
+
+<h2 id="incrementing-a-pointer">Incrementing a Pointer</h2>
+<p>If you increment a pointer (<code>++myPtr</code>), it simply moves to the next address in
+memory for that type — so it now points to the “next” item.</p>
+<p>If you increment a pointer <strong>inside a function</strong>, only the local copy is changed. 
+The original pointer in the caller <strong>still points to the same place</strong> unless 
+you pass a pointer-to-pointer.</p>
+<p>This means that inside a function, you can use <code>++</code> or <code>--</code> to loop through
+the memory next to the pointer <strong>without losing the original starting point</strong>.</p>
               
             </div>
           </div><footer>

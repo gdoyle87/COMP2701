@@ -81,23 +81,25 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#pointers">Pointers</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#declaring-a-pointer">Declaring a Pointer</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#pointer-size">Pointer Size</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#note-avoiding-ambiguity-in-pointer-declarations">Note: Avoiding Ambiguity in Pointer Declarations</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#initializing-a-pointer">Initializing a Pointer</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#the-address-operator">The Address (&amp;) Operator</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#the-indirectiondereferencing-operator">The Indirection/Dereferencing (*) Operator</a>
+    <li class="toctree-l2"><a class="reference internal" href="#declaring-a-pointer">Declaring a Pointer</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#note-dual-meanings-of">Note: Dual Meanings of *</a>
+    <li class="toctree-l3"><a class="reference internal" href="#note-pointer-declaration-syntax-variations">Note: Pointer Declaration Syntax Variations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#note-avoiding-ambiguity-in-pointer-declarations">Note: Avoiding Ambiguity in Pointer Declarations</a>
     </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#initializing-a-pointer">Initializing a Pointer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-address-operator">The Address (&amp;) Operator</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-indirectiondereferencing-operator">The Indirection/Dereferencing (*) Operator</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#note-dual-meanings-of">Note: Dual Meanings of *</a>
     </li>
         </ul>
     </li>
@@ -130,7 +132,7 @@
                 <h1 id="week-8">Week 8</h1>
 <h2 id="pointers">Pointers</h2>
 <p>Pointers are variables whose values are memory addresses. </p>
-<p>Refercing a value through a pointer is called <strong>indirection</strong> because we are 
+<p>Referencing a value through a pointer is called <strong>indirection</strong> because we are 
 using the address to find the value rather than directly accessing the value.</p>
 <details><summary>More on <strong>Indirection</strong></summary>
 <hr>
@@ -148,6 +150,10 @@ To understand this concept lets imagine a block of memory as follows:
 +-----------+
 </code></pre>
 
+
+<small><strong>Note:</strong> In the above, `???` represents unallocated or unknown memory values. 
+Memory addresses (e.g., `0x1000`, `0x1004`) are simplified (and arbitrary) for illustration 
+and assume 4-byte alignment typical for 32-bit systems.</small>
 
 Suppose we create a variable <code>count</code> and assign it the value of 7.
 
@@ -201,14 +207,6 @@ It tells you where to find the variable that holds the value <code>7</code>.
 </details>
 
 <p><br></p>
-<h3 id="declaring-a-pointer">Declaring a Pointer</h3>
-<p>To distinguish between a pointer and a regular variable, we use <code>*</code> to indicate
-to the compiler that the variable is a pointer.</p>
-<pre><code class="language-c">int *countPtr;
-</code></pre>
-<p>This is read as "countPtr is a pointer to an int".</p>
-<p>It can be helpful to name a pointer in a way that makes it clear it is a pointer
-to the programmer such as ending the variable name with <code>Ptr</code>.</p>
 <h3 id="pointer-size">Pointer Size</h3>
 <p>A pointer is the size of the typical CPU register width in your system.  </p>
 <p>For an x86 system, pointers are generally 32-bits wide (4 bytes). For an
@@ -246,7 +244,30 @@ theoretically, compared to 4 GB for 32-bit pointers.</p>
   <hr>
 </details>
 <p><br></p>
-<h4 id="note-avoiding-ambiguity-in-pointer-declarations"><strong>Note:</strong> Avoiding Ambiguity in Pointer Declarations</h4>
+<h2 id="declaring-a-pointer">Declaring a Pointer</h2>
+<p>To distinguish between a pointer and a regular variable, we use <code>*</code> to indicate
+to the compiler that the variable is a pointer.</p>
+<pre><code class="language-c">int *countPtr;
+</code></pre>
+<p>This is read as "countPtr is a pointer to an int".</p>
+<p>It can be helpful to name a pointer in a way that makes it clear it is a pointer
+to the programmer such as ending the variable name with <code>Ptr</code>.</p>
+<h3 id="note-pointer-declaration-syntax-variations"><strong>Note:</strong> Pointer Declaration Syntax Variations</h3>
+<p>There are several valid ways to write a pointer declaration, depending on where you place the <code>*</code>:</p>
+<pre><code class="language-c">int *countPtr;  // * touches the name, emphasizing the name is a pointer
+int* countPtr;  // * touches the type, emphasizing the pointer type
+int * countPtr; // * is between type and name, neutral style
+</code></pre>
+<p>All three are equivalent to the compiler, as whitespace around * is ignored. </p>
+<p>However, the choice of style often depends on team coding standards or personal
+preference. </p>
+<p>For example, <code>int* countPtr;</code> highlights that the type is a 
+pointer-to-int.
+<br>Whereas <code>int *countPtr;</code> emphasizes that <code>*countPtr</code> is the pointer 
+variable. </p>
+<p>Be cautious when declaring multiple variables in a single line, as 
+the <code>*</code> placement can lead to confusion (see below).</p>
+<h3 id="note-avoiding-ambiguity-in-pointer-declarations"><strong>Note:</strong> Avoiding Ambiguity in Pointer Declarations</h3>
 <p>When declaring multiple variables, it’s best to split them over multiple lines.</p>
 <p>For example, consider the following code, which creates one pointer and one regular variable:</p>
 <pre><code class="language-c">int *countPtr, count;
@@ -257,12 +278,12 @@ theoretically, compared to 4 GB for 32-bit pointers.</p>
 <p>Or:</p>
 <pre><code class="language-c">int * countPtr, count;
 </code></pre>
-<p>This makes it look like both variables are pointers.</p>
+<p>This can make it look like both variables are pointers.</p>
 <p>To avoid ambiguity, split declarations over multiple lines:</p>
 <pre><code class="language-c">int* countPtr;
 int count;
 </code></pre>
-<h3 id="initializing-a-pointer">Initializing a Pointer</h3>
+<h2 id="initializing-a-pointer">Initializing a Pointer</h2>
 <p>When we define a pointer we should always initialize it with some value, even if
 that value is <code>NULL</code>. </p>
 <pre><code class="language-c">int *countPtr = NULL;
@@ -271,17 +292,20 @@ that value is <code>NULL</code>. </p>
 <pre><code class="language-c">int *countPtr = 0;
 </code></pre>
 <p>However, in practice it is best to be explicit about it being <code>NULL</code>.</p>
-<h3 id="the-address-operator">The Address (<code>&amp;</code>) Operator</h3>
+<h2 id="the-address-operator">The Address (<code>&amp;</code>) Operator</h2>
 <p>The unary <em>address operator</em> <code>&amp;</code> returns the address of its operand.</p>
 <pre><code class="language-c">int y = 5;
 int *yPtr = &amp;y;
 </code></pre>
 <p>We use the <code>&amp;y</code> to assign the <strong><em>address</em></strong> of <code>y</code> to <code>yPtr</code>.</p>
-<h3 id="the-indirectiondereferencing-operator">The Indirection/Dereferencing (<code>*</code>) Operator</h3>
+<h2 id="the-indirectiondereferencing-operator">The Indirection/Dereferencing (<code>*</code>) Operator</h2>
 <p>The <em>dereferencing operator</em> <code>*</code> allows us to follow a pointer to access the value that 
 it points to.</p>
 <pre><code class="language-c">printf(&quot;%d&quot;, *yPtr); // prints 5
 </code></pre>
+<p>Dereferencing an uninitialized or NULL pointer (e.g., <code>int *ptr; printf("%d", *ptr);</code>)
+causes <strong>undefined behavior</strong>, often leading to program crashes. </p>
+<p>Always ensure a pointer points to a valid memory address before dereferencing.</p>
 <h4 id="note-dual-meanings-of">Note: Dual Meanings of <code>*</code></h4>
 <p>In C <code>*</code> has different meanings depending on context:</p>
 <ul>

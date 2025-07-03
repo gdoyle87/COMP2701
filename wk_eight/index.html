@@ -322,13 +322,26 @@ printf(&quot;%d&quot;, *ptr);  // * in expression: dereference to get 10
 <p><strong><em>You will be tested on this!</em></strong></p>
 <p><code>const</code> can be used in two ways with pointers in a function:</p>
 <p><img alt="const_with_pointers" src="../const_with_pointers.png" /></p>
-<p>The first <font color="red">const</font> means you cannot change the value being
+<p>The first <font color="red"><strong>const</strong></font> means you cannot change the value being
 pointed to (<code>*dPtr</code> is read-only).</p>
-<p>The second <font color="blue">const</font> means you cannot change the pointer itself (you can’t make 
+<p>The second <font color="blue"><strong>const</strong></font> means you cannot change the pointer itself (you can’t make 
 <code>dPtr</code> point somewhere else).</p>
-<p>This second <font color="blue">const</font> must come after the <code>*</code> but before the variable name.</p>
-<p>Writing <code>const double const *dPtr</code> is <strong><em>not</em></strong> equivalent — both uses of <code>const</code>
-in this version apply to the <em>data</em> and not to the pointer.</p>
+<p>Bob recommended the following to remember which does which:</p>
+<ul>
+<li>if <code>const</code> is beside the type it effects the <em>data</em><ul>
+<li>therefore you can't change the data that the pointer dereferences to.</li>
+</ul>
+</li>
+<li>if <code>const</code> is beside the pointer it affects the <em>pointer</em><ul>
+<li>therefore you can't make this pointer point to sometihng else.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Note:</strong>
+This second <font color="blue"><strong>const</strong></font> must come after the <code>*</code> but before the variable name.</p>
+<p>Writing <code>const double const *dPtr</code> is <strong><em>not</em></strong> equivalent </p>
+<pre><code>— both uses of `const` in this version apply to the *data* and not to the pointer.
+</code></pre>
               
             </div>
           </div><footer>

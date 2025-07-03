@@ -212,31 +212,42 @@ to the programmer such as ending the variable name with <code>Ptr</code>.</p>
 <h3 id="pointer-size">Pointer Size</h3>
 <p>A pointer is the size of the typical CPU register width in your system.  </p>
 <p>For an x86 system, pointers are generaly 32-bits wide (4 bytes). For an
-x64 computer, the pointers are generally 64-bit (8 bytes) <em>unless</em> you are running
+x64 computer, the pointers are generally 64-bits (8 bytes) <em>unless</em> you are running
 a 32-bit version of an app (when it will use 32-bit pointers).</p>
 <details>
-  <summary><strong>Quick aside: registers</strong></summary>
-  A **register** is a tiny, extremely fast storage location built right into 
-  the CPU. On modern 64-bit CPUs, each register holds exactly 64 bits (8 bytes).
-  The CPU uses these registers to:
+    <summary><strong>Quick aside: registers</strong></summary>
+    <hr>
+    <p>A <strong>register</strong> is a tiny, extremely fast storage location built right into 
+    the CPU. On modern 64-bit CPUs, each register holds exactly 64 bits (8 bytes).</p>
 
-  - Hold operands for ALU operations  
-    - Common operations: arithmetic, bitwise/logical, shift & rotate, comparison & conditional  
-  - Store intermediate results  
-  - Keep track of instruction pointers and flags  
+    <p>The CPU uses these registers to:</p>
 
-  Behind the scenes, the ALU takes inputs from CPU registers, performs one of 
+    <ul>
+        <li> Hold operands for ALU operations  </li>
+    <ul>
+    <li> Common operations: arithmetic, bitwise/logical,
+        shift & rotate, comparison & conditional  </li>
+        </ul>
+        <li> Store intermediate results  </li>
+        <li> Keep track of instruction pointers and flags </li> 
+    </ul>
+
+  <p>Behind the scenes, the ALU takes inputs from CPU registers, performs one of 
   these operations in a single clock cycle, then writes the result (and status
-  flags like zero or carry) back into registers.
+  flags like zero or carry) back into registers.</p>
 
-  Because pointers need to reference any addressable location in memory, their
-  size matches the register width. 
+  <p>Because pointers need to reference any addressable location in memory, their
+  size matches the register width. </p>
 
-  On a 32-bit system you get 32-bit (4 byte) 
-  pointers; on a 64-bit system you get 64-bit (8 byte) pointers
+  <p>On a 32-bit system you get 32-bit (4 byte) 
+  pointers; on a 64-bit system you get 64-bit (8 byte) pointers</p>
 
-  — *unless you’re running a 32-bit app on a 64-bit system, which will still use
-  32-bit pointers*.
+  <ul>
+    <li> <strong><em>unless</em></strong> you’re running a 32-bit <strong>app</strong> 
+    on a 64-bit system, which will still use 32-bit pointers*.
+    </li>
+  </ul>
+  <hr>
 </details>
 
 <h4 id="declaring-multiple-variables">Declaring Multiple Variables</h4>

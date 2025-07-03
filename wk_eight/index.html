@@ -328,20 +328,21 @@ pointed to (<code>*dPtr</code> is read-only).</p>
 <code>dPtr</code> point somewhere else).</p>
 <p>Bob recommended the following to remember which does which:</p>
 <ul>
-<li>if <code>const</code> is beside the type it effects the <em>data</em><ul>
-<li>therefore you can't change the data that the pointer dereferences to.</li>
+<li>if <code>const</code> is beside the <strong>type</strong> it effects the <em>data</em><ul>
+<li>therefore you can't change the data that the pointer dereferences.</li>
 </ul>
 </li>
-<li>if <code>const</code> is beside the pointer it affects the <em>pointer</em><ul>
-<li>therefore you can't make this pointer point to sometihng else.</li>
+<li>if <code>const</code> is beside the <strong>pointer</strong> it affects the <em>pointer</em><ul>
+<li>therefore you can't make this pointer point to a different address.</li>
 </ul>
 </li>
 </ul>
+<hr>
 <p><strong>Note:</strong>
 This second <font color="blue"><strong>const</strong></font> must come after the <code>*</code> but before the variable name.</p>
 <p>Writing <code>const double const *dPtr</code> is <strong><em>not</em></strong> equivalent </p>
-<pre><code>— both uses of `const` in this version apply to the *data* and not to the pointer.
-</code></pre>
+<p>— both uses of <code>const</code> in this version apply to the <em>data</em> and not to the pointer.</p>
+<hr>
               
             </div>
           </div><footer>

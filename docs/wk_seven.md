@@ -9,7 +9,7 @@ structures that can grow/shrink (linked lists, dynamic arrays, trees).
 
 In `Java`, using the `new` keyword, created a dynamic object in memory with automatic
  **garbage collection**. This means that when an object is no longer needed, its
-memory is automatically cleaned up like, throwing away garbage, so the space can
+memory is automatically cleaned up, like throwing away garbage, so the space can
 be reused.
 
 In `C`, there is no automatic garbage collection. We must manage memory 
@@ -114,19 +114,47 @@ of the array in memory.
 ## Dynamic Memory for Strings
 One common use of dynamic memory is handling strings of unknown length.
 
-For example, when reading a line of text, you may want to allocate only as much space as needed:
+For example, imagine we’re reading an input that we know will never exceed 80 
+characters. We’d declare a `char` array of length **81** (80 characters plus 
+the terminating `NUL`). But if the user only types `"hello"` (6 bytes including
+`'\0'`), you’ve still reserved 81 bytes—75 of which go unused.
 
-1. Use a fixed-size buffer to read user input:
-```c
+We can use dynamic memory allocation to avoid most of that waste. The typical
+approach has two steps: create a fixed buffer on the stack, then copy it into a 
+`malloc`’d block on the heap.
+
+<ol>
+  <li>
+    Read into the stack buffer
+
+    <pre><code class="language-c">
 char buffer[81];
-scanf("%80[^\n]", buffer); // read up to 80 characters or until newline
-getchar(); // consume the leftover newline.
-```
-2.Then copy the input to a dynamically sized block:
-```c
-char *userString = malloc(strlen(buffer) + 1);
+scanf("%80[^\n]", buffer); // read up to 80 chars or until newline
+getchar();                 // consume the leftover '\n'
+    </code></pre>
+  </li>
+
+  <!-- force the second item to be “2.” even if your renderer auto-renumbers -->
+  <li value="2">
+    Copy into a heap block sized exactly to the string
+
+    <pre><code class="language-c">
+size_t len = strlen(buffer);
+char *userString = malloc(len + 1);
 strcpy(userString, buffer);
-```
+// …do a bunch of stuff and use userString…
+free(userString);
+    </code></pre>
+  </li>
+</ol>
+
+
+
+In this example you still “waste” 81 bytes on the stack, but only once. Every 
+time you read another line, you reuse that same buffer, and each `malloc`'d 
+string on the heap is exactly the length you need (plus one), so you only 
+waste the single terminator byte per string instead of dozens.
+
 
 #### Note: scanset
 In the example above, `%80[^\n]` uses a `scanset` to control how `scanf` reads input.
@@ -134,7 +162,7 @@ In the example above, `%80[^\n]` uses a `scanset` to control how `scanf` reads i
 A `scanset`, written inside square brackets `[ ]`, tells `scanf` to match a 
 custom set of characters.
 
-The `^` means not — so `[^\n]` means “match any characters that are not a newline.”
+The `^` means **"not"**,  so `[^\n]` means “match any characters that are not a newline.”
 
 You can think of a scanset as a custom format specifier. 
 It works like a very simple character class, similar to part of a regular expression,

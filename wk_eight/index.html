@@ -385,8 +385,9 @@ pointed to (<code>*dPtr</code> is read-only).</p>
 <hr>
 <p><strong>Note:</strong>
 This second <font color="blue"><strong>const</strong></font> must come after the <code>*</code> but before the variable name.</p>
-<p>Writing <code>const double const *dPtr</code> is <strong><em>not</em></strong> equivalent </p>
-<p>— both uses of <code>const</code> in this version apply to the <em>data</em> and not to the pointer.</p>
+<p>Writing <code>const double const *dPtr</code>, where the second const is before the <code>*</code>
+is <strong><em>not</em></strong> equivalent to the original example; 
+both uses of <code>const</code> in this version apply to the <em>data</em> and not to the pointer.</p>
 <hr>
 
 <h2 id="incrementing-a-pointer">Incrementing a Pointer</h2>

@@ -101,6 +101,8 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#note-dual-meanings-of">Note: Dual Meanings of *</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#const-with-pointers">const with Pointers</a>
+    </li>
         </ul>
     </li>
     </ul>
@@ -152,8 +154,8 @@ To understand this concept lets imagine a block of memory as follows:
 
 
 <small><strong>Note:</strong> In the above, `???` represents unallocated or unknown memory values. 
-Memory addresses (e.g., `0x1000`, `0x1004`) are simplified (and arbitrary) for illustration 
-and assume 4-byte alignment typical for 32-bit systems.</small>
+Memory addresses (e.g., `0x1000`, `0x1004`) are arbitrary and simplified for 
+illustration, and assume 4-byte alignment typical for 32-bit systems.</small>
 
 Suppose we create a variable <code>count</code> and assign it the value of 7.
 
@@ -306,7 +308,7 @@ it points to.</p>
 <p>Dereferencing an uninitialized or NULL pointer (e.g., <code>int *ptr; printf("%d", *ptr);</code>)
 causes <strong>undefined behavior</strong>, often leading to program crashes. </p>
 <p>Always ensure a pointer points to a valid memory address before dereferencing.</p>
-<h4 id="note-dual-meanings-of">Note: Dual Meanings of <code>*</code></h4>
+<h3 id="note-dual-meanings-of">Note: Dual Meanings of <code>*</code></h3>
 <p>In C <code>*</code> has different meanings depending on context:</p>
 <ul>
 <li>In a <strong><em>declaration</em></strong>, it means the variable is a pointer to the given type.</li>
@@ -316,6 +318,17 @@ causes <strong>undefined behavior</strong>, often leading to program crashes. </
 int *ptr = &amp;x;  // * in declaration: ptr is a pointer
 printf(&quot;%d&quot;, *ptr);  // * in expression: dereference to get 10
 </code></pre>
+<h3 id="const-with-pointers"><code>const</code> with Pointers</h3>
+<p><strong><em>You will be tested on this!</em></strong></p>
+<p><code>const</code> can be used in two ways with pointers in a function:</p>
+<p><img alt="const_with_pointers" src="../const_with_pointers.png" /></p>
+<p>The first <font color="red">const</font> means you cannot change the value being
+pointed to (<code>*dPtr</code> is read-only).</p>
+<p>The second <font color="blue">const</font> means you cannot change the pointer itself (you can’t make 
+<code>dPtr</code> point somewhere else).</p>
+<p>This second <font color="blue">const</font> must come after the <code>*</code> but before the variable name.</p>
+<p>Writing <code>const double const *dPtr</code> is <strong><em>not</em></strong> equivalent — both uses of <code>const</code>
+in this version apply to the <em>data</em> and not to the pointer.</p>
               
             </div>
           </div><footer>

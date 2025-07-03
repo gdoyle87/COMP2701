@@ -227,12 +227,24 @@ Our memory would now look something like this.
 </code></pre>
 
 
-The variable <code>countPtr</code> holds the value <code>0x1000</code> which is the address of count.
+<ul>
+    <li>
+        The variable <code>countPtr</code> holds the value <code>0x1000</code>
+        which is the address of count.
+    </li>
+    <li>
+        The original variable, <code>count</code> directly references the 
+        value <code>7</code>.
+    </li>
+    <li>
+        <code>countPtr</code> on the other hand, <strong>indirectly</strong> 
+        references <code>7</code>. It tells you where to find the variable 
+        that holds the value <code>7</code>.
+    </li>
+</ul>
 
-<br>The original variable, <code>count</code> directly references the value <code>7</code>.
 
-<br><code>countPtr</code> on the other hand, <strong>indirectly</strong> references <code>7</code>.
-It tells you where to find the variable that holds the value <code>7</code>.
+
 <hr>
 </details>
 

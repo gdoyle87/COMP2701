@@ -80,6 +80,12 @@
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Week 8</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#pointers">Pointers</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#why-use-pointers">Why Use Pointers?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#indirection">Indirection</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#pointers-primer-video">Pointers Primer (video)</a>
         <ul>
@@ -137,9 +143,27 @@
               
                 <h1 id="week-8">Week 8</h1>
 <h2 id="pointers">Pointers</h2>
-<p>Pointers are variables whose values are memory addresses. </p>
+<p>Pointers are simply variables whose values are memory addresses.</p>
+<h3 id="why-use-pointers">Why Use Pointers?</h3>
+<p>Because C uses <strong>pass-by-value</strong>, variables are normally copied when passed to
+functions — which means changes inside the function don’t affect the original
+variable.</p>
+<p>This is different from languages like Python or Java, where what you pass to a
+function is often a <strong>reference to an object</strong>, so changes inside the function
+can affect the original data (unless it’s an immutable type).</p>
+<p>Without pointers, the only way to share or modify a variable between functions
+in C would be to make it <strong>global</strong>, which clutters your program and can lead
+to bugs and maintenance headaches.</p>
+<p>Pointers solve this by letting you pass a <strong>reference</strong> — the actual memory
+address — instead of a copy. In C, this kind of controlled sharing is done
+through <strong>indirection</strong>.</p>
+<h3 id="indirection">Indirection</h3>
 <p>Referencing a value through a pointer is called <strong>indirection</strong> because we are 
 using the address to find the value rather than directly accessing the value.</p>
+<p>When you use a pointer, you are telling the program
+<em>where</em> to look in memory to find the actual data. This lets different parts
+of a program safely share and update the same piece of data without needing
+global variables.</p>
 <details><summary>More on <strong>Indirection</strong></summary>
 <hr>
 To understand this concept lets imagine a block of memory as follows:

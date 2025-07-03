@@ -154,9 +154,8 @@ can affect the original data (unless it’s an immutable type).</p>
 <p>Without pointers, the only way to share or modify a variable between functions
 in C would be to make it <strong>global</strong>, which clutters your program and can lead
 to bugs and maintenance headaches.</p>
-<p>Pointers solve this by letting you pass a <strong>reference</strong> — the actual memory
-address — instead of a copy. In C, this kind of controlled sharing is done
-through <strong>indirection</strong>.</p>
+<p>Pointers solve this by letting you indirectly access the memory by passing a 
+<strong>reference</strong> (the actual memory address) instead of a copy. </p>
 <h3 id="indirection">Indirection</h3>
 <p>Referencing a value through a pointer is called <strong>indirection</strong> because we are 
 using the address to find the value rather than directly accessing the value.</p>

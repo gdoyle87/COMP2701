@@ -81,11 +81,11 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#the-mallocsize-function">The malloc(size) function</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#the-calloc-and-realloc-functions">The calloc() and realloc() Functions</a>
+    </li>
     <li class="toctree-l4"><a class="reference internal" href="#deallocating-memory-with-free">Deallocating Memory with free()</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#allocating-the-right-amount-of-space-with-sizeof">Allocating the Right Amount of Space with sizeof</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#the-calloc-and-realloc-functions">The calloc() and realloc() Functions</a>
     </li>
         </ul>
     </li>
@@ -136,7 +136,10 @@
                 <h1 id="week-7">Week 7</h1>
 <h2 id="dynamic-memory-allocation">Dynamic Memory Allocation</h2>
 <p>Up until now we have been <strong><em>statically</em></strong> creating memory, meaning that the memory size is 
-fixed at compile time (e.g. arrays with a fixed length).</p>
+fixed at compile time (e.g. arrays with a fixed length). In practice, this can 
+cause some issues. For instance, if you declare <code>int arr[100]</code> for user input 
+but only need 10 elements, you waste memory. If the user needs 200 elements,
+your program crashes.</p>
 <p><strong><em>Dynamic memory allocation</em></strong> lets you request memory at runtime, which allows data
 structures that can grow/shrink (linked lists, dynamic arrays, trees).</p>
 <p>In <code>Java</code>, using the <code>new</code> keyword, created a dynamic object in memory with automatic
@@ -152,9 +155,20 @@ it, or else we risk memory leaks.</p>
 <p>Allocates a block of <em>uninitialized</em> memory of the specified
 size in bytes. </p>
 <p>If it is <em>successful</em> we will be returned a pointer of type <code>void*</code> (which can be
-assigned to <em>any</em> pointer type).</p>
+assigned to <em>any</em> pointer type). Therefore we should assign it to a pointer variable:</p>
+<pre><code class="language-c">int *dynamicArray = NULL; //create an int pointer
+dynamicArray = malloc(sizeof(int) * 4); // use malloc to allocate and assign the array
+if (dynamicArray == NULL) // check that malloc did not fail
+{
+    return EXIT_FAILURE;
+}
+</code></pre>
 <p>If it is <em>not</em> successful it will return <code>NULL</code>.
 <br><strong><em>Always</em></strong> check if the return from <code>malloc()</code> is <code>NULL</code> to avoid errors.</p>
+<h4 id="the-calloc-and-realloc-functions">The <code>calloc()</code> and <code>realloc()</code> Functions</h4>
+<p><strong><code>calloc(n, size)</code></strong> allocates space for an array of <em>n</em> elements of the 
+specified size <strong>and</strong> initializes all bits to zero.</p>
+<p><strong><code>realloc(ptr, new_size)</code></strong> changes the size of a previously allocated block.</p>
 <h4 id="deallocating-memory-with-free">Deallocating Memory with <code>free()</code></h4>
 <p>When we no longer need a block of dynamically allocated memory, we can use the 
 <code>free(myPtr)</code> function to deallocate the memory and return it to the system. </p>
@@ -180,10 +194,6 @@ value it points to.</p>
 <p>So when allocating space for an array dynamically, always use sizeof on the type, not the pointer:</p>
 <pre><code class="language-c">int *arr = malloc(sizeof(int) * len);
 </code></pre>
-<h4 id="the-calloc-and-realloc-functions">The <code>calloc()</code> and <code>realloc()</code> Functions</h4>
-<p><strong><code>calloc(n, size)</code></strong> allocates space for an array of <em>n</em> elements of the 
-specified size <strong>and</strong> initializes all bits to zero.</p>
-<p><strong><code>realloc(ptr, new_size)</code></strong> changes the size of a previously allocated block.</p>
 <h2 id="pointers-and-the-heap">Pointers and the Heap</h2>
 <p>A pointer is a variable that stores the memory address of another variable or block of memory.</p>
 <p>When you declare a pointer, you use the <code>*</code> operator to indicate that the variable is a pointer type:</p>

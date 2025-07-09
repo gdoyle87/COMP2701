@@ -202,7 +202,7 @@ value it points to.</p>
 <pre><code class="language-c">int *iPtr = NULL; // should always initialize a pointer even if its just to NULL
 </code></pre>
 <p>The pointer itself lives on the stack, but it can point to a value in the heap (or anywhere in memory).</p>
-<p>Once we call malloc() such as <code>iPtr = malloc(sizeof(int));</code> we are creating a 
+<p>Once we call <code>malloc()</code> such as <code>iPtr = malloc(sizeof(int));</code> we are creating a 
 reference to a place in the heap that will be used for this value.</p>
 <p>When we are dealing with a single scalar (a simple data value - not an array or
 struct), in order to access the variable on the heap we need to <em>dereference</em>

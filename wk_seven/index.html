@@ -150,7 +150,7 @@ be reused.</p>
 manually, cleaning up our own “garbage” by freeing memory when we’re done with
 it, or else we risk memory leaks.</p>
 <h3 id="allocating-memory">Allocating Memory</h3>
-<p>In C we have 3 function for allocating memory: <code>malloc()</code>, <code>calloc()</code>, and <code>realloc()</code>.</p>
+<p>In C we have 3 functions for allocating memory: <code>malloc()</code>, <code>calloc()</code>, and <code>realloc()</code>.</p>
 <h4 id="the-mallocsize-function">The <strong><code>malloc(size)</code> function</strong></h4>
 <p>Allocates a block of <em>uninitialized</em> memory of the specified
 size in bytes. </p>
@@ -167,7 +167,9 @@ if (dynamicArray == NULL) // check that malloc did not fail
 <br><strong><em>Always</em></strong> check if the return from <code>malloc()</code> is <code>NULL</code> to avoid errors.</p>
 <h4 id="the-calloc-and-realloc-functions">The <code>calloc()</code> and <code>realloc()</code> Functions</h4>
 <p><strong><code>calloc(n, size)</code></strong> allocates space for an array of <em>n</em> elements of the 
-specified size <strong>and</strong> initializes all bits to zero.</p>
+specified size <strong>and</strong> initializes all bits to zero. This can be helpful for 
+arrays where we want to be sure values are initialized. <em>However</em> this comes at 
+the cost of some overhead.</p>
 <p><strong><code>realloc(ptr, new_size)</code></strong> changes the size of a previously allocated block.</p>
 <h4 id="deallocating-memory-with-free">Deallocating Memory with <code>free()</code></h4>
 <p>When we no longer need a block of dynamically allocated memory, we can use the 

@@ -2,7 +2,10 @@
 
 ## Dynamic Memory Allocation
 Up until now we have been ***statically*** creating memory, meaning that the memory size is 
-fixed at compile time (e.g. arrays with a fixed length).
+fixed at compile time (e.g. arrays with a fixed length). In practice, this can 
+cause some issues. For instance, if you declare `int arr[100]` for user input 
+but only need 10 elements, you waste memory. If the user needs 200 elements,
+your program crashes.
 
 ***Dynamic memory allocation*** lets you request memory at runtime, which allows data
 structures that can grow/shrink (linked lists, dynamic arrays, trees).
@@ -17,17 +20,34 @@ manually, cleaning up our own “garbage” by freeing memory when we’re done 
 it, or else we risk memory leaks.
 
 ### Allocating Memory
-In C we have 3 function for allocating memory: `malloc()`, `calloc()`, and `realloc()`.
+In C we have 3 functions for allocating memory: `malloc()`, `calloc()`, and `realloc()`.
 
 #### The **`malloc(size)` function**
 Allocates a block of *uninitialized* memory of the specified
 size in bytes. 
 
 If it is *successful* we will be returned a pointer of type `void*` (which can be
-assigned to *any* pointer type).
+assigned to *any* pointer type). Therefore we should assign it to a pointer variable:
+```c
+int *dynamicArray = NULL; //create an int pointer
+dynamicArray = malloc(sizeof(int) * 4); // use malloc to allocate and assign the array
+if (dynamicArray == NULL) // check that malloc did not fail
+{
+    return EXIT_FAILURE;
+}
+```
 
 If it is *not* successful it will return `NULL`.
 <br>***Always*** check if the return from `malloc()` is `NULL` to avoid errors.
+
+#### The `calloc()` and `realloc()` Functions
+**`calloc(n, size)`** allocates space for an array of *n* elements of the 
+specified size **and** initializes all bits to zero. This can be helpful for 
+arrays where we want to be sure values are initialized. *However* this comes at 
+the cost of some overhead.
+
+**`realloc(ptr, new_size)`** changes the size of a previously allocated block.
+
 
 #### Deallocating Memory with `free()`
 When we no longer need a block of dynamically allocated memory, we can use the 
@@ -66,14 +86,6 @@ So when allocating space for an array dynamically, always use sizeof on the type
 int *arr = malloc(sizeof(int) * len);
 ```
 
-
-#### The `calloc()` and `realloc()` Functions
-**`calloc(n, size)`** allocates space for an array of *n* elements of the 
-specified size **and** initializes all bits to zero.
-
-**`realloc(ptr, new_size)`** changes the size of a previously allocated block.
-
-
 ## Pointers and the Heap
 A pointer is a variable that stores the memory address of another variable or block of memory.
 
@@ -84,7 +96,7 @@ int *iPtr = NULL; // should always initialize a pointer even if its just to NULL
 The pointer itself lives on the stack, but it can point to a value in the heap (or anywhere in memory).
 
 
-Once we call malloc() such as `iPtr = malloc(sizeof(int));` we are creating a 
+Once we call `malloc()` such as `iPtr = malloc(sizeof(int));` we are creating a 
 reference to a place in the heap that will be used for this value.
 
 When we are dealing with a single scalar (a simple data value - not an array or
@@ -117,7 +129,7 @@ One common use of dynamic memory is handling strings of unknown length.
 For example, imagine we’re reading an input that we know will never exceed 80 
 characters. We’d declare a `char` array of length **81** (80 characters plus 
 the terminating `NUL`). But if the user only types `"hello"` (6 bytes including
-`'\0'`), you’ve still reserved 81 bytes—75 of which go unused.
+`'\0'`), you’ve still reserved 81 bytes,75 of which go unused.
 
 We can use dynamic memory allocation to avoid most of that waste. The typical
 approach has two steps: create a fixed buffer on the stack, then copy it into a 
@@ -152,8 +164,7 @@ free(userString);
 
 In this example you still “waste” 81 bytes on the stack, but only once. Every 
 time you read another line, you reuse that same buffer, and each `malloc`'d 
-string on the heap is exactly the length you need (plus one), so you only 
-waste the single terminator byte per string instead of dozens.
+string on the heap is exactly the length you need (plus one).
 
 
 #### Note: scanset

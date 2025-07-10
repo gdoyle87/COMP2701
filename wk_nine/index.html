@@ -209,15 +209,16 @@ back by the size of one element.</p>
 <p>This is also true for the increment <code>++</code> and decrement <code>--</code> operators: <code>myPtr++</code> 
 moves to the next element, not just the next byte.</p>
 <h3 id="subtracting-one-pointer-from-another">Subtracting One Pointer from Another</h3>
-<p>We can subtract one pointer from another to find how many elements apart they are.</p>
-<p>If we have two pointers as follows:</p>
-<pre><code class="language-c">int *myPtr; // assume it points to 0x1000
+<p>You can subtract one pointer from another to find how many <strong>elements</strong> apart 
+they are.</p>
+<p>For example, suppose we have two pointers as follows:</p>
+<pre><code class="language-c">int *myPtr;      // assume it points to 0x1000
 int *myOtherPtr; // assume it points to 0x1008.
 </code></pre>
-<p>We can see that the two addresses are 8 bytes away from each other.</p>
-<p>However, when we do <code>myOtherPtr - myPtr</code> we will get a result of 2 (8 bytes divided by 
-the size of the type 4 bytes). That is, it tells us that the two pointers are 
-two <code>int</code> size blocks of memory away from eachother.</p>
+<p>These addresses are 8 bytes apart. Since each <code>int</code> is 4 bytes, <code>myOtherPtr - myPtr</code> 
+we will get a result of 2. That is, these pointers are two <em>elements</em> apart.</p>
+<p>The compiler automatically divides the byte difference by the size of the type,
+so pointer subtraction always gives a <strong>count of elements</strong>, not raw bytes.</p>
 <h3 id="pointers-to-void">Pointers to <code>void</code></h3>
 <p>Pointers of the same type can be assigned to each other directly.</p>
 <p><code>void *</code> is a generic pointer type; <em>any</em> pointer can be assigned to a <code>void *</code>, 

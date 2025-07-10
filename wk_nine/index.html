@@ -185,9 +185,9 @@ int *myPtr = myArray; // this will point to the first element of the array
 int *mySecondPtr = &amp;myArray[0]; // go to myArray[0] and grab its address
 </code></pre>
 <h3 id="adding-and-subtracting-an-integer-to-from-a-pointer">Adding (and subtracting) an Integer to (from) a Pointer</h3>
-<p>When we add an integer to a pointer, the compiler is smart enough to use the
-size of the type to move in blocks rather than individual bytes.</p>
-<p>Imagine we have a pointer <code>int myPtr</code> which points to the first address here 0x1000.</p>
+<p>When you add an integer to a pointer, the compiler uses the size of the type 
+to calculate the new address in blocks, not raw bytes.</p>
+<p>For example, suppose you have a pointer <code>int *myPtr</code> pointing to address <code>0x1000</code>:</p>
 <pre><code class="language-nohighlight">+-----------+
 |     0     |  &lt;- Address 0x1000
 +-----------+
@@ -200,25 +200,24 @@ size of the type to move in blocks rather than individual bytes.</p>
 |     4     |  &lt;- Address 0x1010 
 +-----------+
 </code></pre>
-<p>That is, the value of <code>myPtr</code> is 0x1000 (a hexidecimal number representing the 
-address).</p>
-<p>If we add 2 to the number above, mathematically we would just get 0x1002. 
-<strong><em>However</em></strong> if we add 2 to the pointer, <code>myPtr += 2</code> the system will actually 
-multiply the 2 by the size of the type of the pointer.</p>
-<p>That is, instead of <code>myPtr += 2</code> changing the value of <code>myPtr</code> to 0x1002, it will 
-instead move by 2*4bytes and <code>myPtr</code> will now have the value 0x1008.</p>
-<p>The same behaviour works with subtracting an integer from a pointer.</p>
-<p>This is also true for incrementing <code>++</code> and decrementing <code>--</code>; the compiler will 
-increment by the size of the type (not just add/subtract 1 from the address).</p>
+<p>If you added <code>2</code> to the raw address <code>0x1000</code> mathematically, you'd get <code>0x1002</code>.
+<br>But when you write <code>myPtr += 2</code>, the compiler treats this as "move forward 2 ints," 
+so it multiplies <code>2</code> by the size of an <code>int</code> (4 bytes). 
+The result is <code>0x1000 + 8 = 0x1008</code>.</p>
+<p>The same rule applies when subtracting an integer: <code>myPtr -= 1</code> moves the pointer
+back by the size of one element.</p>
+<p>This is also true for the increment <code>++</code> and decrement <code>--</code> operators: <code>myPtr++</code> 
+moves to the next element, not just the next byte.</p>
 <h3 id="subtracting-one-pointer-from-another">Subtracting One Pointer from Another</h3>
 <p>We can subtract one pointer from another to find how many elements apart they are.</p>
 <p>If we have two pointers as follows:</p>
 <pre><code class="language-c">int *myPtr; // assume it points to 0x1000
 int *myOtherPtr; // assume it points to 0x1008.
 </code></pre>
-<p>We can see that the two addresses are 8 bytes away from each other. When we do 
-<code>myOtherPtr - myPtr</code> we will get a result of 2 (8 bytes divided by the size of the
-type 4 bytes).</p>
+<p>We can see that the two addresses are 8 bytes away from each other.</p>
+<p>However, when we do <code>myOtherPtr - myPtr</code> we will get a result of 2 (8 bytes divided by 
+the size of the type 4 bytes). That is, it tells us that the two pointers are 
+two <code>int</code> size blocks of memory away from eachother.</p>
 <h3 id="pointers-to-void">Pointers to <code>void</code></h3>
 <p>Pointers of the same type can be assigned to each other directly.</p>
 <p><code>void *</code> is a generic pointer type; <em>any</em> pointer can be assigned to a <code>void *</code>, 

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://gdoyle87.github.io/COMP2701/wk_nine/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Week 9 - COMP2701</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Week 9";
+        var mkdocs_page_input_path = "wk_nine.md";
+        var mkdocs_page_url = "/COMP2701/wk_nine/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> COMP2701
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_one/">Week 1</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_two/">Week 2</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_three/">Week 3</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_four/">Week 4</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_five/">Week 5</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_six/">Week 6</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../midterm/">Midterm Review</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_seven/">Week 7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_eight/">Week 8</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Week 9</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-sizeof-operator">The sizeof Operator</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pointers-and-sizeof">Pointers and sizeof</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sizes-caveat">Sizes Caveat</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#more-on-pointers">More on Pointers</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pointer-arithmetic-operators">Pointer Arithmetic Operators</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#aiming-a-pointer-at-an-array">Aiming a Pointer at an Array</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-and-subtracting-an-integer-to-from-a-pointer">Adding (and subtracting) an Integer to (from) a Pointer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#subtracting-one-pointer-from-another">Subtracting One Pointer from Another</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pointers-to-void">Pointers to void</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#arrays-pointers-and-offset-notation">Arrays, Pointers, and Offset Notation</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">COMP2701</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Week 9</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="week-9">Week 9</h1>
+<h2 id="the-sizeof-operator">The <code>sizeof</code> Operator</h2>
+<p>C provides a unary (one-input) <strong><em>operator</em></strong> to determine an object's or type's
+size in bytes (Bob stresses that <code>sizeof</code> is <strong><em>not</em></strong> a function).</p>
+<p>It calculates the size of the object at <em>compile time</em> and not during runtime.</p>
+<p>It always returns the number of bytes as a <code>size_t</code>.</p>
+<p>When applied to arrays, <code>sizeof</code> will use the size of the underlying type times
+the number of elements to determine the overall size of the array. For example,</p>
+<pre><code class="language-c">int array[20];
+printf(&quot;%zu&quot;, sizeof array);
+</code></pre>
+<p>will output 80 (4*20) where 4 is the size of an int and 20 is the number of
+elements in the array.</p>
+<h3 id="pointers-and-sizeof">Pointers and <code>sizeof</code></h3>
+<p>One thing to watch out for is applying <code>sizeof</code> to pointers. Even if the pointer
+is pointing to an array or some other type element, the sizeof operator will always
+return the size of the <em>pointer</em> in the system and not the size of the element 
+it points to. </p>
+<p>Recall that pointers are determined by the size of a register in the underlying
+system / what the application expects the size of the register to be. In modern
+systems this will be either 64- or 32-bit (8- or 4-bytes respectively).</p>
+<p>This is especially important to remember when it comes to arrays. Remember that 
+arrays <em>decay</em> to a pointer when they are passed to a function. In essence, 
+once we are in the function, it only sees the pointer to the first element; the 
+function will not know that the element pointed to is the start of an array.</p>
+<h3 id="sizes-caveat">Sizes Caveat</h3>
+<p>Remember that, while type sizes are mostly consistent, they can <em>vary</em> on different 
+systems. </p>
+<p>We can verify the sizes in our given system by 
+using <code>sizeof</code> on a <em>type</em>. When we do this, we <strong><em>must</em></strong> use parentheses <code>()</code>
+around the type: <code>sizeof(int)</code>.</p>
+<h2 id="more-on-pointers">More on Pointers</h2>
+<h3 id="pointer-arithmetic-operators">Pointer Arithmetic Operators</h3>
+<p>Pointers are valid operands in arithmetic operations (however, not all arithmetic
+operators can be used with pointers).</p>
+<p>The following arithmetic operators are allowed with pointers:</p>
+<ul>
+<li>incrementing <code>++</code> and decrementing <code>--</code>,</li>
+<li>adding an integer to a pointer <code>+</code> or <code>+=</code>,</li>
+<li>subtracting an integer from a pointer <code>-</code> or <code>-=</code>, and</li>
+<li>subtracting one pointer from another (to tell how far apart they are).</li>
+</ul>
+<h3 id="aiming-a-pointer-at-an-array">Aiming a Pointer at an Array</h3>
+<p>We can point to an array as follows:</p>
+<pre><code class="language-c">int myArray[] = {0, 1, 2, 3, 4};
+
+int *myPtr = myArray; // this will point to the first element of the array
+
+//alternatively we can do the following equivalent expression
+int *mySecondPtr = &amp;myArray[0]; // go to myArray[0] and grab its address
+</code></pre>
+<h3 id="adding-and-subtracting-an-integer-to-from-a-pointer">Adding (and subtracting) an Integer to (from) a Pointer</h3>
+<p>When we add an integer to a pointer, the compiler is smart enough to use the
+size of the type to move in blocks rather than individual bytes.</p>
+<p>Imagine we have a pointer <code>int myPtr</code> which points to the first address here 0x1000.</p>
+<pre><code class="language-nohighlight">+-----------+
+|     0     |  &lt;- Address 0x1000
++-----------+
+|     1     |  &lt;- Address 0x1004
++-----------+
+|     2     |  &lt;- Address 0x1008
++-----------+
+|     3     |  &lt;- Address 0x100C 
++-----------+
+|     4     |  &lt;- Address 0x1010 
++-----------+
+</code></pre>
+<p>That is, the value of <code>myPtr</code> is 0x1000 (a hexidecimal number representing the 
+address).</p>
+<p>If we add 2 to the number above, mathematically we would just get 0x1002. 
+<strong><em>However</em></strong> if we add 2 to the pointer, <code>myPtr += 2</code> the system will actually 
+multiply the 2 by the size of the type of the pointer.</p>
+<p>That is, instead of <code>myPtr += 2</code> changing the value of <code>myPtr</code> to 0x1002, it will 
+instead move by 2*4bytes and <code>myPtr</code> will now have the value 0x1008.</p>
+<p>The same behaviour works with subtracting an integer from a pointer.</p>
+<p>This is also true for incrementing <code>++</code> and decrementing <code>--</code>; the compiler will 
+increment by the size of the type (not just add/subtract 1 from the address).</p>
+<h3 id="subtracting-one-pointer-from-another">Subtracting One Pointer from Another</h3>
+<p>We can subtract one pointer from another to find how many elements apart they are.</p>
+<p>If we have two pointers as follows:</p>
+<pre><code class="language-c">int *myPtr; // assume it points to 0x1000
+int *myOtherPtr; // assume it points to 0x1008.
+</code></pre>
+<p>We can see that the two addresses are 8 bytes away from each other. When we do 
+<code>myOtherPtr - myPtr</code> we will get a result of 2 (8 bytes divided by the size of the
+type 4 bytes).</p>
+<h3 id="pointers-to-void">Pointers to <code>void</code></h3>
+<p>Pointers of the same type can be assigned to each other directly.</p>
+<p><code>void *</code> is a generic pointer type; <em>any</em> pointer can be assigned to a <code>void *</code>, 
+and a <code>void *</code> can be assigned to any other pointer type without casting.</p>
+<p>You can’t <em>dereference</em> a <code>void *</code> because the compiler doesn’t know what type 
+(and size) it points to. You must cast it to a specific pointer type first.</p>
+<h2 id="arrays-pointers-and-offset-notation">Arrays, Pointers, and Offset Notation</h2>
+<p>In C, an <strong>array name</strong> acts like a <strong>constant pointer</strong> to the array’s first element. For example, <code>b</code> is equivalent to <code>&amp;b[0]</code>. This lets you assign a pointer to the start of an array like <code>bPtr = b;</code>.</p>
+<p>Because of this, you can use <strong>pointer arithmetic</strong> instead of subscripts.<br />
+For example:<br />
+- <code>b[3]</code> is the same as <code>*(b + 3)</code><br />
+- <code>*(bPtr + 3)</code> is the same as <code>bPtr[3]</code></p>
+<p>The number added is an <strong>offset</strong>, which moves the pointer forward by that many
+<strong><em>elements</em></strong>. Always use parentheses like <code>*(b + 3)</code>, because <code>*</code> has higher 
+precedence than <code>+</code>. Without parentheses, <code>*b + 3</code> means "dereference <code>b</code> then 
+add 3" instead of "move the pointer by 3 then dereference."</p>
+<p>In general, any array element access <code>b[i]</code> can be written using <strong>pointer/offset
+notation</strong>: <code>*(b + i)</code>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../wk_eight/" class="btn btn-neutral float-left" title="Week 8"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../wk_eight/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

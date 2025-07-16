@@ -221,7 +221,8 @@
 // OR int main(int argc char **argv)
 </code></pre>
 <details><summary>Example with CLI arguments</summary>
-In this example, we take in a command line argument along with the function call. The program ends by listing the argument index and the argument value to highlight that the first
+In this example, we take in a command line argument along with the function call.
+The program ends by listing the argument index and the argument value to highlight that the first
 argument is always the name of the program:
 
 
@@ -253,16 +254,21 @@ int main(int argc, char *argv[]) {
 <p><br></p>
 <h2 id="printing-output">Printing Output</h2>
 <p>In C, functions like <code>printf()</code> and <code>puts()</code> are used to print output to the screen.
-Unlike Python or Java, these functions aren’t available by default — you must include the appropriate header file first.
+Unlike Python or Java, these functions aren’t available by default — you must 
+include the appropriate header file first.
 For both <code>printf()</code> and <code>puts()</code>, that file is <code>&lt;stdio.h&gt;</code> (standard I/O).
 To use them, simply add <code>#include &lt;stdio.h&gt;</code> at the top of your program.</p>
 <h3 id="puts"><code>puts()</code></h3>
-<p><code>puts()</code> prints out strictly a string of text. We cannot pass any variables into the string. 
+<p><code>puts()</code> prints out strictly a string of text. We can only pass string literals into <code>puts()</code>. 
 <br><code>puts()</code> automatically appends a newline character to the end of the string.</p>
 <h3 id="printf"><code>printf()</code></h3>
-<p><code>printf()</code> (or print <em>f</em>ormatted) prints out a formatted string where, like python and Java, we can pass in variables. 
-<br>Unlike <code>puts()</code>, <code>printf()</code> does <em>not</em> append a newline character. We must end the string with <code>\n</code> if we want a new line.</p>
-<p>In order to use variables in a <code>printf()</code> statement, we must pass in a string with placeholder <strong>format specifiers</strong> followed by a list of the variables to place in the specifiers.</p>
+<p><code>printf()</code> (or print <em>f</em>ormatted) prints out a formatted string where, like 
+python and Java, we can pass in variables. 
+<br>Unlike <code>puts()</code>, <code>printf()</code> does <em>not</em> append a newline character. We must
+end the string with <code>\n</code> if we want a new line.</p>
+<p>In order to use variables in a <code>printf()</code> statement, we must pass in a string
+with placeholder <strong>format specifiers</strong> followed by a list of the variables to
+place in the specifiers.</p>
 <pre><code class="language-C">int i = 10;
 printf(&quot;The value of i is %d.\n&quot;, i);
 // The value of i is 10.
@@ -342,7 +348,10 @@ printf(&quot;The value of i is %d.\n&quot;, i);
 </tbody>
 </table>
 <h2 id="getting-user-input">Getting User Input</h2>
-<p>In <code>C</code> there are a few ways to get user input. For our purposes, we will be using <code>scanf()</code> in this course. As with the printing functions, <code>scanf()</code> is found in the <code>&lt;stdio.h&gt;</code> library so make sure to include that in programs that will use <code>scanf()</code>.</p>
+<p>In <code>C</code> there are a few ways to get user input. For our purposes, we will be 
+using <code>scanf()</code> in this course. As with the printing functions, <code>scanf()</code> is 
+found in the <code>&lt;stdio.h&gt;</code> library so make sure to include that in programs that 
+will use <code>scanf()</code>.</p>
 <pre><code class="language-C">int number = 0;
 printf(&quot;Please enter a number: &quot;);
 if (scanf(&quot;%d&quot;, &amp;number) != 1) {
@@ -353,10 +362,15 @@ printf(&quot;You entered %d.\n&quot;, number);
 // Please enter a number: 10
 // You entered 10.
 </code></pre>
-<p>Unlike <code>printf()</code> and <code>puts()</code>, <code>scanf()</code> requires the <em>address</em> of variables (e.g., <code>&amp;number</code> in the above example). This is because C passes variables by value, 
-meaning a copy is passed unless the address is provided. Since <code>scanf()</code> is looking for a place to store the result, simply passing in the variable as usual
-would be pointless - we would be writing to a copy and not changing the result. Instead we give <code>scanf()</code> the address in memory where we would like to store the result.</p>
-<p>In practice, we generally want to prefix any variable that we are storing a result to with the address symbol <code>&amp;</code>. The only time we don't need to do this is with arrays (which we will cover later in this course).</p>
+<p>Unlike <code>printf()</code> and <code>puts()</code>, <code>scanf()</code> requires the <em>address</em> of variables 
+(e.g., <code>&amp;number</code> in the above example). This is because C passes variables by value, 
+meaning a copy is passed unless the address is provided. Since <code>scanf()</code> is 
+looking for a place to store the result, simply passing in the variable as usual
+would be pointless - we would be writing to a copy and not changing the result.
+Instead we give <code>scanf()</code> the address in memory where we would like to store the result.</p>
+<p>In practice, we generally want to prefix any variable that we are storing a 
+result to with the address symbol <code>&amp;</code>. The only time we don't need to do this
+is with arrays (which we will cover later in this course).</p>
 <details>
 <summary>
 Example of <code>scanf()</code> with an array:

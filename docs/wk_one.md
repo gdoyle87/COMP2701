@@ -66,7 +66,8 @@ int main(int argc, char *argv[])
 
 
 <details><summary>Example with CLI arguments</summary>
-In this example, we take in a command line argument along with the function call. The program ends by listing the argument index and the argument value to highlight that the first
+In this example, we take in a command line argument along with the function call.
+The program ends by listing the argument index and the argument value to highlight that the first
 argument is always the name of the program:
 
 ```C
@@ -101,20 +102,25 @@ int main(int argc, char *argv[]) {
 
 ## Printing Output
 In C, functions like `printf()` and `puts()` are used to print output to the screen.
-Unlike Python or Java, these functions aren’t available by default — you must include the appropriate header file first.
+Unlike Python or Java, these functions aren’t available by default — you must 
+include the appropriate header file first.
 For both `printf()` and `puts()`, that file is `<stdio.h>` (standard I/O).
 To use them, simply add `#include <stdio.h>` at the top of your program.
 
 
 ### `puts()`
-`puts()` prints out strictly a string of text. We cannot pass any variables into the string. 
+`puts()` prints out strictly a string of text. We can only pass string literals into `puts()`. 
 <br>`puts()` automatically appends a newline character to the end of the string.
 
 ### `printf()`
-`printf()` (or print *f*ormatted) prints out a formatted string where, like python and Java, we can pass in variables. 
-<br>Unlike `puts()`, `printf()` does *not* append a newline character. We must end the string with `\n` if we want a new line.
+`printf()` (or print *f*ormatted) prints out a formatted string where, like 
+python and Java, we can pass in variables. 
+<br>Unlike `puts()`, `printf()` does *not* append a newline character. We must
+end the string with `\n` if we want a new line.
 
-In order to use variables in a `printf()` statement, we must pass in a string with placeholder **format specifiers** followed by a list of the variables to place in the specifiers.
+In order to use variables in a `printf()` statement, we must pass in a string
+with placeholder **format specifiers** followed by a list of the variables to
+place in the specifiers.
 ```C
 int i = 10;
 printf("The value of i is %d.\n", i);
@@ -131,7 +137,7 @@ The following is a list of some common format specifiers:
 | `%u`      | Unsigned decimal integer                    | `42`                | `unsigned int`   |
 | `%zu`     | Unsigned size of objects in bytes           | `42`                | `size_t`         |
 | `%f`      | Decimal floating point                      | `3.141593`          | `float`, `double`|
-| `%F`      | Decimal floating point (uppercase `INF/NAN`)| `3.141593`         | `float`, `double`|
+| `%F`      | Decimal floating point (uppercase `INF/NAN`)| `3.141593`          | `float`, `double`|
 | `%c`      | Single character                            | `A`                 | `char`           |
 | `%s`      | String of characters                        | `Hello`             | `char *`         |
 | `%p`      | Pointer address                             | `0x7ffeefbff5c0`    | `void *`         |
@@ -139,7 +145,10 @@ The following is a list of some common format specifiers:
 
 
 ## Getting User Input
-In `C` there are a few ways to get user input. For our purposes, we will be using `scanf()` in this course. As with the printing functions, `scanf()` is found in the `<stdio.h>` library so make sure to include that in programs that will use `scanf()`.
+In `C` there are a few ways to get user input. For our purposes, we will be 
+using `scanf()` in this course. As with the printing functions, `scanf()` is 
+found in the `<stdio.h>` library so make sure to include that in programs that 
+will use `scanf()`.
 
 ```C
 int number = 0;
@@ -153,11 +162,16 @@ printf("You entered %d.\n", number);
 // You entered 10.
 ```
 
-Unlike `printf()` and `puts()`, `scanf()` requires the *address* of variables (e.g., `&number` in the above example). This is because C passes variables by value, 
-meaning a copy is passed unless the address is provided. Since `scanf()` is looking for a place to store the result, simply passing in the variable as usual
-would be pointless - we would be writing to a copy and not changing the result. Instead we give `scanf()` the address in memory where we would like to store the result.
+Unlike `printf()` and `puts()`, `scanf()` requires the *address* of variables 
+(e.g., `&number` in the above example). This is because C passes variables by value, 
+meaning a copy is passed unless the address is provided. Since `scanf()` is 
+looking for a place to store the result, simply passing in the variable as usual
+would be pointless - we would be writing to a copy and not changing the result.
+Instead we give `scanf()` the address in memory where we would like to store the result.
 
-In practice, we generally want to prefix any variable that we are storing a result to with the address symbol `&`. The only time we don't need to do this is with arrays (which we will cover later in this course).
+In practice, we generally want to prefix any variable that we are storing a 
+result to with the address symbol `&`. The only time we don't need to do this
+is with arrays (which we will cover later in this course).
 
 <details>
 <summary>

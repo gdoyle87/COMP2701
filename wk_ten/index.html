@@ -315,6 +315,12 @@ string to an integer or floating-point number. Parsing stops as soon as a charac
 is encountered that is not valid for the specified number format.</p>
 <p>If the input string does <em>not</em> start with a valid numeric sequence, the function 
 returns <code>0</code> and <code>*endPtr</code> is set to point to the original <code>nPtr</code> (input).</p>
+<p>If the base (for functions that have a base) is set to <code>0</code> then the function will
+auto-detect the base.</p>
+<p>If the number starts with <code>0</code> it will be interpreted as <strong>octal</strong>.
+If the number starts with <code>0x</code> or <code>0X</code> it will be interpreted as <strong>hex</strong>.
+If there is no prefix it will be interpreted as <strong>decimal</strong>.</p>
+<p>The base can be any number up to 36 (10 digits + 26 characters).</p>
 <hr />
 <h4 id="strtodconst-char-nptr-char-endptr"><code>strtod(const char *nPtr, char **endPtr)</code></h4>
 <p>Converts <code>nPtr</code> to a <code>double</code>. Stops at the first invalid character and sets <code>endPtr</code> to point to it.</p>
@@ -379,9 +385,13 @@ Exception: <code>strncpy</code> only does so if space permits.</p>
 <hr />
 <h4 id="strcpychar-s1-const-char-s2"><code>strcpy(char *s1, const char *s2)</code></h4>
 <p>Copies <code>s2</code> into <code>s1</code>, including the null terminator.</p>
+<p>Returns a pointer to s1, which allows cascading (passing the result to another function)
+e.g., <code>printf("%s", strcpy(...))</code>.</p>
 <hr />
 <h4 id="strncpychar-s1-const-char-s2-size_t-n"><code>strncpy(char *s1, const char *s2, size_t n)</code></h4>
 <p>Copies at most <code>n</code> characters from <code>s2</code> into <code>s1</code>. Null-terminates only if <code>s2</code> fits.</p>
+<p>After using you should probably always do <code>s1[n-1] = '\0'</code> to make sure that the 
+NUL is there.</p>
 <hr />
 <h4 id="strcatchar-s1-const-char-s2"><code>strcat(char *s1, const char *s2)</code></h4>
 <p>Appends <code>s2</code> to the end of <code>s1</code>, overwriting <code>s1</code>'s null terminator.</p>
@@ -466,14 +476,7 @@ byte count (<code>size_t n</code>), which means they:</p>
 <h2 id="measuring-string-length">Measuring String Length</h2>
 <hr />
 <h4 id="strlenconst-char-s"><code>strlen(const char *s)</code></h4>
-<p>Returns the length of string <code>s</code>, excluding the null terminator (<code>\0</code>).</p>
-<ul>
-<li><code>strlen</code> is commonly used to:</li>
-<li>Check the size of a string before copying or concatenating</li>
-<li>Allocate enough memory for new strings</li>
-<li>Unlike memory functions, it <strong>stops at the first null character</strong> (<code>\0</code>)</li>
-<li>The return type is <code>size_t</code>, which is an <strong>unsigned integer type</strong> large enough to represent any object size in memory</li>
-</ul>
+<p>Returns a <code>size_t</code> representing the length of string <code>s</code>, excluding the null terminator (<code>\0</code>).</p>
 <hr />
               
             </div>

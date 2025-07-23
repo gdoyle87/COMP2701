@@ -103,7 +103,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#inputoutput-functions-stdioh">Input/Output Functions (&lt;stdio.h&gt;)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#string-manipulation-functions">String-Manipulation Functions ()</a>
+    <li class="toctree-l2"><a class="reference internal" href="#string-manipulation-functions-stringh">String-Manipulation Functions (&lt;string.h&gt;)</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#manipulating-string-data">Manipulating string data</a>
     </li>
@@ -113,7 +113,7 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#tokenizing-strings-splitting-them-into-pieces">Tokenizing strings (splitting them into pieces)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#memory-functions-stringh">Memory Functions (&lt;string.h&gt;)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#memory-functions">Memory Functions</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#measuring-string-length">Measuring String Length</a>
     </li>
@@ -342,7 +342,7 @@ int main() {
     return 0;
 }
 </code></pre>
-<h2 id="string-manipulation-functions">String-Manipulation Functions (<string.h>)</h2>
+<h2 id="string-manipulation-functions-stringh">String-Manipulation Functions (<code>&lt;string.h&gt;</code>)</h2>
 <p>The string-handling library provides useful functions for dealing with strings</p>
 <h3 id="manipulating-string-data">Manipulating string data</h3>
 <table>
@@ -468,7 +468,7 @@ where it left off.</p>
 the same string (it will then use the static memory to find where it left off)</p>
 <p>If we pass a new string to <code>*strtok</code> it will reset the internal static storage 
 which will effectively start a new sequence.</p>
-<h3 id="memory-functions-stringh">Memory Functions (<code>&lt;string.h&gt;</code>)</h3>
+<h3 id="memory-functions">Memory Functions</h3>
 <p>These functions manipulate, compare, or search raw memory, not just 
 null-terminated strings. They work on <code>void *</code> pointers and use an explicit 
 byte count (<code>size_t n</code>), which means they:</p>

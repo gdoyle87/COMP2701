@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://gdoyle87.github.io/COMP2701/final/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Final Exam Review - COMP2701</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Final Exam Review";
+        var mkdocs_page_input_path = "final.md";
+        var mkdocs_page_url = "/COMP2701/final/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> COMP2701
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_one/">Week 1 - Introduction to C & Data Types</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_two/">Week 2 - Operators, Math, and Program Flow</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_three/">Week 3 - Functions, Scope, and Header Files</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_four/">Week 4 - Enums, Storage Classes, and Memory Layout</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_five/">Week 5 - Arrays and Strings</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_six/">Week 6 - Multi-Dimensional Arrays</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../midterm/">Midterm Review</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_seven/">Week 7 - Dynamic Memory Allocation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_eight/">Week 8 - Pointer Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_nine/">Week 9 - Pointer Arithmetic and sizeof Operator</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_ten/">Week 10 - String Functions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_eleven/">Week 11</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Final Exam Review</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#dynamic-memory-allocation">Dynamic Memory Allocation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#mallocsize">malloc(size)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#callocn-size">calloc(n, size)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reallocptr-new_size">realloc(ptr, new_size)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#freeptr">free(ptr)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sizeof-with-pointers">sizeof with Pointers</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pointers-and-the-heap">Pointers and the Heap</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dynamic-arrays">Dynamic Arrays</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dynamic-memory-for-strings">Dynamic Memory for Strings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#scanset">Scanset</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pointers">Pointers</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#why-use-pointers">Why Use Pointers?</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#indirection">Indirection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pointer-size">Pointer Size</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#declaring-a-pointer">Declaring a Pointer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#initializing-a-pointer">Initializing a Pointer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-address-operator">The Address (&amp;) Operator</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-indirection-operator">The Indirection (*) Operator</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-with-pointers">const with Pointers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#incrementing-a-pointer">Incrementing a Pointer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sizeof-operator">sizeof Operator</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pointers-and-sizeof">Pointers and sizeof</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pointer-arithmetic">Pointer Arithmetic</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#subtracting-pointers">Subtracting Pointers</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pointing-to-arrays">Pointing to Arrays</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#offset-notation">Offset Notation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#void-pointers">void * Pointers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#function-pointers">Function Pointers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#-">---</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ctypeh-character-classification">&lt;ctype.h&gt; – Character Classification</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#type-checking">Type Checking</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#case-checking-and-conversion">Case Checking and Conversion</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#whitespace-control">Whitespace &amp; Control</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#printable-characters">Printable Characters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#stdlibh-string-conversion">&lt;stdlib.h&gt; – String Conversion</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#conversion-functions">Conversion Functions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#stdioh-inputoutput">&lt;stdio.h&gt; – Input/Output</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#stringh-string-handling">&lt;string.h&gt; – String Handling</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#copying-and-concatenation">Copying and Concatenation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparing-strings">Comparing Strings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#searching">Searching</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#strtok-tokenizing">strtok – Tokenizing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#memory-functions-raw-byte-handling">Memory Functions (Raw Byte Handling)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#work-on-any-data-not-just-strings">Work on any data, not just strings</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#strlen">strlen</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">COMP2701</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Final Exam Review</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="final-exam-review">Final Exam Review</h1>
+<h2 id="dynamic-memory-allocation">Dynamic Memory Allocation</h2>
+<p>C lets you request memory at <strong>runtime</strong> using functions like <code>malloc()</code> instead of hardcoding array sizes at compile time. This avoids wasted memory and allows data structures like lists and dynamic arrays.</p>
+<p>C has <strong>no garbage collection</strong> — you must manually free memory when done using <code>free()</code>.</p>
+<h3 id="mallocsize"><code>malloc(size)</code></h3>
+<p>Allocates a block of <strong>uninitialized</strong> memory.</p>
+<pre><code class="language-c">int *arr = malloc(sizeof(int) * 4);
+if (arr == NULL) { return EXIT_FAILURE; }
+</code></pre>
+<h3 id="callocn-size"><code>calloc(n, size)</code></h3>
+<p>Like <code>malloc</code>, but zero-initializes the memory.</p>
+<pre><code class="language-c">int *arr = calloc(4, sizeof(int));
+</code></pre>
+<h3 id="reallocptr-new_size"><code>realloc(ptr, new_size)</code></h3>
+<p>Changes the size of previously allocated memory.</p>
+<h3 id="freeptr"><code>free(ptr)</code></h3>
+<p>Releases memory. Set pointer to <code>NULL</code> afterward to avoid dangling references.</p>
+<pre><code class="language-c">free(arr);
+arr = NULL;
+</code></pre>
+<h3 id="sizeof-with-pointers"><code>sizeof</code> with Pointers</h3>
+<pre><code class="language-c">sizeof(ptr)     // size of the pointer (e.g. 8 bytes)
+sizeof(*ptr)    // size of the pointed-to type (e.g. 4 bytes for int)
+</code></pre>
+<hr />
+<h2 id="pointers-and-the-heap">Pointers and the Heap</h2>
+<p>A pointer stores the memory address of another variable. When dynamically allocating:</p>
+<pre><code class="language-c">int *ptr = malloc(sizeof(int));
+*ptr = 10; // Dereference to assign
+</code></pre>
+<ul>
+<li>Pointer itself lives on the <strong>stack</strong></li>
+<li>Value it points to lives on the <strong>heap</strong></li>
+</ul>
+<hr />
+<h2 id="dynamic-arrays">Dynamic Arrays</h2>
+<pre><code class="language-c">int *arr = malloc(sizeof(int) * len);
+arr[0] = 5;
+</code></pre>
+<p>Pointers to heap arrays behave like regular arrays, but <code>sizeof(arr)</code> returns pointer size.</p>
+<hr />
+<h2 id="dynamic-memory-for-strings">Dynamic Memory for Strings</h2>
+<p>To handle string input of unknown length:</p>
+<pre><code class="language-c">char buffer[81];
+scanf(&quot;%80[^
+]&quot;, buffer);
+getchar(); // consume '
+'
+
+size_t len = strlen(buffer);
+char *copy = malloc(len + 1);
+strcpy(copy, buffer);
+</code></pre>
+<hr />
+<h2 id="scanset">Scanset</h2>
+<p><code>%80[^
+]</code> tells <code>scanf</code> to read up to 80 characters until newline.<br />
+- <code>[^...]</code>: match anything <em>except</em> characters inside</p>
+<hr />
+<h2 id="pointers">Pointers</h2>
+<p>Pointers are variables that store memory addresses.</p>
+<h3 id="why-use-pointers">Why Use Pointers?</h3>
+<p>C uses <strong>pass-by-value</strong>, so variables are copied when passed to functions.<br />
+To modify the original variable, pass its <strong>address</strong> using pointers.</p>
+<p>Pointers let us:
+- Avoid global variables
+- Share memory between functions
+- Modify original values in functions</p>
+<hr />
+<h2 id="indirection">Indirection</h2>
+<p>Using a pointer to access a value is called <strong>indirection</strong>.</p>
+<pre><code class="language-c">int count = 7;
+int *countPtr = &amp;count;
+printf(&quot;%d&quot;, *countPtr); // prints 7
+</code></pre>
+<hr />
+<h2 id="pointer-size">Pointer Size</h2>
+<p>Pointers match the CPU register width:
+- 32-bit systems: 4-byte pointers
+- 64-bit systems: 8-byte pointers</p>
+<hr />
+<h2 id="declaring-a-pointer">Declaring a Pointer</h2>
+<pre><code class="language-c">int *ptr;
+</code></pre>
+<p>All of these are equivalent:</p>
+<pre><code class="language-c">int *ptr;
+int* ptr;
+int * ptr;
+</code></pre>
+<p>Avoid multiple declarations like:</p>
+<pre><code class="language-c">int *ptr, x; // only ptr is a pointer
+</code></pre>
+<p>Instead:</p>
+<pre><code class="language-c">int *ptr;
+int x;
+</code></pre>
+<hr />
+<h2 id="initializing-a-pointer">Initializing a Pointer</h2>
+<p>Always initialize, even to <code>NULL</code>:</p>
+<pre><code class="language-c">int *ptr = NULL;
+</code></pre>
+<hr />
+<h2 id="the-address-operator">The Address (<code>&amp;</code>) Operator</h2>
+<p>Returns the memory address of a variable:</p>
+<pre><code class="language-c">int y = 5;
+int *yPtr = &amp;y;
+</code></pre>
+<hr />
+<h2 id="the-indirection-operator">The Indirection (<code>*</code>) Operator</h2>
+<p>Dereferences the pointer to get the value:</p>
+<pre><code class="language-c">int x = 10;
+int *ptr = &amp;x;
+printf(&quot;%d&quot;, *ptr); // prints 10
+</code></pre>
+<p><code>*</code> means:
+- In declarations: declare a pointer
+- In expressions: dereference the pointer</p>
+<hr />
+<h2 id="const-with-pointers"><code>const</code> with Pointers</h2>
+<p><code>const</code> affects either the <strong>data</strong> or the <strong>pointer</strong>:</p>
+<pre><code class="language-c">const double *dPtr;      // can't change value pointed to
+double *const dPtr;      // can't change the pointer itself
+const double *const dPtr; // can't change either
+</code></pre>
+<hr />
+<h2 id="incrementing-a-pointer">Incrementing a Pointer</h2>
+<pre><code class="language-c">int arr[] = {1, 2, 3};
+int *ptr = arr;
+++ptr; // now points to arr[1]
+</code></pre>
+<p>Increment moves to the next element, not just next byte.</p>
+<p>Pointer increment inside a function only affects the local copy unless passed as a pointer-to-pointer.</p>
+<hr />
+<h2 id="sizeof-operator"><code>sizeof</code> Operator</h2>
+<p><code>sizeof</code> is a <strong>compile-time operator</strong> (not a function) that returns the size (in bytes) of a type or object as a <code>size_t</code>.</p>
+<pre><code class="language-c">int array[20];
+printf(&quot;%zu&quot;, sizeof array); // prints 80 if int is 4 bytes
+</code></pre>
+<ul>
+<li><code>sizeof(type)</code> requires parentheses.</li>
+<li><code>sizeof(variable)</code> does not.</li>
+</ul>
+<hr />
+<h3 id="pointers-and-sizeof">Pointers and <code>sizeof</code></h3>
+<p>When used on a pointer, <code>sizeof</code> returns the size of the pointer itself — <strong>not</strong> what it points to.</p>
+<pre><code class="language-c">int *p;
+sizeof(p);     // size of pointer (e.g., 8 bytes)
+sizeof(*p);    // size of int (e.g., 4 bytes)
+</code></pre>
+<p>Arrays decay to pointers when passed to functions, so <code>sizeof</code> no longer gives array size inside a function.</p>
+<hr />
+<h2 id="pointer-arithmetic">Pointer Arithmetic</h2>
+<p>Valid operations:
+- <code>++</code>, <code>--</code>
+- <code>+</code> and <code>-</code> with integers
+- subtracting one pointer from another</p>
+<p>When you add <code>n</code> to a pointer, it advances by <code>n * sizeof(type)</code> bytes.</p>
+<pre><code class="language-c">myPtr += 2; // skips 2 elements, not 2 bytes
+</code></pre>
+<hr />
+<h3 id="subtracting-pointers">Subtracting Pointers</h3>
+<pre><code class="language-c">int *a, *b;
+// suppose a = 0x1000, b = 0x1008, and sizeof(int) = 4
+b - a; // result is 2 (elements apart)
+</code></pre>
+<hr />
+<h2 id="pointing-to-arrays">Pointing to Arrays</h2>
+<pre><code class="language-c">int arr[] = {0, 1, 2};
+int *ptr = arr;      // same as &amp;arr[0]
+</code></pre>
+<hr />
+<h2 id="offset-notation">Offset Notation</h2>
+<pre><code class="language-c">arr[3]      == *(arr + 3)
+ptr[2]      == *(ptr + 2)
+</code></pre>
+<p>Always use parentheses: <code>*(arr + i)</code><br />
+Not: <code>*arr + i</code> (which adds after dereferencing)</p>
+<hr />
+<h2 id="void-pointers"><code>void *</code> Pointers</h2>
+<p>Generic pointer type. Can point to any data type.</p>
+<pre><code class="language-c">void *vp;
+int *ip = vp; // allowed with explicit cast
+</code></pre>
+<p>Cannot dereference a <code>void *</code> directly — must cast to a specific type first.</p>
+<hr />
+<h2 id="function-pointers">Function Pointers</h2>
+<p>Functions have addresses just like data.</p>
+<pre><code class="language-c">void bubbleSort(int a[], size_t n, int (*cmp)(int, int));
+</code></pre>
+<p>Calling:</p>
+<pre><code class="language-c">(*cmp)(a, b);
+</code></pre>
+<p>Parentheses around <code>*cmp</code> are required to make it a pointer to a function.</p>
+<h2 id="-">---</h2>
+<h2 id="ctypeh-character-classification"><code>&lt;ctype.h&gt;</code> – Character Classification</h2>
+<p>Each function takes an <code>int</code> (usually a <code>char</code> cast to <code>int</code>).</p>
+<h3 id="type-checking">Type Checking</h3>
+<ul>
+<li><code>isdigit(c)</code> – true if 0–9  </li>
+<li><code>isalpha(c)</code> – true if a–z or A–Z  </li>
+<li><code>isalnum(c)</code> – true if letter or digit  </li>
+<li><code>isxdigit(c)</code> – true if valid hex (0–9, a–f, A–F)</li>
+</ul>
+<h3 id="case-checking-and-conversion">Case Checking and Conversion</h3>
+<ul>
+<li><code>islower(c)</code> – true if lowercase  </li>
+<li><code>isupper(c)</code> – true if uppercase  </li>
+<li><code>tolower(c)</code> – converts to lowercase  </li>
+<li><code>toupper(c)</code> – converts to uppercase</li>
+</ul>
+<h3 id="whitespace-control">Whitespace &amp; Control</h3>
+<ul>
+<li><code>isblank(c)</code> – space or tab  </li>
+<li><code>isspace(c)</code> – any whitespace (space, tab, newline, etc.)  </li>
+<li><code>iscntrl(c)</code> – control characters (e.g., newline, tab)  </li>
+<li><code>ispunct(c)</code> – punctuation (not space or alphanumeric)</li>
+</ul>
+<h3 id="printable-characters">Printable Characters</h3>
+<ul>
+<li><code>isprint(c)</code> – any printable char, including space  </li>
+<li><code>isgraph(c)</code> – printable except space</li>
+</ul>
+<hr />
+<h2 id="stdlibh-string-conversion"><code>&lt;stdlib.h&gt;</code> – String Conversion</h2>
+<h3 id="conversion-functions">Conversion Functions</h3>
+<ul>
+<li><code>strtod(s, endPtr)</code> – string to <code>double</code>  </li>
+<li><code>strtol(s, endPtr, base)</code> – string to <code>long</code>  </li>
+<li><code>strtoul(s, endPtr, base)</code> – string to <code>unsigned long</code></li>
+</ul>
+<p>Behavior:
+- Stops at first invalid char<br />
+- <code>base = 0</code> auto-detects:<br />
+  - <code>0x</code> or <code>0X</code> → hex<br />
+  - <code>0</code> → octal<br />
+  - otherwise → decimal  </p>
+<hr />
+<h2 id="stdioh-inputoutput"><code>&lt;stdio.h&gt;</code> – Input/Output</h2>
+<ul>
+<li><code>getchar()</code> – reads next char from stdin  </li>
+<li><code>putchar(c)</code> – writes char to stdout  </li>
+<li><code>puts(s)</code> – prints string with newline  </li>
+<li><code>sprintf(dest, format, ...)</code> – formats into a string  </li>
+<li><code>sscanf(s, format, ...)</code> – parses from string  </li>
+<li><code>fgets(s, n, stream)</code> – reads up to n-1 chars, stops at newline or EOF, includes newline</li>
+</ul>
+<p>Example (safe input):</p>
+<pre><code class="language-c">char buffer[100];
+int value;
+
+if (fgets(buffer, sizeof buffer, stdin)) {
+    if (sscanf(buffer, &quot;%d&quot;, &amp;value) == 1) {
+        printf(&quot;Value: %d\n&quot;, value);
+    }
+}
+</code></pre>
+<hr />
+<h2 id="stringh-string-handling"><code>&lt;string.h&gt;</code> – String Handling</h2>
+<h3 id="copying-and-concatenation">Copying and Concatenation</h3>
+<ul>
+<li><code>strcpy(dest, src)</code> – copies string including NUL  </li>
+<li><code>strncpy(dest, src, n)</code> – at most n chars; may not NUL-terminate  </li>
+<li><code>strcat(dest, src)</code> – appends src to dest  </li>
+<li><code>strncat(dest, src, n)</code> – appends at most n chars</li>
+</ul>
+<h3 id="comparing-strings">Comparing Strings</h3>
+<ul>
+<li><code>strcmp(s1, s2)</code> – full comparison  </li>
+<li><code>strncmp(s1, s2, n)</code> – compares first n chars</li>
+</ul>
+<h3 id="searching">Searching</h3>
+<ul>
+<li><code>strchr(s, c)</code> – first occurrence of <code>c</code>  </li>
+<li><code>strrchr(s, c)</code> – last occurrence of <code>c</code>  </li>
+<li><code>strpbrk(s1, s2)</code> – first match of any char from s2  </li>
+<li><code>strstr(s1, s2)</code> – first substring match  </li>
+<li><code>strspn(s1, s2)</code> – length of segment with only s2 chars  </li>
+<li><code>strcspn(s1, s2)</code> – length of segment with no s2 chars</li>
+</ul>
+<hr />
+<h2 id="strtok-tokenizing"><code>strtok</code> – Tokenizing</h2>
+<pre><code class="language-c">char *token = strtok(str, &quot; ,.-&quot;);
+while (token != NULL) {
+    // process token
+    token = strtok(NULL, &quot; ,.-&quot;);
+}
+</code></pre>
+<ul>
+<li>Modifies input string</li>
+<li>Remembers position using internal static storage</li>
+<li>Start new string by calling again with non-NULL</li>
+</ul>
+<hr />
+<h2 id="memory-functions-raw-byte-handling">Memory Functions (Raw Byte Handling)</h2>
+<h3 id="work-on-any-data-not-just-strings">Work on any data, not just strings</h3>
+<ul>
+<li><code>memcpy(dest, src, n)</code> – fast copy, no overlap safety  </li>
+<li><code>memmove(dest, src, n)</code> – overlap-safe copy  </li>
+<li><code>memcmp(s1, s2, n)</code> – compares n bytes  </li>
+<li><code>memchr(s, c, n)</code> – searches first n bytes for <code>c</code>  </li>
+<li><code>memset(s, c, n)</code> – fills memory with byte <code>c</code></li>
+</ul>
+<hr />
+<h2 id="strlen"><code>strlen</code></h2>
+<p>Returns length of a string excluding the null terminator.</p>
+<pre><code class="language-c">size_t len = strlen(&quot;hello&quot;); // 5
+</code></pre>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../wk_eleven/" class="btn btn-neutral float-left" title="Week 11"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../wk_eleven/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

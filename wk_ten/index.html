@@ -90,10 +90,40 @@
     <li class="toctree-l2"><a class="reference internal" href="#character-handling-library-ctypeh">Character-handling Library (&lt;ctype.h&gt;)</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#character-type-checking-functions-digits-letters-hex">Character Type Checking Functions (digits, letters, hex)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#isdigitint-c">isdigit(int c)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#isalphaint-c">isalpha(int c)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#isalnumint-c">isalnum(int c)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#isxdigitint-c">isxdigit(int c)</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#case-checking-and-conversion">Case Checking and Conversion</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#islowerint-c">islower(int c)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#isupperint-c">isupper(int c)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#tolowerint-c">tolower(int c)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#toupperint-c">toupper(int c)</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#whitespace-and-control-checking">Whitespace and Control Checking</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#isblankint-c">isblank(int c)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#isspaceint-c">isspace(int c)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#iscntrlint-c">iscntrl(int c)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ispunctint-c">ispunct(int c)</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#printing-character-checking">Printing Character Checking</a>
     </li>
@@ -151,86 +181,32 @@
 <p>Each function in the <code>&lt;ctype.h&gt;</code> library accepts an <code>unsigned char</code> (which can
 be represented as an <code>int</code>) or <code>EOF</code> (<code>EOF</code> is usually -1) as input. </p>
 <h3 id="character-type-checking-functions-digits-letters-hex">Character Type Checking Functions (digits, letters, hex)</h3>
-<table>
-<thead>
-<tr>
-<th>Prototype</th>
-<th>Function description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>int isdigit(int c);</code></td>
-<td>Returns a true value if <code>c</code> is a digit; otherwise, it returns 0 (false).</td>
-</tr>
-<tr>
-<td><code>int isalpha(int c);</code></td>
-<td>Returns a true value if <code>c</code> is a letter; otherwise, it returns 0 (false).</td>
-</tr>
-<tr>
-<td><code>int isalnum(int c);</code></td>
-<td>Returns a true value if <code>c</code> is a digit or a letter; otherwise, it returns 0 (false).</td>
-</tr>
-<tr>
-<td><code>int isxdigit(int c);</code></td>
-<td>Returns a true value if <code>c</code> is a hexadecimal digit character; otherwise, it returns 0 (false).</td>
-</tr>
-</tbody>
-</table>
+<h4 id="isdigitint-c"><code>isdigit(int c)</code></h4>
+<p>Returns true if <code>c</code> is a digit (0–9), otherwise returns false.</p>
+<h4 id="isalphaint-c"><code>isalpha(int c)</code></h4>
+<p>Returns true if <code>c</code> is a letter (a–z or A–Z), otherwise returns false.</p>
+<h4 id="isalnumint-c"><code>isalnum(int c)</code></h4>
+<p>Returns true if <code>c</code> is either a digit or a letter, otherwise returns false.</p>
+<h4 id="isxdigitint-c"><code>isxdigit(int c)</code></h4>
+<p>Returns true if <code>c</code> is a valid hexadecimal digit (0–9, a–f, A–F).</p>
 <h3 id="case-checking-and-conversion">Case Checking and Conversion</h3>
-<table>
-<thead>
-<tr>
-<th>Prototype</th>
-<th>Function description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>int islower(int c);</code></td>
-<td>Returns a true value if <code>c</code> is a lowercase letter; otherwise, it returns 0 (false).</td>
-</tr>
-<tr>
-<td><code>int isupper(int c);</code></td>
-<td>Returns a true value if <code>c</code> is an uppercase letter; otherwise, it returns 0 (false).</td>
-</tr>
-<tr>
-<td><code>int tolower(int c);</code></td>
-<td>If <code>c</code> is an uppercase letter, <code>tolower</code> returns <code>c</code> as a lowercase letter; otherwise, it returns the argument unchanged.</td>
-</tr>
-<tr>
-<td><code>int toupper(int c);</code></td>
-<td>If <code>c</code> is a lowercase letter, <code>toupper</code> returns <code>c</code> as an uppercase letter; otherwise, it returns the argument unchanged.</td>
-</tr>
-</tbody>
-</table>
+<h4 id="islowerint-c"><code>islower(int c)</code></h4>
+<p>Returns true if <code>c</code> is a lowercase letter.</p>
+<h4 id="isupperint-c"><code>isupper(int c)</code></h4>
+<p>Returns true if <code>c</code> is an uppercase letter.</p>
+<h4 id="tolowerint-c"><code>tolower(int c)</code></h4>
+<p>If <code>c</code> is an uppercase letter, returns its lowercase equivalent. Otherwise, returns <code>c</code> unchanged.</p>
+<h4 id="toupperint-c"><code>toupper(int c)</code></h4>
+<p>If <code>c</code> is a lowercase letter, returns its uppercase equivalent. Otherwise, returns <code>c</code> unchanged.</p>
 <h3 id="whitespace-and-control-checking">Whitespace and Control Checking</h3>
-<table>
-<thead>
-<tr>
-<th>Prototype</th>
-<th>Function description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>int isblank(int c);</code></td>
-<td>Returns a true value if <code>c</code> is a blank character that separates words in a line of text; otherwise, it returns 0 (false).</td>
-</tr>
-<tr>
-<td><code>int isspace(int c);</code></td>
-<td>Returns a true value if <code>c</code> is a whitespace character—newline (<code>'\n'</code>), space (<code>' '</code>), form feed (<code>'\f'</code>), carriage return (<code>'\r'</code>), horizontal tab (<code>'\t'</code>) or vertical tab (<code>'\v'</code>)—otherwise, it returns 0 (false).</td>
-</tr>
-<tr>
-<td><code>int iscntrl(int c);</code></td>
-<td>Returns a true value if <code>c</code> is a control character—horizontal tab (<code>'\t'</code>), vertical tab (<code>'\v'</code>), form feed (<code>'\f'</code>), alert (<code>'\a'</code>), backspace (<code>'\b'</code>), carriage return (<code>'\r'</code>), newline (<code>'\n'</code>) and others—otherwise, it returns 0 (false).</td>
-</tr>
-<tr>
-<td><code>int ispunct(int c);</code></td>
-<td>Returns a true value if <code>c</code> is a printing character other than a space, a digit, or a letter—such as $, #, (, ), [, ], {, }, ;, : or %—otherwise, it returns 0 (false).</td>
-</tr>
-</tbody>
-</table>
+<h4 id="isblankint-c"><code>isblank(int c)</code></h4>
+<p>Returns true if <code>c</code> is a space or tab.</p>
+<h4 id="isspaceint-c"><code>isspace(int c)</code></h4>
+<p>Returns true if <code>c</code> is any whitespace character (space, tab, newline, vertical tab, form feed, carriage return).</p>
+<h4 id="iscntrlint-c"><code>iscntrl(int c)</code></h4>
+<p>Returns true if <code>c</code> is a control character (e.g., newline, tab, backspace).</p>
+<h4 id="ispunctint-c"><code>ispunct(int c)</code></h4>
+<p>Returns true if <code>c</code> is a printable character but not a space or alphanumeric character.</p>
 <h3 id="printing-character-checking">Printing Character Checking</h3>
 <p>A printing character is any character that results in a visible symbol on screen
 or paper. This includes letters, digits, punctuation, and symbols.</p>

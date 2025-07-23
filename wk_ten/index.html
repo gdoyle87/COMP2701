@@ -301,8 +301,10 @@ returns <code>0</code> and <code>*endPtr</code> is set to point to the original 
 <hr />
 <h4 id="strtodconst-char-nptr-char-endptr"><code>strtod(const char *nPtr, char **endPtr)</code></h4>
 <p>Converts <code>nPtr</code> to a <code>double</code>. Stops at the first invalid character and sets <code>endPtr</code> to point to it.</p>
+<hr />
 <h4 id="strtolconst-char-nptr-char-endptr-int-base"><code>strtol(const char *nPtr, char **endPtr, int base)</code></h4>
 <p>Converts <code>nPtr</code> to a <code>long</code>. Accepts a numerical base (e.g., 10 for decimal, 16 for hex).</p>
+<hr />
 <h4 id="strtoulconst-char-nptr-char-endptr-int-base"><code>strtoul(const char *nPtr, char **endPtr, int base)</code></h4>
 <p>Converts <code>nPtr</code> to an <code>unsigned long</code>. Otherwise behaves like <code>strtol</code>.Each function takes a second argument <code>endPtr</code>, which is used to return a pointer 
 to the <strong><em>rest</em></strong> of the string (i.e., the character immediately after the parsed
@@ -312,14 +314,19 @@ number). If you don't need this information, you can pass <code>NULL</code> inst
 <hr />
 <h4 id="getcharvoid"><code>getchar(void)</code></h4>
 <p>Returns the next character from standard input as an <code>int</code>.</p>
+<hr />
 <h4 id="putcharint-c"><code>putchar(int c)</code></h4>
 <p>Prints the character represented by <code>c</code>.</p>
+<hr />
 <h4 id="putsconst-char-s"><code>puts(const char *s)</code></h4>
 <p>Prints the string <code>s</code> followed by a newline.</p>
+<hr />
 <h4 id="sprintfchar-s-const-char-format"><code>sprintf(char *s, const char *format, ...)</code></h4>
 <p>Formats a string like <code>printf</code>, but stores it in the array <code>s</code>.</p>
+<hr />
 <h4 id="sscanfchar-s-const-char-format"><code>sscanf(char *s, const char *format, ...)</code></h4>
 <p>Parses data from the string <code>s</code>, similarly to how <code>scanf</code> reads from input.</p>
+<hr />
 <h4 id="fgetschar-s-int-n-file-stream"><code>fgets(char *s, int n, FILE *stream)</code></h4>
 <p>Reads up to <code>n-1</code> characters from <code>stream</code> into <code>s</code>, stopping at newline or EOF. Adds a null terminator. Newline is included if read.
 You can pass <code>stdin</code> as the stream argument to <code>fgets</code>, allowing it to read from
@@ -355,10 +362,13 @@ Exception: <code>strncpy</code> only does so if space permits.</p>
 <hr />
 <h4 id="strcpychar-s1-const-char-s2"><code>strcpy(char *s1, const char *s2)</code></h4>
 <p>Copies <code>s2</code> into <code>s1</code>, including the null terminator.</p>
+<hr />
 <h4 id="strncpychar-s1-const-char-s2-size_t-n"><code>strncpy(char *s1, const char *s2, size_t n)</code></h4>
 <p>Copies at most <code>n</code> characters from <code>s2</code> into <code>s1</code>. Null-terminates only if <code>s2</code> fits.</p>
+<hr />
 <h4 id="strcatchar-s1-const-char-s2"><code>strcat(char *s1, const char *s2)</code></h4>
 <p>Appends <code>s2</code> to the end of <code>s1</code>, overwriting <code>s1</code>'s null terminator.</p>
+<hr />
 <h4 id="strncatchar-s1-const-char-s2-size_t-n"><code>strncat(char *s1, const char *s2, size_t n)</code></h4>
 <p>Appends up to <code>n</code> characters of <code>s2</code> to <code>s1</code>.</p>
 <hr />
@@ -374,6 +384,7 @@ order in the ASCII table).</p>
 <hr />
 <h4 id="strcmpconst-char-s1-const-char-s2"><code>strcmp(const char *s1, const char *s2)</code></h4>
 <p>Returns 0 if <code>s1</code> equals <code>s2</code>, &lt;0 if <code>s1</code> &lt; <code>s2</code>, &gt;0 if <code>s1</code> &gt; <code>s2</code>.</p>
+<hr />
 <h4 id="strncmpconst-char-s1-const-char-s2-size_t-n"><code>strncmp(const char *s1, const char *s2, size_t n)</code></h4>
 <p>Same as <code>strcmp</code>, but compares up to <code>n</code> characters.</p>
 <hr />
@@ -381,14 +392,19 @@ order in the ASCII table).</p>
 <hr />
 <h4 id="strchrconst-char-s-int-c"><code>strchr(const char *s, int c)</code></h4>
 <p>Finds the first occurrence of <code>c</code> in <code>s</code>.</p>
+<hr />
 <h4 id="strrchrconst-char-s-int-c"><code>strrchr(const char *s, int c)</code></h4>
 <p>Finds the last occurrence of <code>c</code> in <code>s</code>.</p>
+<hr />
 <h4 id="strpbrkconst-char-s1-const-char-s2"><code>strpbrk(const char *s1, const char *s2)</code></h4>
 <p>Finds the first occurrence in <code>s1</code> of any character from <code>s2</code>.</p>
+<hr />
 <h4 id="strstrconst-char-s1-const-char-s2"><code>strstr(const char *s1, const char *s2)</code></h4>
 <p>Finds the first occurrence of the substring <code>s2</code> in <code>s1</code>.</p>
+<hr />
 <h4 id="strspnconst-char-s1-const-char-s2"><code>strspn(const char *s1, const char *s2)</code></h4>
 <p>Returns the length of the initial segment of <code>s1</code> containing only characters from <code>s2</code>.</p>
+<hr />
 <h4 id="strcspnconst-char-s1-const-char-s2"><code>strcspn(const char *s1, const char *s2)</code></h4>
 <p>Returns the length of the initial segment of <code>s1</code> that does <em>not</em> contain any characters from <code>s2</code>.</p>
 <hr />
@@ -415,14 +431,18 @@ byte count (<code>size_t n</code>), which means they:</p>
 </ul>
 <p>Since <code>void *</code> can’t be dereferenced, you must always pass the number of bytes explicitly.</p>
 <hr />
-<h6 id="memcpyvoid-s1-const-void-s2-size_t-n"><code>memcpy(void *s1, const void *s2, size_t n)</code></h6>
+<h4 id="memcpyvoid-s1-const-void-s2-size_t-n"><code>memcpy(void *s1, const void *s2, size_t n)</code></h4>
 <p>Copies <code>n</code> bytes from <code>s2</code> to <code>s1</code>. Does not handle overlaps.</p>
+<hr />
 <h4 id="memmovevoid-s1-const-void-s2-size_t-n"><code>memmove(void *s1, const void *s2, size_t n)</code></h4>
 <p>Safely copies <code>n</code> bytes from <code>s2</code> to <code>s1</code>, handling overlaps.</p>
+<hr />
 <h4 id="memcmpconst-void-s1-const-void-s2-size_t-n"><code>memcmp(const void *s1, const void *s2, size_t n)</code></h4>
 <p>Compares <code>n</code> bytes from two memory regions. Returns 0 if equal, &lt;0 if <code>s1</code> &lt; <code>s2</code>, &gt;0 if <code>s1</code> &gt; <code>s2</code>.</p>
+<hr />
 <h4 id="memchrconst-void-s-int-c-size_t-n"><code>memchr(const void *s, int c, size_t n)</code></h4>
 <p>Searches the first <code>n</code> bytes of <code>s</code> for <code>c</code>. Returns a pointer to the match or <code>NULL</code>.</p>
+<hr />
 <h4 id="memsetvoid-s-int-c-size_t-n"><code>memset(void *s, int c, size_t n)</code></h4>
 <p>Fills the first <code>n</code> bytes of <code>s</code> with byte value <code>c</code>.</p>
 <hr />

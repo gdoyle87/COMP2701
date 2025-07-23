@@ -99,6 +99,26 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#string-conversion-functions-stdlibh">String Conversion Functions (&lt;stdlib.h&gt;)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#inputoutput-functions-stdioh">Input/Output Functions (&lt;stdio.h&gt;)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#string-manipulation-functions">String-Manipulation Functions ()</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#manipulating-string-data">Manipulating string data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparing-strings">Comparing strings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#searching-within-strings">Searching within strings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tokenizing-strings-splitting-them-into-pieces">Tokenizing strings (splitting them into pieces)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#memory-functions-stringh">Memory Functions (&lt;string.h&gt;)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#measuring-string-length">Measuring String Length</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -232,6 +252,285 @@ or paper. This includes letters, digits, punctuation, and symbols.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="string-conversion-functions-stdlibh">String Conversion Functions (<code>&lt;stdlib.h&gt;</code>)</h2>
+<p>The standard library provides functions that convert the <strong><em>initial part</em></strong> of a 
+string to an integer or floating-point number. Parsing stops as soon as a character 
+is encountered that is not valid for the specified number format.</p>
+<table>
+<thead>
+<tr>
+<th>Prototype</th>
+<th>Function description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>double strtod(const char *nPtr, char **endPtr);</code></td>
+<td>Converts the string <code>nPtr</code> to a <code>double</code>.</td>
+</tr>
+<tr>
+<td><code>long strtol(const char *nPtr, char **endPtr, int base);</code></td>
+<td>Converts the string <code>nPtr</code> to a <code>long</code>.</td>
+</tr>
+<tr>
+<td><code>unsigned long strtoul(const char *nPtr, char **endPtr, int base);</code></td>
+<td>Converts the string <code>nPtr</code> to an <code>unsigned long</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Each function takes a second argument <code>endPtr</code>, which is used to return a pointer 
+to the <strong><em>rest</em></strong> of the string (i.e., the character immediately after the parsed
+number). If you don't need this information, you can pass <code>NULL</code> instead.</p>
+<p>If the input string does <em>not</em> start with a valid numeric sequence, the function 
+returns <code>0</code> and <code>*endPtr</code> is set to point to the original <code>nPtr</code> (input).</p>
+<h2 id="inputoutput-functions-stdioh">Input/Output Functions (<code>&lt;stdio.h&gt;</code>)</h2>
+<table>
+<thead>
+<tr>
+<th>Prototype</th>
+<th>Function description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int getchar(void);</code></td>
+<td>Returns the next character from the standard input as an integer.</td>
+</tr>
+<tr>
+<td><code>char *fgets(char *s, int n, FILE *stream);</code></td>
+<td>Reads characters from the specified stream into the array <code>s</code> until a newline, end-of-file, or <code>n - 1</code> characters are read. A null terminator is added. Returns the string <code>s</code>. If a newline is encountered, it is included in the string.</td>
+</tr>
+<tr>
+<td><code>int putchar(int c);</code></td>
+<td>Prints the character stored in <code>c</code> and returns it as an integer.</td>
+</tr>
+<tr>
+<td><code>int puts(const char *s);</code></td>
+<td>Prints the string <code>s</code> followed by a newline. Returns a nonzero value if successful, or <code>EOF</code> if an error occurs.</td>
+</tr>
+<tr>
+<td><code>int sprintf(char *s, const char *format, ...);</code></td>
+<td>Like <code>printf</code>, but writes formatted output to the array <code>s</code>. Returns the number of characters written, or <code>EOF</code> on error.</td>
+</tr>
+<tr>
+<td><code>int sscanf(char *s, const char *format, ...);</code></td>
+<td>Like <code>scanf</code>, but reads input from the string <code>s</code> instead of from the keyboard. Returns the number of items successfully read, or <code>EOF</code> on error.</td>
+</tr>
+</tbody>
+</table>
+<p>You can pass <code>stdin</code> as the stream argument to <code>fgets</code>, allowing it to read from
+standard input (i.e., the keyboard). This makes it a safer and more flexible alternative 
+to <code>scanf</code>, especially when reading full lines of input.</p>
+<p>Unlike <code>scanf</code>, which stops at the first space and can leave unread characters in 
+the input buffer, <code>fgets</code> reads the entire line up to the newline character, including 
+spaces. When combined with <code>sscanf</code>, you can safely read and validate user input 
+without risking buffer overflows or leftover input disrupting future reads.</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    char buffer[100];
+    int value;
+
+    printf(&quot;Enter an integer: &quot;);
+    if (fgets(buffer, sizeof(buffer), stdin)) { // reads entire line from stdin (leaving std in clean)
+        if (sscanf(buffer, &quot;%d&quot;, &amp;value) == 1) {
+            printf(&quot;You entered: %d\n&quot;, value);
+        } else {
+            printf(&quot;Invalid input! Please enter a number.\n&quot;);
+        }
+    }
+    return 0;
+}
+</code></pre>
+<h2 id="string-manipulation-functions">String-Manipulation Functions (<string.h>)</h2>
+<p>The string-handling library provides useful functions for dealing with strings</p>
+<h3 id="manipulating-string-data">Manipulating string data</h3>
+<table>
+<thead>
+<tr>
+<th>Prototype</th>
+<th>Function description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>char *strcpy(char *s1, const char *s2);</code></td>
+<td>Copies string <code>s2</code> into array <code>s1</code> and returns <code>s1</code>.</td>
+</tr>
+<tr>
+<td><code>char *strncpy(char *s1, const char *s2, size_t n);</code></td>
+<td>Copies at most <code>n</code> characters of string <code>s2</code> into array <code>s1</code> and returns <code>s1</code>. Only null-terminates if <code>s2</code> fits within <code>n</code>.</td>
+</tr>
+<tr>
+<td><code>char *strcat(char *s1, const char *s2);</code></td>
+<td>Appends string <code>s2</code> to the end of string <code>s1</code> and returns <code>s1</code>. <code>s2</code> overwrites <code>s1</code>'s null terminator.</td>
+</tr>
+<tr>
+<td><code>char *strncat(char *s1, const char *s2, size_t n);</code></td>
+<td>Appends at most <code>n</code> characters of string <code>s2</code> to <code>s1</code> and returns <code>s1</code>. <code>s2</code>'s first character overwrites <code>s1</code>'s null terminator.</td>
+</tr>
+</tbody>
+</table>
+<p>Most functions automatically append the null terminator (<code>\0</code>) to the result.
+Exception: <code>strncpy</code> only does so if space permits.</p>
+<h3 id="comparing-strings">Comparing strings</h3>
+<p>These functions compare two strings lexicographically (i.e., based on character 
+order in the ASCII table).</p>
+<table>
+<thead>
+<tr>
+<th>Prototype</th>
+<th>Function description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int strcmp(const char *s1, const char *s2);</code></td>
+<td>Compares the string <code>s1</code> with the string <code>s2</code>. Returns <code>0</code> if equal, a value &lt; 0 if <code>s1</code> is less than <code>s2</code>, or a value &gt; 0 if <code>s1</code> is greater than <code>s2</code>.</td>
+</tr>
+<tr>
+<td><code>int strncmp(const char *s1, const char *s2, size_t n);</code></td>
+<td>Compares up to <code>n</code> characters of <code>s1</code> and <code>s2</code>. Returns <code>0</code> if equal, a value &lt; 0 if <code>s1</code> is less than <code>s2</code>, or a value &gt; 0 if <code>s1</code> is greater than <code>s2</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>They return:</p>
+<ul>
+<li><code>0</code> if the strings are equal</li>
+<li>a <em>negative</em> value if the first string is less than the second</li>
+<li>a <em>positive</em> value if the first string is greater than the second</li>
+</ul>
+<h3 id="searching-within-strings">Searching within strings</h3>
+<table>
+<thead>
+<tr>
+<th>Prototype</th>
+<th>Name Breakdown</th>
+<th>Function description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>char *strchr(const char *s, int c);</code></td>
+<td><code>str</code> + <code>chr</code> → string character</td>
+<td>Locates the <strong>first occurrence</strong> of character <code>c</code> in string <code>s</code>. Returns a pointer to <code>c</code> in <code>s</code> if found, or <code>NULL</code> if not found.</td>
+</tr>
+<tr>
+<td><code>char *strrchr(const char *s, int c);</code></td>
+<td><code>str</code> + <code>r</code> (reverse) + <code>chr</code></td>
+<td>Locates the <strong>last occurrence</strong> of character <code>c</code> in string <code>s</code>. Returns a pointer to <code>c</code> if found, or <code>NULL</code> if not found.</td>
+</tr>
+<tr>
+<td><code>char *strpbrk(const char *s1, const char *s2);</code></td>
+<td><code>str</code> + <code>pbrk</code> (pointer break)</td>
+<td>Searches <code>s1</code> for the <strong>first occurrence</strong> of any character from <code>s2</code>. Returns a pointer to the character in <code>s1</code> if found, or <code>NULL</code> if not.</td>
+</tr>
+<tr>
+<td><code>char *strstr(const char *s1, const char *s2);</code></td>
+<td><code>str</code> + <code>str</code> → string in string</td>
+<td>Locates the <strong>first occurrence</strong> of the entire string <code>s2</code> in string <code>s1</code>. Returns a pointer to the beginning of the substring in <code>s1</code>, or <code>NULL</code> if not found.</td>
+</tr>
+<tr>
+<td><code>size_t strspn(const char *s1, const char *s2);</code></td>
+<td><code>str</code> + <code>spn</code> (span)</td>
+<td>Returns the length of the <strong>initial segment</strong> of <code>s1</code> consisting only of characters <strong>found in</strong> <code>s2</code>.</td>
+</tr>
+<tr>
+<td><code>size_t strcspn(const char *s1, const char *s2);</code></td>
+<td><code>str</code> + <code>c</code> (complement) + <code>spn</code></td>
+<td>Returns the length of the <strong>initial segment</strong> of <code>s1</code> consisting of characters <strong>not found in</strong> <code>s2</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tokenizing-strings-splitting-them-into-pieces">Tokenizing strings (splitting them into pieces)</h3>
+<table>
+<thead>
+<tr>
+<th>Prototype</th>
+<th>Name Breakdown</th>
+<th>Function description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>char *strtok(char *s1, const char *s2);</code></td>
+<td><code>str</code> + <code>tok</code> (token)</td>
+<td>Breaks <code>s1</code> into <strong>tokens</strong>, using the characters in <code>s2</code> as delimiters. The first call uses the string; subsequent calls should pass <code>NULL</code> as the first argument to continue. Returns a pointer to the current token or <code>NULL</code> if no more tokens are found.</td>
+</tr>
+</tbody>
+</table>
+<p><code>*strtok</code> modifies the string by placing a <code>\0</code> after the first token.
+Therefore we should make a copy of the string if we intend to use it after
+calling <code>strtok</code>. </p>
+<p>It is also <em>stateful</em>, meaning that it uses internal static storage to remember 
+where it left off.</p>
+<p>After the first call to <code>*strtok</code> we need to pass <code>NULL</code> to continue tokenizing 
+the same string (it will then use the static memory to find where it left off)</p>
+<p>If we pass a new string to <code>*strtok</code> it will reset the internal static storage 
+which will effectively start a new sequence.</p>
+<h3 id="memory-functions-stringh">Memory Functions (<code>&lt;string.h&gt;</code>)</h3>
+<p>These functions manipulate, compare, or search raw memory, not just 
+null-terminated strings. They work on <code>void *</code> pointers and use an explicit 
+byte count (<code>size_t n</code>), which means they:</p>
+<ul>
+<li>Do not check for null terminators</li>
+<li>Work with <strong><em>any</em></strong> data, not just strings</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Prototype</th>
+<th>Function description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>void *memcpy(void *s1, const void *s2, size_t n);</code></td>
+<td>Copies <code>n</code> bytes from <code>s2</code> into <code>s1</code>. Does <strong>not handle overlapping memory safely</strong>. Returns <code>s1</code>.</td>
+</tr>
+<tr>
+<td><code>void *memmove(void *s1, const void *s2, size_t n);</code></td>
+<td>Copies <code>n</code> bytes from <code>s2</code> into <code>s1</code>, safely handling <strong>overlapping memory</strong> by copying to a temporary buffer. Returns <code>s1</code>.</td>
+</tr>
+<tr>
+<td><code>int memcmp(const void *s1, const void *s2, size_t n);</code></td>
+<td>Compares the first <code>n</code> bytes of memory. Returns <code>0</code> if equal, <code>&lt; 0</code> if <code>s1 &lt; s2</code>, or <code>&gt; 0</code> if <code>s1 &gt; s2</code>.</td>
+</tr>
+<tr>
+<td><code>void *memchr(const void *s, int c, size_t n);</code></td>
+<td>Searches the first <code>n</code> bytes of <code>s</code> for character <code>c</code>. Returns a pointer to the first match or <code>NULL</code> if not found.</td>
+</tr>
+<tr>
+<td><code>void *memset(void *s, int c, size_t n);</code></td>
+<td>Fills the first <code>n</code> bytes of <code>s</code> with the byte value of <code>c</code>. Returns <code>s</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Since <code>void *</code> can’t be dereferenced, you must always pass the number of bytes explicitly.</p>
+<h3 id="measuring-string-length">Measuring String Length</h3>
+<table>
+<thead>
+<tr>
+<th>Prototype</th>
+<th>Name Breakdown</th>
+<th>Function description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>size_t strlen(const char *s);</code></td>
+<td><code>str</code> + <code>len</code></td>
+<td>Returns the number of characters in the string <code>s</code>, <strong>excluding</strong> the terminating null character (<code>\0</code>).</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>strlen</code> is commonly used to:</li>
+<li>Check the size of a string before copying or concatenating</li>
+<li>Allocate enough memory for new strings</li>
+<li>Unlike memory functions, it <strong>stops at the first null character</strong> (<code>\0</code>)</li>
+<li>The return type is <code>size_t</code>, which is an <strong>unsigned integer type</strong> large enough to represent any object size in memory</li>
+</ul>
               
             </div>
           </div><footer>

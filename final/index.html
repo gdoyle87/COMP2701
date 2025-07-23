@@ -189,15 +189,15 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#strtok-tokenizing">strtok – Tokenizing</a>
     </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#memory-functions-raw-byte-handling">Memory Functions (Raw Byte Handling)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#memory-functions-raw-byte-handling">Memory Functions (Raw Byte Handling)</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#work-on-any-data-not-just-strings">Work on any data, not just strings</a>
+    <li class="toctree-l4"><a class="reference internal" href="#work-on-any-data-not-just-strings">Work on any data, not just strings</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#strlen">strlen</a>
+    <li class="toctree-l3"><a class="reference internal" href="#strlen">strlen</a>
+    </li>
+        </ul>
     </li>
     </ul>
                 </li>
@@ -517,8 +517,8 @@ while (token != NULL) {
 <li>Start new string by calling again with non-NULL</li>
 </ul>
 <hr />
-<h2 id="memory-functions-raw-byte-handling">Memory Functions (Raw Byte Handling)</h2>
-<h3 id="work-on-any-data-not-just-strings">Work on any data, not just strings</h3>
+<h3 id="memory-functions-raw-byte-handling">Memory Functions (Raw Byte Handling)</h3>
+<h4 id="work-on-any-data-not-just-strings">Work on any data, not just strings</h4>
 <ul>
 <li><code>memcpy(dest, src, n)</code> – fast copy, no overlap safety  </li>
 <li><code>memmove(dest, src, n)</code> – overlap-safe copy  </li>
@@ -527,7 +527,7 @@ while (token != NULL) {
 <li><code>memset(s, c, n)</code> – fills memory with byte <code>c</code></li>
 </ul>
 <hr />
-<h2 id="strlen"><code>strlen</code></h2>
+<h3 id="strlen"><code>strlen</code></h3>
 <p>Returns length of a string excluding the null terminator.</p>
 <pre><code class="language-c">size_t len = strlen(&quot;hello&quot;); // 5
 </code></pre>

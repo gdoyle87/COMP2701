@@ -187,9 +187,9 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#searching">Searching</a>
     </li>
-        </ul>
+    <li class="toctree-l3"><a class="reference internal" href="#strtok-tokenizing">strtok – Tokenizing</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#strtok-tokenizing">strtok – Tokenizing</a>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#memory-functions-raw-byte-handling">Memory Functions (Raw Byte Handling)</a>
         <ul>
@@ -504,8 +504,7 @@ if (fgets(buffer, sizeof buffer, stdin)) {
 <li><code>strspn(s1, s2)</code> – length of segment with only s2 chars  </li>
 <li><code>strcspn(s1, s2)</code> – length of segment with no s2 chars</li>
 </ul>
-<hr />
-<h2 id="strtok-tokenizing"><code>strtok</code> – Tokenizing</h2>
+<h3 id="strtok-tokenizing"><code>strtok</code> – Tokenizing</h3>
 <pre><code class="language-c">char *token = strtok(str, &quot; ,.-&quot;);
 while (token != NULL) {
     // process token

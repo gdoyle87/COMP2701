@@ -159,8 +159,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#function-pointers">Function Pointers</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#-">---</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#ctypeh-character-classification">&lt;ctype.h&gt; – Character Classification</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#type-checking">Type Checking</a>
@@ -283,8 +281,7 @@ strcpy(copy, buffer);
 </code></pre>
 <hr />
 <h2 id="scanset">Scanset</h2>
-<p><code>%80[^
-]</code> tells <code>scanf</code> to read up to 80 characters until newline.<br />
+<p><code>%80[^ ]</code> tells <code>scanf</code> to read up to 80 characters until newline.<br />
 - <code>[^...]</code>: match anything <em>except</em> characters inside</p>
 <hr />
 <h2 id="pointers">Pointers</h2>
@@ -421,7 +418,7 @@ int *ip = vp; // allowed with explicit cast
 <pre><code class="language-c">(*cmp)(a, b);
 </code></pre>
 <p>Parentheses around <code>*cmp</code> are required to make it a pointer to a function.</p>
-<h2 id="-">---</h2>
+<hr />
 <h2 id="ctypeh-character-classification"><code>&lt;ctype.h&gt;</code> – Character Classification</h2>
 <p>Each function takes an <code>int</code> (usually a <code>char</code> cast to <code>int</code>).</p>
 <h3 id="type-checking">Type Checking</h3>

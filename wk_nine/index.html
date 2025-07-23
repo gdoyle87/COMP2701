@@ -107,6 +107,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#arrays-pointers-and-offset-notation">Arrays, Pointers, and Offset Notation</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pointers-to-functions">Pointers to Functions</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -237,6 +239,21 @@ precedence than <code>+</code>. Without parentheses, <code>*b + 3</code> means "
 add 3" instead of "move the pointer by 3 then dereference."</p>
 <p>In general, any array element access <code>b[i]</code> can be written using <strong>pointer/offset
 notation</strong>: <code>*(b + i)</code>.</p>
+<h2 id="pointers-to-functions">Pointers to Functions</h2>
+<p>A function's name is really a pointer to the starting address in memmory of the
+code that makes up that function (similar to how an array's name is a pointer to
+the start of the array).</p>
+<p>We can pass the pointer to the function as follows:</p>
+<pre><code class="language-c">void bubbleSort(int work[], size_t size, int (*compare)(int a, int b))
+</code></pre>
+<p>Specifically, we are passing saying that <code>(*compare)</code> is a function that takes 
+<code>(int a, int b)</code> as arguments and returns an <code>int</code>.</p>
+<p>Note: the brackets <em>must</em> be around <code>*compare</code> to indicate that it is a pointer
+to a function. Otherwise this would be <em>declaring</em> a function named <code>compare</code> that 
+returns an <code>int</code> pointer. </p>
+<p>When we want to call the function, we need to derference it.</p>
+<pre><code class="language-c">(*compare)(5, 6);
+</code></pre>
               
             </div>
           </div><footer>

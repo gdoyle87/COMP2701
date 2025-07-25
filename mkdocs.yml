@@ -2,16 +2,19 @@ site_name: COMP2701
 site_url: https://gdoyle87.github.io/COMP2701/
 nav:
   - Home: index.md
-  - Week 1: wk_one.md
-  - Week 2: wk_two.md
-  - Week 3: wk_three.md
-  - Week 4: wk_four.md
-  - Week 5: wk_five.md
-  - Week 6: wk_six.md
+  - Week 1 - Introduction to C & Data Types: wk_one.md
+  - Week 2 - Operators, Math, and Program Flow: wk_two.md
+  - Week 3 - Functions, Scope, and Header Files: wk_three.md
+  - Week 4 - Enums, Storage Classes, and Memory Layout: wk_four.md
+  - Week 5 - Arrays and Strings: wk_five.md
+  - Week 6 - Multi-Dimensional Arrays: wk_six.md
   - Midterm Review: midterm.md
-  - Week 7: wk_seven.md
-  - Week 8: wk_eight.md
-  - Week 9: wk_nine.md
+  - Week 7 - Dynamic Memory Allocation: wk_seven.md
+  - Week 8 - Pointer Introduction: wk_eight.md
+  - Week 9 - Pointer Arithmetic and sizeof Operator: wk_nine.md
+  - Week 10 - String Functions: wk_ten.md
+  - Week 11: wk_eleven.md
+  - Final Exam Review: final.md
 
 theme: readthedocs
 markdown_extensions:

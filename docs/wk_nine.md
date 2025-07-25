@@ -138,5 +138,28 @@ add 3" instead of "move the pointer by 3 then dereference."
 In general, any array element access `b[i]` can be written using **pointer/offset
 notation**: `*(b + i)`.
 
+## Pointers to Functions
+
+A function's name is really a pointer to the starting address in memmory of the
+code that makes up that function (similar to how an array's name is a pointer to
+the start of the array).
+
+We can pass the pointer to the function as follows:
+```c
+void bubbleSort(int work[], size_t size, int (*compare)(int a, int b))
+```
+
+Specifically, we are passing saying that `(*compare)` is a function that takes 
+`(int a, int b)` as arguments and returns an `int`.
+
+Note: the brackets *must* be around `*compare` to indicate that it is a pointer
+to a function. Otherwise this would be *declaring* a function named `compare` that 
+returns an `int` pointer. 
+
+When we want to call the function, we need to derference it.
+```c
+(*compare)(5, 6);
+```
+
 
 

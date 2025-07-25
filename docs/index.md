@@ -13,4 +13,6 @@ For full course information [bcit.ca](https://www.bcit.ca/courses/introduction-t
 - There are also *optional* leetcode exercises
 
 
+The course basically just follows [C How to Program -- Ninth Edition](https://deitel.com/c-how-to-program-9-e/).
+We covered chapter 1-8 as well as a section 12.3.
 

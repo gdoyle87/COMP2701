@@ -111,8 +111,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#pointers-and-the-heap">Pointers and the Heap</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#dynamic-arrays">Dynamic Arrays</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#dynamic-memory-for-strings">Dynamic Memory for Strings</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#scanset">Scanset</a>
@@ -235,6 +233,22 @@
 <pre><code class="language-c">int *arr = malloc(sizeof(int) * 4);
 if (arr == NULL) { return EXIT_FAILURE; }
 </code></pre>
+<p>Use <code>malloc</code> when:</p>
+<ul>
+<li>
+<p>The number of elements is determined at runtime (e.g., user input)</p>
+</li>
+<li>
+<p>You're allocating large arrays that may not fit on the stack</p>
+</li>
+<li>
+<p>You're building data structures where elements are created on demand (e.g., linked lists)</p>
+</li>
+<li>
+<p>You need to allocate memory inside a function and return it (or keep using 
+it) after the function ends (without passing a pointer into the function).</p>
+</li>
+</ul>
 <h3 id="callocn-size"><code>calloc(n, size)</code></h3>
 <p>Like <code>malloc</code>, but zero-initializes the memory.</p>
 <pre><code class="language-c">int *arr = calloc(4, sizeof(int));
@@ -250,6 +264,8 @@ arr = NULL;
 <pre><code class="language-c">sizeof(ptr)     // size of the pointer (e.g. 8 bytes)
 sizeof(*ptr)    // size of the pointed-to type (e.g. 4 bytes for int)
 </code></pre>
+<p>If you have a pointer to an array, calling sizeof will <em>not</em> give you the size
+of the pointed to array but instead the size of a pointer.</p>
 <hr />
 <h2 id="pointers-and-the-heap">Pointers and the Heap</h2>
 <p>A pointer stores the memory address of another variable. When dynamically allocating:</p>
@@ -258,14 +274,8 @@ sizeof(*ptr)    // size of the pointed-to type (e.g. 4 bytes for int)
 </code></pre>
 <ul>
 <li>Pointer itself lives on the <strong>stack</strong></li>
-<li>Value it points to lives on the <strong>heap</strong></li>
+<li>Value it points to lives on the <strong>heap</strong> (since it was malloc'd in this example).</li>
 </ul>
-<hr />
-<h2 id="dynamic-arrays">Dynamic Arrays</h2>
-<pre><code class="language-c">int *arr = malloc(sizeof(int) * len);
-arr[0] = 5;
-</code></pre>
-<p>Pointers to heap arrays behave like regular arrays, but <code>sizeof(arr)</code> returns pointer size.</p>
 <hr />
 <h2 id="dynamic-memory-for-strings">Dynamic Memory for Strings</h2>
 <p>To handle string input of unknown length:</p>

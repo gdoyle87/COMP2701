@@ -312,9 +312,11 @@ printf(&quot;%d&quot;, *countPtr); // prints 7
 </code></pre>
 <hr />
 <h2 id="pointer-size">Pointer Size</h2>
-<p>Pointers match the CPU register width:
-- 32-bit systems: 4-byte pointers
-- 64-bit systems: 8-byte pointers</p>
+<p>Pointers match the CPU register width:</p>
+<ul>
+<li>32-bit systems: 4-byte pointers</li>
+<li>64-bit systems: 8-byte pointers</li>
+</ul>
 <hr />
 <h2 id="declaring-a-pointer">Declaring a Pointer</h2>
 <pre><code class="language-c">int *ptr;
@@ -349,9 +351,11 @@ int *yPtr = &amp;y;
 int *ptr = &amp;x;
 printf(&quot;%d&quot;, *ptr); // prints 10
 </code></pre>
-<p><code>*</code> means:
-- In declarations: declare a pointer
-- In expressions: dereference the pointer</p>
+<p><code>*</code> means:</p>
+<ul>
+<li>In declarations: declare a pointer</li>
+<li>In expressions: dereference the pointer</li>
+</ul>
 <hr />
 <h2 id="const-with-pointers"><code>const</code> with Pointers</h2>
 <p><code>const</code> affects either the <strong>data</strong> or the <strong>pointer</strong>:</p>

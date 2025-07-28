@@ -89,7 +89,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../wk_eleven/">Week 11</a>
+                <li class="toctree-l1"><a class="reference internal" href="../wk_eleven/">Week 11 - More String Functions</a>
                 </li>
               </ul>
               <ul class="current">
@@ -134,6 +134,12 @@
     <li class="toctree-l2"><a class="reference internal" href="#the-indirection-operator">The Indirection (*) Operator</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#const-with-pointers">const with Pointers</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-const-on-the-pointer">When to use const on the pointer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-const-on-the-data">When to use const on the data</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#incrementing-a-pointer">Incrementing a Pointer</a>
     </li>
@@ -363,6 +369,19 @@ printf(&quot;%d&quot;, *ptr); // prints 10
 double *const dPtr;      // can't change the pointer itself
 const double *const dPtr; // can't change either
 </code></pre>
+<h3 id="when-to-use-const-on-the-pointer">When to use <code>const</code> on the pointer</h3>
+<p>This mainly matters when the pointer refers to something you can iterate over 
+(like an array or buffer):</p>
+<ul>
+<li>if you plan to iterate over the pointer, no <code>const</code> after *</li>
+<li>if you plan to never iterate (<strong><em>always</em></strong> point to the same element), <code>const</code> after *</li>
+</ul>
+<h3 id="when-to-use-const-on-the-data">When to use <code>const</code> on the data</h3>
+<p>Same idea as <code>const</code> in other languages:</p>
+<ul>
+<li>not changing the underlying value, <code>const</code> on data type</li>
+<li>changing the underlying value, no <code>const</code> on data type</li>
+</ul>
 <hr />
 <h2 id="incrementing-a-pointer">Incrementing a Pointer</h2>
 <pre><code class="language-c">int arr[] = {1, 2, 3};
@@ -550,7 +569,7 @@ while (token != NULL) {
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../wk_eleven/" class="btn btn-neutral float-left" title="Week 11"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../wk_eleven/" class="btn btn-neutral float-left" title="Week 11 - More String Functions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>

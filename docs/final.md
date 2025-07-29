@@ -16,6 +16,17 @@ int *arr = malloc(sizeof(int) * 4);
 if (arr == NULL) { return EXIT_FAILURE; }
 ```
 
+Use `malloc` when:
+
+- The number of elements is determined at runtime (e.g., user input)
+
+- You're allocating large arrays that may not fit on the stack
+
+- You're building data structures where elements are created on demand (e.g., linked lists)
+
+- You need to allocate memory inside a function and return it (or keep using 
+it) after the function ends (without passing a pointer into the function).
+
 ### `calloc(n, size)`
 Like `malloc`, but zero-initializes the memory.
 
@@ -40,6 +51,9 @@ sizeof(ptr)     // size of the pointer (e.g. 8 bytes)
 sizeof(*ptr)    // size of the pointed-to type (e.g. 4 bytes for int)
 ```
 
+If you have a pointer to an array, calling sizeof will *not* give you the size
+of the pointed to array but instead the size of a pointer.
+
 ---
 
 ## Pointers and the Heap
@@ -52,20 +66,10 @@ int *ptr = malloc(sizeof(int));
 ```
 
 - Pointer itself lives on the **stack**
-- Value it points to lives on the **heap**
+- Value it points to lives on the **heap** (since it was malloc'd in this example).
 
 ---
 
-## Dynamic Arrays
-
-```c
-int *arr = malloc(sizeof(int) * len);
-arr[0] = 5;
-```
-
-Pointers to heap arrays behave like regular arrays, but `sizeof(arr)` returns pointer size.
-
----
 
 ## Dynamic Memory for Strings
 
@@ -121,6 +125,7 @@ printf("%d", *countPtr); // prints 7
 ## Pointer Size
 
 Pointers match the CPU register width:
+
 - 32-bit systems: 4-byte pointers
 - 64-bit systems: 8-byte pointers
 
@@ -184,6 +189,7 @@ printf("%d", *ptr); // prints 10
 ```
 
 `*` means:
+
 - In declarations: declare a pointer
 - In expressions: dereference the pointer
 
@@ -198,6 +204,22 @@ const double *dPtr;      // can't change value pointed to
 double *const dPtr;      // can't change the pointer itself
 const double *const dPtr; // can't change either
 ```
+
+### When to use `const` on the pointer 
+
+This mainly matters when the pointer refers to something you can iterate over 
+(like an array or buffer):
+
+- if you plan to iterate over the pointer, no `const` after *
+- if you plan to never iterate (***always*** point to the same element), `const` after *
+
+### When to use `const` on the data
+
+Same idea as `const` in other languages:
+
+- not changing the underlying value, `const` on data type
+- changing the underlying value, no `const` on data type
+
 
 ---
 

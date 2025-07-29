@@ -13,7 +13,7 @@ nav:
   - Week 8 - Pointer Introduction: wk_eight.md
   - Week 9 - Pointer Arithmetic and sizeof Operator: wk_nine.md
   - Week 10 - String Functions: wk_ten.md
-  - Week 11: wk_eleven.md
+  - Week 11 - More String Functions: wk_eleven.md
   - Final Exam Review: final.md
 
 theme: readthedocs

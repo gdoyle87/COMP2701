@@ -15,6 +15,8 @@ nav:
   - Week 10 - String Functions: wk_ten.md
   - Week 11 - More String Functions: wk_eleven.md
   - Final Exam Review: final.md
+  - COMP2801: https://gdoyle87.github.io/COMP2801/
+  - Other Notes: https://gdoyle87.github.io/
 
 theme: readthedocs
 markdown_extensions:
